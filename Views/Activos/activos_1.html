@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facturacion</title>
-    <link rel="stylesheet" href="../Activos/css/activos.css">
+    <title>Contabilidad</title>
+    <link rel="stylesheet" href="./css/activos.css">
+    <link rel="stylesheet" href="./css/cuenta.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script defer src="./../js/app.js" ></script>
-    <script defer src="./../js/contabilidad.js"></script>
+    <script defer src="./js/app.js" ></script>
 </head>
 <body>
     <div class="dashboard">
@@ -22,19 +22,19 @@
                 <nav class="menu">
                     <ul>
                         <li class="menu__item">
-                            <a href="" ><i class="fa fa-home" aria-hidden="true"></i> Nomina</a>
+                            <a href="../Nomina/NominaIngresoEgreso.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Nomina</a>
                         </li>
                         <li class="menu__item menu__item-active">
-                            <a href="./activos_1.html" target="_self" class="activeFac"><i class="fa fa-home" aria-hidden="true"></i> Activos</a>
+                            <a href="./activos_1.html" target="_self" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Activos</a>
                         </li>
                         <li class="menu__item">
-                            <a href="../Contabilidad/tipoCuenta.html" target="_self" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Contabilidad </a>
+                            <a href="../Contabilidad/tipoCuenta.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Contabilidad </a>
                         </li>
                         <li class="menu__item">
                             <a href="../Facturacion/factu_1.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
                         </li>
                         <li class="menu__item">
-                            <a href=""><i class="fa fa-home" aria-hidden="true"></i> Cuentas por cobrar</a>
+                            <a href="../CuentasPorCobrar/Cobrador.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Cuentas por cobrar</a>
                         </li>
                     </ul>
                 </nav>
@@ -56,23 +56,23 @@
             <div class="dashboard__body-navigaation">
                 <nav class="navigation">
                     <ul>
+                        <li class="navigation__item">
+                            <a href="./tipoCuenta.html"><i class="fa fa-file-text" aria-hidden="true"></i> Tipo de Activos </a>
+                        </li>
                         <li class="navigation__item navigation__item-active">
-                            <a href="./tipoCuenta.html"><i class="fa fa-file-text" aria-hidden="true"></i> Tipo de Cuentaaa </a>
+                            <a href="./Activos.html"><i class="fa fa-list-ul" aria-hidden="true"></i> Activos </a>
                         </li>
                         <li class="navigation__item">
-                            <a href="./cuenta.html"><i class="fa fa-list-ul" aria-hidden="true"></i> Cuenta</a>
+                            <a href="./comprobanteContable.html"><i class="fa fa-book" aria-hidden="true"></i> Cabecera de depreciación </a>
                         </li>
-                        <li class="navigation__item">
-                            <a href="./comprobanteContable.html"><i class="fa fa-book" aria-hidden="true"></i> Comprobante contable</a>
-                        </li>
-                        <!-- <li class="navigation__item">
+                       <!--  <li class="navigation__item">
                             <a href="./libroDiario.html"><i class="fa fa-book" aria-hidden="true"></i> Libro diario</a>
                         </li> -->
                         <li class="navigation__item">
-                            <a href="./BalanceComprobacion.html"><i class="fa fa-university" aria-hidden="true"></i> Balance comprobación</a>
+                            <a href="./BalanceComprobacion.html"><i class="fa fa-university" aria-hidden="true"></i> Reporte de Valores </a>
                         </li>
                         <li class="navigation__item">
-                            <a href="./EstadoResultado.html"><i class="fa fa-calculator" aria-hidden="true"></i> Estado de resultado</a>
+                            <a href="./EstadoResultado.html"><i class="fa fa-calculator" aria-hidden="true"></i> Reporte Cruzado </a>
                         </li>
                     </ul>
                 </nav>
@@ -80,14 +80,25 @@
             </div>
             <div class="dashboard__body-main">
                 <div class="dashboard__main-header">
-                    <h1>Tipo de cuentas</h1>
+                    <h1>Cuentas</h1>
                 </div>
                 <div class="dashboard__main-actions">
                     <div class="dashboard__main-actions-buttons">
                         <button class="action-button" id="filter-button"><span>Filtrar <i class="fa fa-filter" aria-hidden="true"></i></span></button>
                             <div class="filter-menu">
+                                <label>Tipo de cuenta</label>
+                                    <select aria-label="State">
+                                        <option>Activos</option>
+                                        <option>Pasivos</option>                     
+                                        <option>Patrimonio</option>
+                                        <option>Ingresos</option>
+                                        <option>Costos</option>
+                                        <option>Gastos</option>
+                                        <option>Cuentas de orden</option>
+                                        <option>Transferencias bancarias</option>
+                                    </select>
                                 <label>Estado</label>
-                                <select aria-label="State">
+                                <select  aria-label="State">
                                     <option>Todos los estados</option>
                                     <option>Activos</option>
                                     <option>Inactivos</option>
@@ -111,6 +122,7 @@
                             <tr>
                                 <th class="header__table-element"><button><span>Código </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                                 <th class="header__table-element"><button><span>Nombre </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Tipo de cuenta </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                                 <th class="header__table-element"><button><span>Estado </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                                 <th class="header__table-element"><button><span>Descripción </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                                 <th class="header__table-element"><i class="fa fa-cog" aria-hidden="true"></i></th>
@@ -120,6 +132,7 @@
                             <tr>
                                 <td> 1 </td>
                                 <td>Activos Corrientes</td>
+                                <td>Activo</td>
                                 <td class="element__modifier"><button class="btn btn-active">Activo</button></td>
                                 <td class="element__modifier"><span>Descripcion</span></td>
                                 <td><button aria-label="Name" class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button></td>
@@ -127,6 +140,7 @@
                             <tr>
                                 <td> 1 </td>
                                 <td>Activos Corrientes</td>
+                                <td>Activo</td>
                                 <td class="element__modifier"><button class="btn btn-inactive">Inactivo</button></td>
                                 <td class="element__modifier"><span>Descripcion</span></td>
                                 <td><button aria-label="Name" class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button></td>
@@ -134,21 +148,22 @@
                             <tr>
                                 <td> 1 </td>
                                 <td>Activos Corrientes</td>
+                                <td>Activo</td>
                                 <td class="element__modifier"><button class="btn btn-active">Activo</button></td>
                                 <td class="element__modifier"><span>Descripcion</span></td>
-                                <td><button aria-label="Name" class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button></td>
+                                <td><button  aria-label="Name" class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button></td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="footer__table">
                     <div class="footer__table-container">
-                        <button aria-label="Name" class="btn footer__table-btn-preview"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                        <button aria-label="Name" class="btn footer__table-btn-preview""><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
                         <button class="btn page-btn-active">1</button>
                         <button class="btn">2</button>
                         <button class="btn">3</button>
                         <button class="btn">4</button>
-                        <button  aria-label="Name" class="btn footer__table-btn-next"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                        <button aria-label="Name"class="btn footer__table-btn-next""><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
                     </div>
                 </div>
             </div>
