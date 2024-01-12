@@ -1,0 +1,72 @@
+
+input[type=text]{
+        border-radius: 7px;
+        background-color: #e1def3d5;
+        font-size: 17px;
+        width: 300px;
+        height: 30px;
+        }
+    
+select{
+    border-radius: 7px;
+    background-color: #e1def3d5;
+    font-size: 17px;
+    width: 100px;
+    height: 30px;
+    }
+
+button{
+        border-radius: 7px;
+        background-color: #e1def3d5;
+        }
+label{
+    font-size: 17px;
+    }
+
+input[name=detalle]{
+        font-size: 17px;
+        width: 1000px;
+        height: 75px;
+        }
+button[class=Guardar]{
+    border-radius: 4px;
+    background-color: var(--c-gray-800);
+    border: 1px solid var(--c-gray-700);
+    align-items: center;
+    color: var(--c-text-primary);
+    font-size: 1rem;
+    padding:  0px 15px;
+    cursor: pointer;
+    width: 110px;
+    height: 30px;
+    position: relative;
+    right: -900px;    
+}
+input[type=date]{
+    border-radius: 7px;
+    background-color: #e1def3d5;
+    font-size: 17px;
+    width: 155px;
+    height: 30px;
+    }
+
+.Datos{display:flex;
+}
+
+.Datos div:nth-child(2){
+    margin: 0 150px;
+}
+
+.btn{
+    border-radius: 4px;
+    background-color: var(--c-gray-800);
+    border: 1px solid var(--c-gray-700);
+    align-items: center;
+    color: var(--c-text-primary);
+    font-size: 1rem;
+    padding:  0px 15px;
+    cursor: pointer;
+    width: 110px;
+    height: 30px;
+
+}

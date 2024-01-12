@@ -23,20 +23,20 @@
             <div class="dashboard__header-menu">
                 <nav class="menu">
                     <ul>
-                        <li class="menu__item  menu__item-active">
-                            <a href="../Nomina/NominaIngresoEgreso.html" target="_self" class="active"><i class="fa fa-home" aria-hidden="true"></i> Nomina</a>
+                        <li class="menu__item menu__item-active">
+                            <a href="./NominaIngresoEgreso.html"><i class="fa fa-address-book" aria-hidden="true"></i> Nomina</a>
                         </li>
                         <li class="menu__item">
-                            <a href="../Activos/activos_1.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Activos</a>
+                            <a href=""><i class="fa fa-home" aria-hidden="true"></i> Activos</a>
                         </li>
                         <li class="menu__item">
-                            <a href="../Contabilidad/tipoCuenta.html" target="_self" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Contabilidad </a>
+                            <a href="../Contabilidad/tipoCuenta.html" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Contabilidad </a>
                         </li>
                         <li class="menu__item">
-                            <a href="./factu_1.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
+                            <a href=""><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
                         </li>
                         <li class="menu__item">
-                            <a href="../CuentasPorCobrar/Cobrador.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Cuentas por cobrar</a>
+                            <a href=""><i class="fa fa-home" aria-hidden="true"></i> Cuentas por cobrar</a>
                         </li>
                     </ul>
                 </nav>
@@ -77,40 +77,32 @@
             </div>
             <div class="dashboard__body-main">
                 <div class="dashboard__main-header">
-                <h1>Motivo de Ingreso o Egreso</h1>
+                <h1>Regitstro Empleado</h1>
             </div>
-
+        <div class="Datos">
+            <div>
             <form action="/action_page.php"></form>
             <label for="cédula"> Ingresar número de cédula: </label><br>
             <input type="text" id="text" name="cédula" placeholder="    ......" /><br><br>
-            <label for="cédula"> Ingresar nombres completos: </label><br>
-            <input type="text" id="text" name="name" placeholder="    ......"/>
-            
-
-                <div class="dashboard__main-actions">
-                    <div class="dashboard__main-actions-buttons"><br>
-                            <div class="filter-menu"><br>
-                                <label>Motivo</label><br>
-                                    <select class="btn">
-                                        <option>Ingreso</option>
-                                        <option>Egreso</option>
-                                    </select>
-
-                        </div>
-                </div>
+            <label for="nombres"> Ingrese sus Nombres: </label><br>
+            <input type="text" id="text" name="nombres" placeholder="    ......"/><br><br>
+            <label for="Apellidos"> Ingrese sus Apellidos: </label><br>
+            <input type="text" id="text" name="Apellidos" placeholder="    ......"/><br><br>
+            <label for="Domicilio"> Ingrese su Domicilio: </label><br>
+            <input type="text" id="text" name="Domicilio" placeholder="    ......"/><br><br>
+            </div>
+            <div>
+            <label for="correo"> Ingrese su Correo Electrónico: </label><br>
+            <input type="text" id="text" name="correo" placeholder="    ......"/><br><br>
+            <label for="telefono"> Ingresar Número de Teléfono: </label><br>
+            <input type="text" id="text" name="telefono" placeholder="    ......" /><br><br>
+            <label for="sueldo"> Ingrese el sueldo acordado: </label><br>
+            <input type="text" id="text" name="sueldo" placeholder="    ......$$" /><br><br>
+            <label for="nombres"> Ingrese la fecha de ingreso: </label><br>
+            <input type="date" id="text" name="ingreso" placeholder="    ......"/>
+            </div>
         </div>
-        <br>
-        <label for="detalle"> Ingrese el motivo y detalle de lo solicitado: </label><br>
+        <label for="detalle"> Comentario </label><br>
         <input type="text" id="text" name="detalle" /><br><br>
         <div class="flex-container">
             <button class="Guardar" id="action-button"><span> Guardar <i class="fa fa-mouse-pointer" aria-hidden="true"></i></span></button>
-          </div>
-        
-            </div>
-
-            </form>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
