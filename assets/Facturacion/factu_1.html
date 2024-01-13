@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturacion</title>
+    <link rel="stylesheet" href="./css/factu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script defer src="./js/facturacion.js" ></script>
+    <!-- <script type="text/javascript" src="./js/app.js"></script> -->
+</head>
+<body>
+    <div class="dashboard">
+        <header class="dashboard__header">
+            <div class="dashboard__header-logo">
+                <div class="logo">
+                    <img class="header__information-logo" src="../../assets/imgs/logo.BN.png"  alt="Logo" />
+                </div>
+            </div>
+
+            <div class="dashboard__header-menu">
+                <nav class="menu">
+                    <ul>
+                        <li class="menu__item">
+                            <a href="../Nomina/NominaIngresoEgreso.html" target="_self" ><i class="fa fa-home" aria-hidden="true"></i> Nomina</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="../Activos/activos_1.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Activos</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="../Contabilidad/tipoCuenta.html" target="_self" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Contabilidad </a>
+                        </li>
+                        <li class="menu__item menu__item-active">
+                            <a href="./factu_1.html" target="_self" class="activeFac"><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="../CuentasPorCobrar/Cobrador.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Cuentas por cobrar</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="dashboard__header-information">
+                <button class="user__profile">
+                    <div class="user__profile-name">
+                        <span>Santiago Llumiquinga</span>
+                        <span>Admin</span>
+                    </div>
+                    <img src="../../assets/imgs/iconuser.png" alt="User"/>
+                </button>
+            </div>
+        </header>
+
+
+        <div class="dashboard__body">
+            <div class="dashboard__body-navigaation">
+                <nav class="navigation">
+                    <ul>
+                        <li class="navigation__item navigation__item-active">
+                            <a href="./factu_1.html"><i class="fa fa-file-text" aria-hidden="true"></i>Clientes</a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="./ciudad_entrega.html"><i class="fa fa-list-ul" aria-hidden="true"></i>Ciudad Entrega</a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="./comprobanteContable.html"><i class="fa fa-book" aria-hidden="true"></i>Facturación</a>
+                        </li>
+                        <!-- <li class="navigation__item">
+                            <a href="./libroDiario.html"><i class="fa fa-book" aria-hidden="true"></i> Libro diario</a>
+                        </li> -->
+                        <li class="navigation__item">
+                            <a href="./BalanceComprobacion.html"><i class="fa fa-university" aria-hidden="true"></i>Ventas|Ciudad</a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="./EstadoResultado.html"><i class="fa fa-calculator" aria-hidden="true"></i>Reportes</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+            <div class="dashboard__body-main">
+                <div class="dashboard__main-header">
+                    <h1>Creacion de Clientes</h1>
+                </div>
+                <div class="contenedor">
+                    <!-- Campo 1: Ruc -->
+                    <div class="campo">
+                        <input type="text" required>
+                        <label for="Ruc">Ruc</label>
+                    </div>
+            
+                    <!-- Campo 2: Cédula -->
+                    <div class="campo">
+                        <input type="text" required>
+                        <label for="Nombres">Nombres</label>
+                    </div>
+            
+                    <!-- Campo 3: Dirección -->
+                    <div class="campo">
+                        <input type="text" required>
+                        <label for="direccion">Dirección</label>
+                    </div>
+
+                    <div class="campo">
+                        <input type="number" id="valornumber" required value="0">
+                        <label for="valor">Valor</label>
+                    </div>
+                  </div>
+                <div class="dashboard__main-actions">
+                    <div class="dashboard__main-actions-buttons">
+                        <button class="action-button" id="filter-button"><span>Filtrar <i class="fa fa-filter" aria-hidden="true"></i></span></button>
+                            <div class="filter-menu">
+                                <label>Estado</label>
+                                <select aria-label="State">
+                                    <option>Todos los estados</option>
+                                    <option>Activos</option>
+                                    <option>Inactivos</option>
+                                </select>
+                                <div class="filter-menu-buttons">
+                                    <button class="btn btn-reset">
+                                        limpiar
+                                    </button>
+                                    <button class="btn btn-apply">
+                                        Aplicar
+                                    </button>
+                                </div>
+                            </div>
+                            <button id="agregarCliente" class="add-item action-button">
+                                <span>Agregar Cliente<i class="fa fa-plus" aria-hidden="true"></i></span>
+                            </button>
+                            
+                    </div>
+                    <input type="text" class="search-bar" placeholder="Buscar">
+                </div>
+                <div class="dashboard__main-table">
+                    <table id="table" class="table__main">
+                        <thead  class="header__table">
+                            <tr>
+                                <th class="header__table-element"><button><span>Código</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Ruc</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Nombre</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Dirección</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Valor</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Estado</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><i class="fa fa-cog" aria-hidden="true"></i></th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody class="body__table"></tbody>
+
+                       
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const agregarClienteBtn = document.getElementById('agregarCliente');
+    const rucInput = document.querySelector('.campo:nth-child(1) input');
+    const nombresInput = document.querySelector('.campo:nth-child(2) input');
+    const direccionInput = document.querySelector('.campo:nth-child(3) input');
+        //var valorInput = document.getElementById('valornumber').value;
+    // const valorInput = document.querySelector('.campo:nth-child(4) input')
+    const tableBody = document.querySelector('.body__table');
+    //var valorNum=parseFloat(valorInput);
+    const clientesData = [];
+    
+
+    agregarClienteBtn.addEventListener('click', function () {
+        const ruc = rucInput.value;
+        const nombres = nombresInput.value;
+        const direccion = direccionInput.value;
+        // const valor= valorInput.value;
+        var valorInput = document.getElementById('valornumber').value;
+        var valorNum=parseFloat(valorInput);
+        //console.log(valorNum);
+        // Validaciones
+        if (ruc.length !== 13) {
+            alert('El RUC debe tener 13 dígitos.');
+            return;
+        }
+
+        if (nombres.length > 20) {
+            alert('El nombre no puede exceder los 20 caracteres.');
+            return;
+        }
+        if (valorNum<1000 || valorNum>=1500){
+            showMessage('El campo valor digitado en el campo Valor, no se encuentra dentro del rango comprendido entre 1000 a 1500', 'red');
+            //alert('El campo valor digitado en el campo Valor, no se encuentra dentro del rango comprendido entre 1000 a 1500')
+            return;
+        }
+
+        if (ruc && nombres && direccion && valorNum) {
+            // Crear un objeto con los datos del cliente
+            const cliente = {
+                codigo: clientesData.length + 1,
+                ruc: ruc,
+                nombres: nombres,
+                direccion: direccion,
+                valor:valorNum,
+                estado: 'Activo',
+            };
+
+            // Agregar el cliente al array
+            clientesData.push(cliente);
+
+            // Actualizar la tabla
+            updateTable();
+            showMessage('Se ha insertado correctamente el Cliente', 'green');
+        } else {
+            alert('Completa todos los campos antes de agregar un cliente.');
+        }
+    });
+
+    function updateTable() {
+    // Limpiar el cuerpo de la tabla
+    tableBody.innerHTML = '';
+
+    // Rellenar la tabla con los datos de los clientes
+        clientesData.forEach(function (cliente) {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${cliente.codigo}</td>
+                <td>${cliente.ruc}</td>
+                <td>${cliente.nombres}</td>
+                <td>${cliente.direccion}</td>
+                <td>${cliente.valor}</td>
+                <td class="element__modifier">
+                    <button class="btn btn-active">${cliente.estado}</button>
+                </td>
+                <td>
+                <button aria-label="Name" class="btn" onclick="showOptions(${cliente.codigo})">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+                </td>
+            `;
+
+            tableBody.appendChild(row);
+        });
+    }
+    window.showOptions = function (codigo) {
+        const result = confirm("¿Desea eliminar este cliente?");
+        if (result) {
+
+            const index = clientesData.findIndex(cliente => cliente.codigo === codigo);
+
+            clientesData.splice(index, 1);
+
+            // Actualizar la tabla
+            updateTable();
+            showMessage('Se ha eliminado el cliente', 'red');
+        }
+        
+    };
+    
+    function showMessage(message, backgroundColor) {
+        const messageContainer = document.createElement('div');
+        messageContainer.classList.add('message-container');
+        messageContainer.style.backgroundColor = backgroundColor;
+        messageContainer.textContent = message;
+        document.body.appendChild(messageContainer);
+
+        setTimeout(() => {
+            document.body.removeChild(messageContainer);
+        }, 3000);
+    }
+ 
+
+});
+
+</script>
+
+</html>
