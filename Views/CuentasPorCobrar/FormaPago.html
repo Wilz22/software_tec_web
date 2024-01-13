@@ -79,8 +79,65 @@
                     <h1>Forma de Pago</h1>
                 </div>
 
+                <div class="contenedor">
+                    <div class="campo">
+                      <input type="text" required>
+                      <label for="Código">Código</label>
+                    </div>
+                    
+                    <div class="campo">
+                        <input type="text" required>
+                      <label for="Nombre">Nombre</label>
+                    </div>
+
+
+                    <div class="Filtro"><br>
+                        <label>Método de Pago</label><br>
+                            <select class="but">
+                                <option>Efectivo</option>
+                                <option>Cheque</option>
+                                <option>Transferencia</option>
+                            </select>
+                    </div>
+
+                    <h2 class="neon"> GESTIÓN DE DATOS </h2>
+                    <div class="GESTIÓN">
+                        <button class="Insertar Insertar-1" id="btnInsertar">Insertar </button>
+                        <button class="Eliminar Eliminar-1" id="btnEliminar">Eliminar</button>
+                        <button class="Modificar Modificar-1" id="btnModificar">Modificar</button>
+                        <button class="Guardar Guardar-1" id="btnGuardar">Guardar</button>
+                        <button class="Buscar Buscar-1" id="btnBuscar">Buscar</button>
+
+
             </div>
+            <div class="cont">
+                <input type="text" placeholder="Buscar">
+                <div class = "btn">
+                    <i class="fa fa-search"></i>
+                </div>    
+              </div>
         </div>
     </div>
+    <script>
+        document.getElementById('btnInsertar').onclick = function() {
+            alert('Se insertó la información');
+        };
+    
+        document.getElementById('btnEliminar').onclick = function() {
+            alert('Se eliminó la información');
+        };
+    
+        document.getElementById('btnModificar').onclick = function() {
+            alert('Se modificó la información');
+        };
+    
+        document.getElementById('btnGuardar').onclick = function() {
+            alert('Se guardó la información');
+        };
+    
+        document.getElementById('btnBuscar').onclick = function() {
+            alert('Se buscó correctamente');
+        };
+    </script>
 </body>
 </html>
