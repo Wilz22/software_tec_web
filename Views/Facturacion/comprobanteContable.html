@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contabilidad</title>
+    <link rel="stylesheet" href="./css/contabilidad.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script defer src="./js/app.js" ></script>
+</head>
+<body>
+    <div class="dashboard">
+        <header class="dashboard__header">
+            <div class="dashboard__header-logo">
+                <div class="logo">
+                    <img class="header__information-logo" src="../../assets/imgs/logo.BN.png"  alt="Logo" />
+                </div>
+            </div>
+
+            <div class="dashboard__header-menu">
+                <nav class="menu">
+                    <ul>
+                        <li class="menu__item">
+                            <a href="" ><i class="fa fa-home" aria-hidden="true"></i> Nomina</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href=""><i class="fa fa-home" aria-hidden="true"></i> Activos</a>
+                        </li>
+                        <li class="menu__item menu__item-active">
+                            <a href="" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Contabilidad </a>
+                        </li>
+                        <li class="menu__item">
+                            <a href=""><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href=""><i class="fa fa-home" aria-hidden="true"></i> Cuentas por cobrar</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="dashboard__header-information">
+                <button class="user__profile">
+                    <div class="user__profile-name">
+                        <span>Agustin Mites</span>
+                        <span>Admin</span>
+                    </div>
+                    <img src="../../assets/imgs/iconuser.png" alt="User"/>
+                </button>
+            </div>
+        </header>
+
+
+        <div class="dashboard__body">
+            <div class="dashboard__body-navigaation">
+                <nav class="navigation">
+                    <ul>
+                        <li class="navigation__item">
+                            <a href="./tipoCuenta.html"><i class="fa fa-file-text" aria-hidden="true"></i> Tipo de Cuenta </a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="./cuenta.html"><i class="fa fa-list-ul" aria-hidden="true"></i> Cuenta</a>
+                        </li>
+                        <li class="navigation__item navigation__item-active">
+                            <a href="./comprobanteContable.html"><i class="fa fa-book" aria-hidden="true"></i> Comprobante contable</a>
+                        </li>
+                        <!-- <li class="navigation__item">
+                            <a href="./libroDiario.html"><i class="fa fa-book" aria-hidden="true"></i> Libro diario</a>
+                        </li> -->
+                        <li class="navigation__item">
+                            <a href="./BalanceComprobacion.html"><i class="fa fa-university" aria-hidden="true"></i> Balance comprobación</a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="./EstadoResultado.html"><i class="fa fa-calculator" aria-hidden="true"></i> Estado de resultado</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+            <div class="dashboard__body-main">
+                <div class="dashboard__main-header">
+                    <h1>Comprobantes contables</h1>
+                </div>
+                <div class="dashboard__main-actions">
+                    <div class="dashboard__main-actions-buttons">
+                        <button class="action-button" id="filter-button"><span>Filtrar <i class="fa fa-filter" aria-hidden="true"></i></span></button>
+                            <div class="filter-menu">
+                                <label>Tipo de comprobante</label>
+                                    <select>
+                                        <option>Ajuste Contable</option>
+                                        <option>Amortización</option>                     
+                                        <option>Cuentas por cobrar</option>
+                                        <option>Facturacion</option>
+                                        <option>Nomina</option>
+                                    </select>
+                                <label>Estado</label>
+                                <select>
+                                    <option>Todos los estados</option>
+                                    <option>Activos</option>
+                                    <option>Inactivos</option>
+                                </select>
+                                <div class="filter-menu-buttons">
+                                    <button class="btn btn-reset">
+                                        limpiar
+                                    </button>
+                                    <button class="btn btn-apply">
+                                        Aplicar
+                                    </button>
+                                </div>
+                            </div>
+                        <a href="./FormContable.html"> <button class="add-item action-button"><span>Agregar Comprobante <i class="fa fa-plus" aria-hidden="true"></i></span></button> </a>
+                    </div>
+                    <input type="text" class="search-bar" placeholder="Buscar">
+                </div>
+                <div class="dashboard__main-table">
+                    <table id="table" class="table__main">
+                        <thead  class="header__table">
+                            <tr>
+                                <th class="header__table-element"><button><span>Tipo </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Numeracion </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Fecha </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Estado </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Observaciones </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Total </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><i class="fa fa-cog" aria-hidden="true"></i></th>
+                            </tr>
+                        </thead>
+                        <tbody class="body__table">
+                            <tr>
+                                <td> AC </td>
+                                <td>AC - 1</td>
+                                <td>03/01/2024</td>
+                                <td >Abierto</td>
+                                <td class="body__table-text"><span>Descripcion</span></td>
+                                <td class="body__table-text"><i class="fa fa-usd" aria-hidden="true"></i><span>100</span></td>
+                                <td><button class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td> AC </td>
+                                <td>AC - 1</td>
+                                <td>03/01/2024</td>
+                                <td >Abierto</td>
+                                <td class="body__table-text"><span>Descripcion</span></td>
+                                <td class="body__table-text"><i class="fa fa-usd" aria-hidden="true"></i><span>100</span></td>
+                                <td><button class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td> AC </td>
+                                <td>AC - 1</td>
+                                <td>03/01/2024</td>
+                                <td >Abierto</td>
+                                <td class="body__table-text"><span>Descripcion</span></td>
+                                <td class="body__table-text"><i class="fa fa-usd" aria-hidden="true"></i><span>100</span></td>
+                                <td><button class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td> AC </td>
+                                <td>AC - 1</td>
+                                <td>03/01/2024</td>
+                                <td >Abierto</td>
+                                <td class="body__table-text"><span>Descripcion</span></td>
+                                <td class="body__table-text"><i class="fa fa-usd" aria-hidden="true"></i><span>100</span></td>
+                                <td><button class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button></td>
+                            </tr>
+                            <tr>
+                                <td> AC </td>
+                                <td>AC - 1</td>
+                                <td>03/01/2024</td>
+                                <td >Abierto</td>
+                                <td class="body__table-text"><span>Descripcion</span></td>
+                                <td class="body__table-text"><i class="fa fa-usd" aria-hidden="true"></i><span>100</span></td>
+                                <td><button class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="footer__table">
+                    <div class="footer__table-container">
+                        <button class="btn footer__table-btn-preview""><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                        <button class="btn page-btn-active">1</button>
+                        <button class="btn">2</button>
+                        <button class="btn">3</button>
+                        <button class="btn">4</button>
+                        <button class="btn footer__table-btn-next""><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

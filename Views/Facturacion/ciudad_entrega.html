@@ -56,10 +56,10 @@
             <div class="dashboard__body-navigaation">
                 <nav class="navigation">
                     <ul>
-                        <li class="navigation__item navigation__item-active">
+                        <li class="navigation__item">
                             <a href="./factu_1.html"><i class="fa fa-file-text" aria-hidden="true"></i>Clientes</a>
                         </li>
-                        <li class="navigation__item">
+                        <li class="navigation__item navigation__item-active">
                             <a href="./ciudad_entrega.html"><i class="fa fa-list-ul" aria-hidden="true"></i>Ciudad Entrega</a>
                         </li>
                         <li class="navigation__item">
@@ -80,31 +80,26 @@
             </div>
             <div class="dashboard__body-main">
                 <div class="dashboard__main-header">
-                    <h1>Creacion de Clientes</h1>
+                    <h1>Ciudad Entrega</h1>
                 </div>
                 <div class="contenedor">
-                    <!-- Campo 1: Ruc -->
+                    <!-- Campo 1: Codigo -->
                     <div class="campo">
                         <input type="text" required>
-                        <label for="Ruc">Ruc</label>
+                        <label for="Codigo">Codigo</label>
                     </div>
             
                     <!-- Campo 2: Cédula -->
                     <div class="campo">
                         <input type="text" required>
-                        <label for="Nombres">Nombres</label>
+                        <label for="Nombre">Nombre</label>
                     </div>
             
                     <!-- Campo 3: Dirección -->
-                    <div class="campo">
+                    <!-- <div class="campo">
                         <input type="text" required>
                         <label for="direccion">Dirección</label>
-                    </div>
-
-                    <div class="campo">
-                        <input type="number" id="valornumber" required value="0">
-                        <label for="valor">Valor</label>
-                    </div>
+                    </div> -->
                   </div>
                 <div class="dashboard__main-actions">
                     <div class="dashboard__main-actions-buttons">
@@ -126,7 +121,7 @@
                                 </div>
                             </div>
                             <button id="agregarCliente" class="add-item action-button">
-                                <span>Agregar Cliente<i class="fa fa-plus" aria-hidden="true"></i></span>
+                                <span>Agregar Ciudad<i class="fa fa-plus" aria-hidden="true"></i></span>
                             </button>
                             
                     </div>
@@ -137,11 +132,10 @@
                         <thead  class="header__table">
                             <tr>
                                 <th class="header__table-element"><button><span>Código</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th class="header__table-element"><button><span>Ruc</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Codigo Postal</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                                 <th class="header__table-element"><button><span>Nombre</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th class="header__table-element"><button><span>Dirección</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th class="header__table-element"><button><span>Valor</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th class="header__table-element"><button><span>Estado</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <!-- <th class="header__table-element"><button><span>Dirección</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Estado</span><i class="fa fa-sort" aria-hidden="true"></i></button></th> -->
                                 <th class="header__table-element"><i class="fa fa-cog" aria-hidden="true"></i></th>
                                 
                             </tr>
@@ -157,48 +151,36 @@
 <script>
     document.addEventListener('DOMContentLoaded', function () {
     const agregarClienteBtn = document.getElementById('agregarCliente');
-    const rucInput = document.querySelector('.campo:nth-child(1) input');
-    const nombresInput = document.querySelector('.campo:nth-child(2) input');
-    const direccionInput = document.querySelector('.campo:nth-child(3) input');
-        //var valorInput = document.getElementById('valornumber').value;
-    // const valorInput = document.querySelector('.campo:nth-child(4) input')
+    const CodigoInput = document.querySelector('.campo:nth-child(1) input');
+    const NombreInput = document.querySelector('.campo:nth-child(2) input');
+    // const direccionInput = document.querySelector('.campo:nth-child(3) input');
     const tableBody = document.querySelector('.body__table');
-    //var valorNum=parseFloat(valorInput);
+
     const clientesData = [];
-    
 
     agregarClienteBtn.addEventListener('click', function () {
-        const ruc = rucInput.value;
-        const nombres = nombresInput.value;
+        const Codigo = CodigoInput.value;
+        const Nombre = NombreInput.value;
         const direccion = direccionInput.value;
-        // const valor= valorInput.value;
-        var valorInput = document.getElementById('valornumber').value;
-        var valorNum=parseFloat(valorInput);
-        //console.log(valorNum);
+
         // Validaciones
-        if (ruc.length !== 13) {
-            alert('El RUC debe tener 13 dígitos.');
+        if (Codigo.length !== 13) {
+            alert('El Codigo debe tener 13 dígitos.');
             return;
         }
 
-        if (nombres.length > 20) {
+        if (Nombre.length > 20) {
             alert('El nombre no puede exceder los 20 caracteres.');
             return;
         }
-        if (valorNum<1000 || valorNum>=1500){
-            showMessage('El campo valor digitado en el campo Valor, no se encuentra dentro del rango comprendido entre 1000 a 1500', 'red');
-            //alert('El campo valor digitado en el campo Valor, no se encuentra dentro del rango comprendido entre 1000 a 1500')
-            return;
-        }
 
-        if (ruc && nombres && direccion && valorNum) {
+        if (Codigo && Nombre && direccion) {
             // Crear un objeto con los datos del cliente
             const cliente = {
                 codigo: clientesData.length + 1,
-                ruc: ruc,
-                nombres: nombres,
+                Codigo: Codigo,
+                Nombre: Nombre,
                 direccion: direccion,
-                valor:valorNum,
                 estado: 'Activo',
             };
 
@@ -207,7 +189,6 @@
 
             // Actualizar la tabla
             updateTable();
-            showMessage('Se ha insertado correctamente el Cliente', 'green');
         } else {
             alert('Completa todos los campos antes de agregar un cliente.');
         }
@@ -222,10 +203,9 @@
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${cliente.codigo}</td>
-                <td>${cliente.ruc}</td>
-                <td>${cliente.nombres}</td>
+                <td>${cliente.Codigo}</td>
+                <td>${cliente.Nombre}</td>
                 <td>${cliente.direccion}</td>
-                <td>${cliente.valor}</td>
                 <td class="element__modifier">
                     <button class="btn btn-active">${cliente.estado}</button>
                 </td>
