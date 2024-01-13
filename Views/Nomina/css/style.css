@@ -30,18 +30,21 @@ input[name=detalle]{
         }
 button[class=Guardar]{
     border-radius: 4px;
+    height: 40px;
     background-color: var(--c-gray-800);
     border: 1px solid var(--c-gray-700);
+    display: flex;
     align-items: center;
     color: var(--c-text-primary);
     font-size: 1rem;
     padding:  0px 15px;
     cursor: pointer;
-    width: 110px;
-    height: 30px;
-    position: relative;
-    right: -900px;    
 }
+
+button[class=Guardar] {
+    margin-left: 100px;
+}
+
 input[type=date]{
     border-radius: 7px;
     background-color: #e1def3d5;
@@ -51,10 +54,12 @@ input[type=date]{
     }
 
 .Datos{display:flex;
+    margin-block-end: -40px;
+    margin-block-start: 20px;
 }
 
-.Datos div:nth-child(2){
-    margin: 0 150px;
+.Datos div:nth-child(1){
+    margin-right: 100px;
 }
 
 .btn{
@@ -69,4 +74,242 @@ input[type=date]{
     width: 110px;
     height: 30px;
 
+}
+
+.campo{
+    position: relative;
+    margin: 25px 0;
+    display:flex;
+}
+
+.campo label{
+    position: absolute;
+    top: 43%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #fff;
+    padding: 0 5px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.campo input{
+    width: 320px;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 0 10px;
+    background: transparent;
+    border: 1.2px solid #fff;
+    outline: none;
+    border-radius: 25px;
+}
+
+.campo input:focus~label,
+.campo input:valid~label {
+    top: 0;
+    font-size: 12px;
+    background-color: #0f172a;
+
+}
+
+
+.motivo{
+    position: relative;
+    margin: 25px 0;
+    display:flex;
+}
+
+.motivo label{
+    position: absolute;
+    top: 20%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #fff;
+    padding: 0 5px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.motivo input{
+    width: 420px;
+    height: 90px;
+    font-size: 16px;
+    color: #fff;
+    padding: 0 10px;
+    background: transparent;
+    border: 1.2px solid #fff;
+    outline: none;
+    border-radius: 25px;
+}
+
+.motivo input:focus~label,
+.motivo input:valid~label {
+    top: 0;
+    font-size: 12px;
+    background-color: #0f172a;
+
+}
+
+.dato{
+    position: relative;
+    margin: 10px 0;
+}
+
+.dato label{
+    position: absolute;
+    top: 21%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #fff;
+    padding: 0 5px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.dato input{
+    width: 320px;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 0 10px;
+    background: transparent;
+    border: 1.2px solid #fff;
+    outline: none;
+    border-radius: 25px;
+}
+
+.dato input:focus~label,
+.dato input:valid~label {
+    top: 0;
+    font-size: 12px;
+    background-color: #0f172a;
+
+}
+.fecha{
+    position: relative;
+    margin: 10px 0;
+}
+
+.fecha label{
+    position: absolute;
+    top: -30%;
+    left: 15px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #fff;
+    padding: 0 5px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.fecha input{
+    width: 320px;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 0 10px;
+    background: transparent;
+    border: 1.2px solid #fff;
+    outline: none;
+    border-radius: 25px;
+}
+
+.fecha input:focus~label,
+.fecha input:valid~label {
+    top: 0;
+    font-size: 12px;
+    background-color: #0f172a;
+
+}
+
+.search-bar {
+    background-color: var(--c-gray-800);
+    border: 2px solid var(--c-gray-700);
+    color: var(--c-text-primary);
+    font-size: 1rem;
+    line-height: 1.5rem;
+    border-radius: 5px;
+    padding: 0px 10px 0px 32px;
+    height: 40px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-position: left 10px center;
+    width: 100%;
+    max-width: 320px;
+    transition: 0.2s;
+    margin-left: 700px;
+}
+
+.search-bar:hover {
+    border-color: var(--c-blue-300);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236291fd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+    color: var(--c-text-primary);
+    box-shadow: 0 0 0 4px var(--c-gray-800), 0 0 0 5px var(--c-text-tertiary);
+}
+
+.search-bar:focus {
+    outline: none;
+    border-color: var(--c-blue-500);
+    color: var(--c-text-primary);
+    box-shadow: 0 0 0 4px var(--c-gray-800), 0 0 0 5px var(--c-text-tertiary);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%232869ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+}
+
+button[class=Guardar1]{
+    border-radius: 4px;
+    height: 40px;
+    background-color: var(--c-gray-800);
+    border: 1px solid var(--c-gray-700);
+    display: flex;
+    align-items: center;
+    color: var(--c-text-primary);
+    font-size: 1rem;
+    padding:  0px 15px;
+    cursor: pointer;
+}
+
+button[class=Guardar1] {
+    margin-left: 250px;
+    margin-block-start: -39px;
+}
+button[class=Guardar2]{
+    border-radius: 4px;
+    height: 40px;
+    background-color: var(--c-gray-800);
+    border: 1px solid var(--c-gray-700);
+    display: flex;
+    align-items: center;
+    color: var(--c-text-primary);
+    font-size: 1rem;
+    padding:  0px 15px;
+    cursor: pointer;
+}
+
+button[class=Guardar2] {
+    margin-left: 385px;
+    margin-block-start: -39px;
+    
+}
+button[class=Guardar3]{
+    border-radius: 4px;
+    height: 40px;
+    background-color: var(--c-gray-800);
+    border: 1px solid var(--c-gray-700);
+    display: flex;
+    align-items: center;
+    color: var(--c-text-primary);
+    font-size: 1rem;
+    padding:  0px 15px;
+    cursor: pointer;
+}
+
+button[class=Guardar3] {
+    margin-left: 510px;
+    margin-block-start: -39px;
+    margin-block-end: 20px;
 }

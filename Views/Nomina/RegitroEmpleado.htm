@@ -79,30 +79,49 @@
                 <div class="dashboard__main-header">
                 <h1>Regitstro Empleado</h1>
             </div>
+            
         <div class="Datos">
-            <div>
+            <div class="rempleado">
             <form action="/action_page.php"></form>
-            <label for="cédula"> Ingresar número de cédula: </label><br>
-            <input type="text" id="text" name="cédula" placeholder="    ......" /><br><br>
-            <label for="nombres"> Ingrese sus Nombres: </label><br>
-            <input type="text" id="text" name="nombres" placeholder="    ......"/><br><br>
-            <label for="Apellidos"> Ingrese sus Apellidos: </label><br>
-            <input type="text" id="text" name="Apellidos" placeholder="    ......"/><br><br>
-            <label for="Domicilio"> Ingrese su Domicilio: </label><br>
-            <input type="text" id="text" name="Domicilio" placeholder="    ......"/><br><br>
+                <div class="dato">
+                    <input type="text" required><br><br>
+                    <label for="cédula"> Ingresar número de cédula </label><br>
+                </div>
+                <div class="dato">
+                    <input type="text" required><br><br>
+                    <label for="nombres"> Ingrese sus Nombres </label><br>
+                </div>
+                <div class="dato">
+                    <input type="text" required><br><br>
+                    <label for="Apellidos"> Ingrese sus Apellidos </label><br>
+                </div>
+                <div class="dato">
+                    <input type="text" required><br><br>
+                <label for="Domicilio"> Ingrese su Domicilio </label><br>
+                </div>
             </div>
             <div>
-            <label for="correo"> Ingrese su Correo Electrónico: </label><br>
-            <input type="text" id="text" name="correo" placeholder="    ......"/><br><br>
-            <label for="telefono"> Ingresar Número de Teléfono: </label><br>
-            <input type="text" id="text" name="telefono" placeholder="    ......" /><br><br>
-            <label for="sueldo"> Ingrese el sueldo acordado: </label><br>
-            <input type="text" id="text" name="sueldo" placeholder="    ......$$" /><br><br>
-            <label for="nombres"> Ingrese la fecha de ingreso: </label><br>
-            <input type="date" id="text" name="ingreso" placeholder="    ......"/>
+            <div class="dato">
+                <input type="text" required><br><br>
+                <label for="correo"> Ingrese su Correo Electrónico </label><br>
+            </div>
+            <div class="dato">
+                <input type="text" required><br><br>
+                <label for="telefono"> Ingresar Número de Teléfono </label><br>
+            </div>
+            <div class="dato">
+                <input type="text" required><br><br>
+                <label for="sueldo"> Ingrese el sueldo acordado </label><br>
+            </div>
+            <div class="fecha">
+                <input type="date" required>
+                <label for="fecha"> Ingrese la fecha de ingreso </label>
+            </div>
             </div>
         </div>
-        <label for="detalle"> Comentario </label><br>
-        <input type="text" id="text" name="detalle" /><br><br>
+        <div class="motivo">
+            <input type="text" required>
+            <label for="detalle"> Comentario </label>
+            </div>
         <div class="flex-container">
-            <button class="Guardar" id="action-button"><span> Guardar <i class="fa fa-mouse-pointer" aria-hidden="true"></i></span></button>
+            <button class="Guardar" id="Guardar"><span> Guardar <i class="fa fa-mouse-pointer" aria-hidden="true"></i></span></button>
