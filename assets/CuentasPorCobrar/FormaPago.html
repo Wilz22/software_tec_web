@@ -55,20 +55,20 @@
             <div class="dashboard__body-navigaation">
                 <nav class="navigation">
                     <ul>
-                        <li class="navigation__item">
+                        <li class="navigation__item ">
                             <a href="./Cobrador.html"><i class="fa fa-file-text" aria-hidden="true"></i> Cobrador </a>
                         </li>
                         <li class="navigation__item navigation__item-active">
                             <a href="./FormaPago.html"><i class="fa fa-list-ul" aria-hidden="true"></i> Forma de pago</a>
                         </li>
                         <li class="navigation__item">
-                            <a href="./comprobanteContable.html"><i class="fa fa-book" aria-hidden="true"></i> Comprobante contable</a>
+                            <a href="./CabeceraDeFacturas.html"><i class="fa fa-book" aria-hidden="true"></i> Cabecera de Facturas</a>
                         </li>
                         <li class="navigation__item">
-                            <a href="./BalanceComprobacion.html"><i class="fa fa-university" aria-hidden="true"></i> Balance comprobación</a>
+                            <a href="./EstadoCuenta.html"><i class="fa fa-university" aria-hidden="true"></i> Estado de Cuenta por factura</a>
                         </li>
                         <li class="navigation__item">
-                            <a href="./EstadoResultado.html"><i class="fa fa-calculator" aria-hidden="true"></i> Estado de resultado</a>
+                            <a href="./ValoresRecaudados.html"><i class="fa fa-calculator" aria-hidden="true"></i> Valores recaudados por cobrador</a>
                         </li>
                     </ul>
                 </nav>
@@ -80,10 +80,13 @@
                 </div>
 
                 <div class="contenedor">
-                    <div class="campo">
+
+
+                  <!-- <div class="campo">
                       <input type="text" required>
                       <label for="Código">Código</label>
-                    </div>
+                    </div> -->
+
                     
                     <div class="campo">
                         <input type="text" required>
@@ -102,14 +105,25 @@
 
                     <h2 class="neon"> GESTIÓN DE DATOS </h2>
                     <div class="GESTIÓN">
-                        <button class="Insertar Insertar-1" id="btnInsertar">Insertar </button>
-                        <button class="Eliminar Eliminar-1" id="btnEliminar">Eliminar</button>
-                        <button class="Modificar Modificar-1" id="btnModificar">Modificar</button>
-                        <button class="Guardar Guardar-1" id="btnGuardar">Guardar</button>
-                        <button class="Buscar Buscar-1" id="btnBuscar">Buscar</button>
+                        <button class="Insertar Insertar-1" id="btnInsertar" onclick="validarInsertar()">Insertar </button>
+                        <button class="Eliminar Eliminar-1" id="btnEliminar" onclick="validarEliminar()">Eliminar</button>
+                      <!--  <button class="Modificar Modificar-1" id="btnModificar" onclick="validarModificar()">Modificar</button> -->
+                        <button class="Guardar Guardar-1" id="btnGuardar" onclick="guardarCambios()">Guardar</button>   
+                    </div>
 
+                </div>
+                        <table id="table" class="table__main">
+                            <thead  class="header__table">
+                                <tr>
+                                    <th class="header__table-element"><button><span>Cod</span><i class="" aria-hidden="true"></i></button></th>
+                                    <th class="header__table-element"><button><span>Nombre</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                    <th class="header__table-element"><button><span>Método de Pago</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                    <th class="header__table-element"><button><span></span><i class="fa fa-pencil" aria-hidden="true"></i></button></th>                                    
+                                </tr>
+                            </thead>
+                            <tbody class="body__table"></tbody>
+            
 
-            </div>
             <div class="cont">
                 <input type="text" placeholder="Buscar">
                 <div class = "btn">
@@ -117,6 +131,119 @@
                 </div>    
               </div>
         </div>
-    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const nombreInput = document.querySelector('.campo input');
+        const metodoPagoSelect = document.querySelector('.Filtro select');
+        const tableBody = document.querySelector('.body__table');
+        const clientesData = obtenerClientesGuardados() || [];
+
+        document.querySelector('#btnInsertar').addEventListener('click', insertarCliente);
+        document.querySelector('#btnEliminar').addEventListener('click', eliminarPrimeraFila);
+        document.querySelector('#btnGuardar').addEventListener('click', guardarCambios);
+
+        updateTable();
+
+        function insertarCliente() {
+            const nombre = nombreInput.value;
+            const metodoPago = metodoPagoSelect.value;
+
+            if (nombre.length > 20) {
+                showMessage('El nombre no puede exceder los 20 caracteres.', 'red');
+                return;
+            }
+
+            if (nombre && metodoPago) {
+                const cliente = {
+                    codigo: clientesData.length + 1,
+                    nombre: nombre,
+                    pago: metodoPago
+                };
+
+                clientesData.push(cliente);
+                guardarClientes(clientesData); // Guardar en localStorage
+                showMessage('Se ha insertado correctamente el Cliente', 'green');
+                nombreInput.value = "";
+                metodoPagoSelect.value = "";
+                updateTable(); // Mover la actualización después de agregar el cliente
+            } else {
+                showMessage('Completa todos los campos antes de agregar un cliente.', 'red');
+            }
+        }
+
+        function eliminarPrimeraFila() {
+            if (clientesData.length > 0) {
+                clientesData.shift();
+                guardarClientes(clientesData); // Guardar en localStorage
+                updateTable();
+                showMessage('Se ha eliminado la primera fila correctamente', 'green');
+            } else {
+                showMessage('No hay filas para eliminar', 'red');
+            }
+        }
+
+        function guardarCambios() {
+            showMessage('Cambios guardados temporalmente', 'blue');
+        }
+
+        function updateTable() {
+            tableBody.innerHTML = '';
+
+            clientesData.forEach(function (cliente) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${cliente.codigo}</td>
+                    <td>${cliente.nombre}</td>
+                    <td>${cliente.pago}</td>
+                    <td class="element__modifier">
+                        <button class="botonMod botonMod-active" onclick="mostrarFormularioEdicion(${cliente.codigo})">Modificar</button>
+                    </td>
+                `;
+
+                tableBody.appendChild(row);
+            });
+        }
+
+        window.mostrarFormularioEdicion = function (codigo) {
+            const cliente = clientesData.find(cliente => cliente.codigo === codigo);
+            nombreInput.value = cliente.nombre;
+            metodoPagoSelect.value = cliente.pago;
+
+            let btnguardarcamb = document.getElementById('btnGuardar');
+            btnguardarcamb.onclick = function () {
+                cliente.nombre = nombreInput.value;
+                cliente.pago = metodoPagoSelect.value;
+                guardarClientes(clientesData); // Guardar en localStorage
+                updateTable();
+                showMessage('Se ha modificado la fila correctamente', 'blue');
+                nombreInput.value = "";
+                metodoPagoSelect.value = "";
+            };
+        }
+
+        function guardarClientes(clientes) {
+            localStorage.setItem('clientesData', JSON.stringify(clientes));
+        }
+
+        function obtenerClientesGuardados() {
+            const clientesGuardados = localStorage.getItem('clientesData');
+            return clientesGuardados ? JSON.parse(clientesGuardados) : null;
+        }
+
+        function showMessage(message, backgroundColor) {
+            const messageContainer = document.createElement('div');
+            messageContainer.classList.add('message-container');
+            messageContainer.style.backgroundColor = backgroundColor;
+            messageContainer.textContent = message;
+            document.body.appendChild(messageContainer);
+            setTimeout(() => {
+                document.body.removeChild(messageContainer);
+            }, 3000);
+        }
+    });
+</script>
+
 </body>
 </html>

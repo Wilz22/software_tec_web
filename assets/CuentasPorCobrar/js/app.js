@@ -44,13 +44,13 @@ document.addEventListener("DOMContentLoaded", function() {
       });
     
 
-    btnModificar.addEventListener("click", () => {
+   /* btnModificar.addEventListener("click", () => {
       alert("Datos modificados!");
     });
     
     btnGuardar.addEventListener("click", () => {
       alert("Datos guardados!");
-    });
+    }); */
     
 
 
