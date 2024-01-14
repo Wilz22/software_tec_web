@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contabilidad</title>
     <link rel="stylesheet" href="../../assets/css/Stylelayout.css">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/nomina.css">
     <!-- iconos -->
     <!-- https://fontawesome.com/v4/icons/ -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script defer src="./js/app.js" ></script>
+    <script defer src="./js/IngresoEgreso.js" ></script>
 </head>
 <body>
     <div class="dashboard">
@@ -33,10 +33,10 @@
                             <a href="../Contabilidad/tipoCuenta.html" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Contabilidad </a>
                         </li>
                         <li class="menu__item">
-                            <a href=""><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
+                            <a href="../Facturacion/factu_1.html"><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
                         </li>
                         <li class="menu__item">
-                            <a href=""><i class="fa fa-home" aria-hidden="true"></i> Cuentas por cobrar</a>
+                            <a href="../CuentasPorCobrar/Cobrador.html"><i class="fa fa-home" aria-hidden="true"></i> Cuentas por cobrar</a>
                         </li>
                     </ul>
                 </nav>
@@ -58,19 +58,19 @@
                 <nav class="navigation">
                     <ul>
                         <li class="navigation__item">
-                            <a href="./motivo.html"><i class="fa fa-address-card" aria-hidden="true"></i> Motivo </a>
+                            <a href="./NominaIngresoEgreso.html"><i class="fa fa-address-card" aria-hidden="true"></i> Motivo </a>
                         </li>
                         <li class="navigation__item">
                             <a href="./RegistroEmpleado.html"><i class="fa fa-address-book" aria-hidden="true"></i> Registro Empleado </a>
                         </li>
                         <li class="navigation__item">
-                            <a href="./detalledeNomina.html"><i class="fa fa-book" aria-hidden="true"></i> Detalle de Nómina</a>
+                            <a href="./DetalleNomina.html"><i class="fa fa-book" aria-hidden="true"></i> Detalle de Nómina</a>
                         </li>
                         <li class="navigation__item">
-                            <a href="./ValoresaPagar.html"><i class="fa fa-briefcase" aria-hidden="true"></i> Valores a Pagar</a>
+                            <a href="./ValoresPagar.html"><i class="fa fa-briefcase" aria-hidden="true"></i> Valores a Pagar</a>
                         </li>
                         <li class="navigation__item">
-                            <a href="./ReportedeNomina.html"><i class="fa fa-file-text" aria-hidden="true"></i> Reporte de Nómina</a>
+                            <a href="./ReporteNomina.html"><i class="fa fa-file-text" aria-hidden="true"></i> Reporte de Nómina</a>
                         </li>
                     </ul>
                 </nav>
@@ -95,16 +95,9 @@
                     <input type="text" required><br><br>
                     <label for="Apellidos"> Ingrese sus Apellidos </label><br>
                 </div>
-                <div class="dato">
-                    <input type="text" required><br><br>
-                <label for="Domicilio"> Ingrese su Domicilio </label><br>
-                </div>
             </div>
             <div>
-            <div class="dato">
-                <input type="text" required><br><br>
-                <label for="correo"> Ingrese su Correo Electrónico </label><br>
-            </div>
+
             <div class="dato">
                 <input type="text" required><br><br>
                 <label for="telefono"> Ingresar Número de Teléfono </label><br>
@@ -119,9 +112,30 @@
             </div>
             </div>
         </div>
-        <div class="motivo">
-            <input type="text" required>
-            <label for="detalle"> Comentario </label>
-            </div>
+        <div class="dashboard__main-table">
+            <table id="table" class="table__main">
+                <thead  class="header__table">
+                    <tr>
+                        <th class="header__table-element"><button><span>Cédula</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                        <th class="header__table-element"><button><span>Nombres</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                        <th class="header__table-element"><button><span>Apellidos</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                        <th class="header__table-element"><button><span>Teléfono </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                        <th class="header__table-element"><button><span>Sueldo </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                        <th class="header__table-element"><button><span>Fecha Ingreso </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                        <th class="header__table-element"><i class="fa fa-cog" aria-hidden="true"></i></th>
+                        
+                    </tr>
+                </thead>
+                <tbody class="body__table"></tbody> 
+    </div>
         <div class="flex-container">
-            <button class="Guardar" id="Guardar"><span> Guardar <i class="fa fa-mouse-pointer" aria-hidden="true"></i></span></button>
+            <button class="Guardar" id="Modificar" onclick="milegrilla()"><span> Modificar </span></button>
+            <button class="Guardar1" id="Insertar" ><span> Insertar </span></button>
+            <button class="Guardar2" id="Eliminar"><span> Eliminar </span></button>
+            <button class="Guardar3" id="Guardar"><span> Guardar </span></button>
+          </div> 
+        </div>
+    </div>
+</div>
+</body>
+</html>
