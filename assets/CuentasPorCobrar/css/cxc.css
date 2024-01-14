@@ -723,6 +723,8 @@ button:focus {
     border-color: var(--color);
 }
 
+
+/*
 .Modificar-1{
     border: 3px solid;
     padding: 10px 35px;
@@ -737,7 +739,7 @@ button:focus {
     background-color: #2d6acd;
     box-shadow: 0 0 20px var(--color);
     border-color: var(--color);
-}
+} */
 
 .Guardar-1{
     border: 3px solid;
@@ -755,6 +757,7 @@ button:focus {
     border-color: var(--color);
 }
 
+/*
 .but{
     border-radius: 4px;
     background-color: var(--c-gray-800);
@@ -768,6 +771,7 @@ button:focus {
     height: 30px;
     margin: 10px;
 }
+*/
 
 /*.Buscar-1{
     border: 3px solid;
@@ -786,12 +790,13 @@ button:focus {
 }*/
 
 .cont{
-    position: absolute;
-    left: 85%;
-    top: 20%;
+    position: fixed;
+    left: 65%;
+    top: 40%;
     transform: translate(-50%, -50%);
     padding: 16px;
 }
+
 
 input {
     outline: none;
@@ -811,7 +816,7 @@ input {
 }
 
 .btn{
-    position: absolute;
+    position: fixed;
     right: 0;
     top: 0;
     width: 80px;
@@ -832,7 +837,7 @@ input {
 }
 
 .cont:hover input {
-    width: 350px;
+    width: 500px;
 }
 
 .cont:hover i{
@@ -841,4 +846,43 @@ input {
 
 .btn:hover{
     background: #61a6ea;
+}
+
+.message-container {
+    position: fixed;
+    bottom: 635px;
+    left: 50%;
+    transform: translateX(0%);
+    padding: 10px;
+    color: white;
+    border-radius: 8px;
+}
+
+
+.botonMod{
+    height: 40px;
+    border-radius: 4px;
+    background-color: var(--c-gray-800);
+    border: 4px solid var(--c-gray-700);
+    align-items: center;
+    color: var(--c-text-primary);
+    font-size: 1rem;
+    padding:  0px 15px;
+    cursor: pointer;
+}
+.botonMod-active{
+    background-color: #9f51d3;
+    color: var(--c-gray-900);
+}
+
+.botonMod-apply{
+    background-color: var(--c-blue-700);
+}
+.page-botonMod-active{
+    background-color: var(--c-gray-900);
+}
+
+.botonMod:hover, 
+.botonMod:focus {
+    box-shadow: 0 0 0 4px var(--c-gray-800), 0 0 0 5px var(--c-text-tertiary);
 }

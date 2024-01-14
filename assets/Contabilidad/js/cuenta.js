@@ -9,6 +9,7 @@ const input_cod = document.getElementById("input-cod");
 const input_name = document.getElementById("input-name");
 const input_status = document.getElementById("input-status");
 const input_description = document.getElementById("input-description");
+const input_type = document.getElementById("input-type");
 const submitBtn = document.querySelector(".submit-btn");
 
 const table_list = document.querySelector(".body__table");
@@ -70,8 +71,9 @@ function addItem(e) {
     const value_name = input_name.value;
     const value_status = input_status.value;
     const value_description = input_description.value;
+    const value_type = input_type.value;
     const id = new Date().getTime().toString();
-    if (value_name !== "" && value_status !== "" && value_description !== "" && !editFlag) {
+    if (value_name !== "" && value_status !== "" && value_type !== "" && value_description !== ""  && !editFlag) {
         const element = document.createElement("tr");
         let attr = document.createAttribute("data-id");
         //Codigo
@@ -80,6 +82,7 @@ function addItem(e) {
         element.classList.add("register-item");
         element.innerHTML = `
             <td> ${id} </td>
+            <td>${value_type}</td>
             <td> ${value_name}</td>
             <td class="element__modifier"><button class="btn btn-inactive"> ${value_status}</button></td>
             <td class="element__modifier"><span> ${value_description}</span></td>
@@ -99,12 +102,12 @@ function addItem(e) {
         
         table_list.appendChild(element);
         displayAlert("Registro almacenado", "success");
-        addToLocalStorage(id, value_name,value_status,value_description);
+        addToLocalStorage(id, value_name, value_type,value_status,value_description);
         setBackToDefault();     
-        } else if (value_name !== "" && value_status !== "" && value_description !== "" && editFlag){
+        } else if (value_name !== "" && value_status !== "" && value_description !== "" && value_type !== "" && editFlag){
         editElement.innerHTML = id;
             displayAlert("Cambios realizados con exito", "success");
-            editLocalStorage(editID, value_name,value_status,value_description);
+            editLocalStorage(editID, value_type, value_name,value_status,value_description);
             setBackToDefault();
         } else {
             displayAlert("Error en el registro, vuelva a intentarlo", "danger");
@@ -139,11 +142,11 @@ function editItem(e) {
     const element = e.currentTarget.parentElement.parentElement;
     editElement = e.currentTarget.parentElement.previousElementSibling;
     showModal();
-    /* grocery.value = editElement.innerHTML; */
     input_cod.value=e.currentTarget.parentElement.parentNode.querySelector(":nth-child(1)").innerHTML;
-    input_name.value=e.currentTarget.parentElement.parentNode.querySelector(":nth-child(2)").innerHTML;
-    input_status.value=e.currentTarget.parentElement.parentNode.querySelector(":nth-child(3) button").innerHTML;
-    input_description.value=e.currentTarget.parentElement.parentNode.querySelector(":nth-child(4) span").innerHTML;
+    input_type.value=e.currentTarget.parentElement.parentNode.querySelector(":nth-child(2)").innerHTML;
+    input_name.value=e.currentTarget.parentElement.parentNode.querySelector(":nth-child(3)").innerHTML;
+    input_status.value=e.currentTarget.parentElement.parentNode.querySelector(":nth-child(4) button").innerHTML;
+    input_description.value=e.currentTarget.parentElement.parentNode.querySelector(":nth-child(5) span").innerHTML;
     editFlag = true;
     editID = element.dataset.id;
     submitBtn.textContent = "Editar";
@@ -159,16 +162,16 @@ function setBackToDefault() {
 }
 
 /* Local Storage*/
-function addToLocalStorage(id, value_name,value_status,value_description) {
-    const accounts = { id, value_name,value_status,value_description };
+function addToLocalStorage(id, value_name, value_type,value_status,value_description) {
+    const accounts = { id, value_name, value_type,value_status,value_description };
     let items = getLocalStorage();
     items.push(accounts);
-    localStorage.setItem("list", JSON.stringify(items));
+    localStorage.setItem("list-accounts", JSON.stringify(items));
 }
 
 function getLocalStorage() {
-    return localStorage.getItem("list")
-    ? JSON.parse(localStorage.getItem("list"))
+    return localStorage.getItem("list-accounts")
+    ? JSON.parse(localStorage.getItem("list-accounts"))
     : [];
 }
 
@@ -179,21 +182,22 @@ function removeFromLocalStorage(id) {
         return item;
     }
     });
-    localStorage.setItem("list", JSON.stringify(items));
+    localStorage.setItem("list-accounts", JSON.stringify(items));
 }
 
-function editLocalStorage(id, value_name,value_status,value_description) {
+function editLocalStorage(id,value_type, value_name,value_status,value_description) {
     let items = getLocalStorage();
     items = items.map(function (item) {
         console.log(item)
     if (item.id === id) {
+        item.value_type= value_type;
         item.value_name= value_name;
         item.value_status= value_status;
         item.value_description= value_description;
     }
     return item;
     });
-    localStorage.setItem("list", JSON.stringify(items));
+    localStorage.setItem("list-accounts", JSON.stringify(items));
 }
 
 
@@ -206,12 +210,12 @@ function setupItems() {
     let items = getLocalStorage();
     if (items.length > 0) {
     items.forEach(function (item) {
-        createListItem(item.id, item.value_description,item.value_name,item.value_status);
+        createListItem(item.id, item.value_type, item.value_description,item.value_name,item.value_status);
     });
     }
 }
 
-function createListItem(id, value_description,value_name,value_status   ) {
+function createListItem(id, value_type,value_description,value_name,value_status   ) {
     const element = document.createElement("tr");
         let attr = document.createAttribute("data-id");
         //Codigo
@@ -220,6 +224,7 @@ function createListItem(id, value_description,value_name,value_status   ) {
         element.classList.add("register-item");
         element.innerHTML = `
             <td> ${id} </td>
+            <td>${value_type}</td>
             <td> ${value_name}</td>
             <td class="element__modifier"><button class="btn btn-inactive"> ${value_status}</button></td>
             <td class="element__modifier"><span> ${value_description}</span></td>

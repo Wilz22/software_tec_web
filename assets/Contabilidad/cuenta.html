@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contabilidad</title>
     <link rel="stylesheet" href="./css/contabilidad.css">
-    <link rel="stylesheet" href="./css/cuenta.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script defer src="./js/app.js" ></script>
+    <script defer src="./js/cuenta.js" ></script>
 </head>
 <body>
     <div class="dashboard">
@@ -65,9 +64,6 @@
                         <li class="navigation__item">
                             <a href="./comprobanteContable.html"><i class="fa fa-book" aria-hidden="true"></i> Comprobante contable</a>
                         </li>
-                       <!--  <li class="navigation__item">
-                            <a href="./libroDiario.html"><i class="fa fa-book" aria-hidden="true"></i> Libro diario</a>
-                        </li> -->
                         <li class="navigation__item">
                             <a href="./BalanceComprobacion.html"><i class="fa fa-university" aria-hidden="true"></i> Balance comprobación</a>
                         </li>
@@ -113,6 +109,71 @@
                                 </div>
                             </div>
                         <button class="add-item action-button"><span>Agregar cuenta <i class="fa fa-plus" aria-hidden="true"></i></span></button> 
+                        <div class="modal">
+                            <div class="modal__header">
+                                <div class="modal__header-container">
+                                    <h3 class="modal__title">Agregar nueva cuenta</h3>
+                                </div>
+                                <button class="close btn">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <form  class="modal__form">
+                                <div class="input-group">
+                                    <div class="input__group-label">
+                                        <span>Codigo</span>
+                                    </div>
+                                    <div class="input__group-bar">
+                                        <input type="text" id="input-cod" class="input-bar input-disable" value="Codigo" disabled>
+                                    </div>
+                                </div>
+
+                                <div class="input-group"> 
+                                    <div class="input__group-label">
+                                        <span>Tipo de cuenta</span><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="input__group-bar">
+                                        <input type="text" id="input-type" class="input-bar" required placeholder="Ajuste contable">
+                                    </div>
+                                </div>
+
+                                <div class="input-group"> 
+                                    <div class="input__group-label">
+                                        <span>Nombre</span><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="input__group-bar">
+                                        <input type="text" id="input-name"  class="input-bar" required placeholder="Ajuste contable">
+                                    </div>
+                                </div>
+                                    
+                                <div class="input-group"> 
+                                    <div class="input__group-label">
+                                        <span>Estado</span><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="input__group-bar">
+                                        <input type="text" id="input-status" class="input-bar" required placeholder="Ajuste contable">
+                                    </div>
+                                </div>
+
+                                <div class="input-group"> 
+                                    <div class="input__group-label">
+                                        <span>Descripcion</span><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="input__group-bar">
+                                        <input type="text" id="input-description" class="input-bar" required placeholder="Ajuste contable">
+                                    </div>
+                                </div>
+                                <div class="modal__footer">
+                                    <div class="modal__footer-container">
+                                        <button class="clear-btn btn-inactive btn " type="button">Borrar</button>
+                                        <button class="submit-btn btn" type="submit">Guardar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal__alert">
+                            <p class="alert"></p>
+                        </div>
                     </div>
                     <input type="text" class="search-bar" placeholder="Buscar">
                 </div>
@@ -128,8 +189,8 @@
                                 <th class="header__table-element"><i class="fa fa-cog" aria-hidden="true"></i></th>
                             </tr>
                         </thead>
-                        <tbody class="body__table">
-                            <tr>
+                        <tbody class="body__table" id="table__accounts">
+                            <!--  <tr>
                                 <td> 1 </td>
                                 <td>Activos Corrientes</td>
                                 <td>Activo</td>
@@ -137,22 +198,7 @@
                                 <td class="element__modifier"><span>Descripcion</span></td>
                                 <td><button aria-label="Name" class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button></td>
                             </tr>
-                            <tr>
-                                <td> 1 </td>
-                                <td>Activos Corrientes</td>
-                                <td>Activo</td>
-                                <td class="element__modifier"><button class="btn btn-inactive">Inactivo</button></td>
-                                <td class="element__modifier"><span>Descripcion</span></td>
-                                <td><button aria-label="Name" class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td> 1 </td>
-                                <td>Activos Corrientes</td>
-                                <td>Activo</td>
-                                <td class="element__modifier"><button class="btn btn-active">Activo</button></td>
-                                <td class="element__modifier"><span>Descripcion</span></td>
-                                <td><button  aria-label="Name" class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button></td>
-                            </tr>
+                            -->
                         </tbody>
                     </table>
                 </div>
