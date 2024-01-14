@@ -64,9 +64,6 @@
                         <li class="navigation__item">
                             <a href="./comprobanteContable.html"><i class="fa fa-book" aria-hidden="true"></i> Comprobante contable</a>
                         </li>
-                        <!-- <li class="navigation__item">
-                            <a href="./libroDiario.html"><i class="fa fa-book" aria-hidden="true"></i> Libro diario</a>
-                        </li> -->
                         <li class="navigation__item">
                             <a href="./BalanceComprobacion.html"><i class="fa fa-university" aria-hidden="true"></i> Balance comprobación</a>
                         </li>
@@ -75,7 +72,6 @@
                         </li>
                     </ul>
                 </nav>
-
             </div>
             <div class="dashboard__body-main">
                 <div class="dashboard__main-header">
@@ -110,13 +106,13 @@
                                         <i class="fa fa-times" aria-hidden="true"></i>
                                     </button>
                                 </div>
-                                <form action="" class="feedback">
+                                <form  class="modal__form">
                                     <div class="input-group">
                                         <div class="input__group-label">
                                             <span>Codigo</span>
                                         </div>
                                         <div class="input__group-bar">
-                                            <input type="text" class="input-bar input-disable" value="Codigo" disabled>
+                                            <input type="text" id="input-cod" class="input-bar input-disable" value="Codigo" disabled>
                                         </div>
                                     </div>
 
@@ -125,7 +121,7 @@
                                             <span>Nombre</span><i class="fa fa-asterisk" aria-hidden="true"></i>
                                         </div>
                                         <div class="input__group-bar">
-                                            <input type="text" class="input-bar" placeholder="Ajuste contable">
+                                            <input type="text" id="input-name"  class="input-bar" placeholder="Ajuste contable">
                                         </div>
                                     </div>
                                         
@@ -134,7 +130,7 @@
                                             <span>Estado</span><i class="fa fa-asterisk" aria-hidden="true"></i>
                                         </div>
                                         <div class="input__group-bar">
-                                            <input type="text" class="input-bar" placeholder="Ajuste contable">
+                                            <input type="text" id="input-status" class="input-bar" placeholder="Ajuste contable">
                                         </div>
                                     </div>
 
@@ -143,17 +139,21 @@
                                             <span>Descripcion</span><i class="fa fa-asterisk" aria-hidden="true"></i>
                                         </div>
                                         <div class="input__group-bar">
-                                            <input type="text" class="input-bar" placeholder="Ajuste contable">
+                                            <input type="text" id="input-description" class="input-bar" placeholder="Ajuste contable">
+                                        </div>
+                                    </div>
+                                    <div class="modal__footer">
+                                        <div class="modal__footer-container">
+                                            <button class="clear-btn btn-inactive btn " type="button">Borrar</button>
+                                            <button class="submit-btn btn" type="submit">Guardar</button>
                                         </div>
                                     </div>
                                 </form>
-                                <div class="modal__footer">
-                                    <div class="modal__footer-container">
-                                        <button class="cancel btn-inactive btn " type="button">Cancelar</button>
-                                        <button class="Guardar btn" type="submit">Guardar</button>
-                                    </div>
-                                </div>
                             </div>
+                            <div class="modal__alert">
+                                <p class="alert"></p>
+                            </div>
+                            
                     </div>
                     <input type="text" class="search-bar" placeholder="Buscar">
                 </div>
@@ -169,27 +169,7 @@
                             </tr>
                         </thead>
                         <tbody class="body__table">
-                            <tr>
-                                <td id="cod_account"> 1 </td>
-                                <td id="assets_account">Activos Corrientes</td>
-                                <td id="btn_account" class="element__modifier"><button class="btn btn-active">Activo</button></td>
-                                <td id="description_account" class="element__modifier"><span>Descripcion</span></td>
-                                <td id="setting_account"><button aria-label="Name" class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td> 1 </td>
-                                <td>Activos Corrientes</td>
-                                <td class="element__modifier"><button class="btn btn-inactive">Inactivo</button></td>
-                                <td class="element__modifier"><span>Descripcion</span></td>
-                                <td><button aria-label="Name" class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td> 1 </td>
-                                <td>Activos Corrientes</td>
-                                <td class="element__modifier"><button class="btn btn-active">Activo</button></td>
-                                <td class="element__modifier"><span>Descripcion</span></td>
-                                <td><button aria-label="Name" class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button></td>
-                            </tr>
+                        
                         </tbody>
                     </table>
                 </div>

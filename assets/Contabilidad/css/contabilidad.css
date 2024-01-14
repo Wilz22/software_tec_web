@@ -653,6 +653,10 @@ tbody td,
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
 }
+.modal__alert.show {
+    display: block;
+    opacity: 1;
+}
 .modal .close {
     margin-inline-start: auto;
     display: block;
@@ -677,43 +681,33 @@ tbody td,
     margin-right: 10px;
 }
 
-
-/* Examen practico parcial 1 */
-
-.input__group-examen{
-    padding: 15px 0;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+.modal__alert{
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 90%;
+    transform: translate(-50%, -50%) scale(0.5);
+    color: #fff;
+    padding: 1rem 2rem 1.5rem;
+    width: 45%;
+    height: 120px;
+    max-width: 600px;
+    border-radius: 20px;
+    opacity: 0;
+    transition: 0.2s;
+    font-size: 1.75rem;
+    display: grid;
     align-items: center;
-}
-.input__group-container{
-    width: 50%;
-    padding: 0 20px;
-}
-
-.input__examen-lable{
-    color: greenyellow;
-    font-size: 15px;
-    font-weight: 700; /*Colocandolo en negritas*/
-    text-decoration: underline;
-    text-transform: uppercase;
-}
-
-.input__examen-input > input{
-    width: 100%;
-    height: 50px;
-    background-color: var(--c-gray-700);
-    margin-top: 10px;
-    color: white;
-    border-radius: 5px;
-    border:none;
-    padding: 10px;
-}
-
-.input__group-container>h4{
-    font-size: 25px;
+    text-align: center;
+    letter-spacing: var(--spacing);
     text-transform: capitalize;
-    font-weight:900;
 }
-/* Fin de codigo examen practico, parcial 1 */
+
+.alert-danger {
+    color: #721c24;
+    background: #f8d7da;
+}   
+.alert-success {
+    color: #155724;
+    background: #d4edda;
+}
