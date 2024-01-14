@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nómina</title>
+    <link rel="stylesheet" href="../../assets/css/Stylelayout.css">
+    <link rel="stylesheet" href="./css/nomina.css">
+    <!-- iconos -->
+    <!-- https://fontawesome.com/v4/icons/ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script defer src="./js/IngresoEgreso.js" ></script>
+</head>
+<body>
+    <div class="dashboard">
+        <header class="dashboard__header">
+            <div class="dashboard__header-logo">
+                <div class="logo">
+                    <img class="header__information-logo" src="../../assets/imgs/logo.BN.png"  alt="Logo" />
+                </div>
+            </div>
+
+            <div class="dashboard__header-menu">
+                <nav class="menu">
+                    <ul>
+                        <li class="menu__item menu__item-active">
+                            <a href="./NominaIngresoEgreso.html"><i class="fa fa-address-book" aria-hidden="true"></i> Nomina</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="../Activos/activos_1.html"><i class="fa fa-home" aria-hidden="true"></i> Activos</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="../Contabilidad/tipoCuenta.html" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Contabilidad </a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="../Facturacion/factu_1.html"><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="../CuentasPorCobrar/Cobrador.html"><i class="fa fa-home" aria-hidden="true"></i> Cuentas por cobrar</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            
+            <div class="dashboard__header-information">
+                <button class="user__profile">
+                    <div class="user__profile-name">
+                        <span>Milena Reyes</span>
+                        <span>Admin</span>
+                    </div>
+                    <img src="../../assets/imgs/iconuser.png" alt="User"/>
+                </button>
+            </div>
+        </header>
+        <div class="dashboard__body">
+            <div class="dashboard__body-navigaation">
+                <nav class="navigation">
+                    <ul>
+                        <li class="navigation__item">
+                            <a href="./NominaIngresoEgreso.html"><i class="fa fa-address-card" aria-hidden="true"></i> Motivo </a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="./RegistroEmpleado.html"><i class="fa fa-address-book" aria-hidden="true"></i> Registro Empleado </a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="./detalledeNomina.html"><i class="fa fa-book" aria-hidden="true"></i> Detalle de Nómina</a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="./ValoresaPagar.html"><i class="fa fa-briefcase" aria-hidden="true"></i> Valores a Pagar</a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="./ReportedeNomina.html"><i class="fa fa-file-text" aria-hidden="true"></i> Reporte de Nómina</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="dashboard__body-main">
+                <div class="dashboard__main-header">
+                <h1>Cabecéra de Nómina</h1>
+            </div>
+            <div>
+            <div class="dashboard__main-table">
+                <table id="table" class="table__main">
+                    <thead  class="header__table">
+                        <tr>
+                            <th class="header__table-element"><button><span>Número</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table-element"><button><span>Fecha</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table-element"><button><span>Empleado</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>                            
+                            <th class="header__table-element"><i class="fa fa-cog" aria-hidden="true"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody class="body__table"></tbody> 
+                </table>
+        </div>
+        <br>
+        <div class="dashboard__main-header">
+        <h2>Detalle de Nómina</h2>
+        </div>
+        <table id="table" class="table__main">
+          <thead class="header__table">
+            <tr>
+                <th class="header__table-element"><button><span>Motivo de Ingreso</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                <th class="header__table-element"><button><span>Egreso</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                <th class="header__table-element"><button><span>Valor</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                <th class="header__table-element"><i class="fa fa-cog" aria-hidden="true"></i></th>
+            </tr>
+          </thead>
+          <tbod tbody class="body__table"></tbodyy></tbody>
+        </table>
+</div>
+<br>
+<div class="flex-container">
+    <button class="Guardar" id="Modificar" onclick="milegrilla()"><span> Modificar </span></button>
+    <button class="Guardar1" id="Insertar" ><span> Insertar </span></button>
+    <button class="Guardar2" id="Eliminar"><span> Eliminar </span></button>
+    <button class="Guardar3" id="Guardar"><span> Guardar </span></button>
+    <button class="Guardar4" id="Asiento Contable"><span> Asiento Contable </span></button>
+  </div> 
+</div>
+</div>
+</div>
+</body>
+</html>

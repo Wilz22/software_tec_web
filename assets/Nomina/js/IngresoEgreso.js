@@ -10,3 +10,6 @@ document.getElementById('Insertar').addEventListener('click',function(){
 document.getElementById('Eliminar').addEventListener('click',function(){
     alert('El contenido ha sido Eliminado' )
 })
+document.getElementById('Asiento Contable').addEventListener('click',function(){
+    alert('Se a realizado el asiento contable' )
+})
