@@ -85,7 +85,7 @@
                     </div>
                     
                     <div class="campo">
-                        <input type="text" required>
+                        <input type="number" required>
                       <label for="Cédula">Cédula</label>
                     </div>
                     
@@ -93,35 +93,240 @@
                         <input type="text" required>
                       <label for="direccion">Dirección</label>
                     </div>
-
-
                     
-                    <div class="campo">
-                        <input type="number" required id="valorNumerico" name="valorNumerico" value="0"/>
-                        <label for ="Edad">Edad del cobrador</label>
-                    </div> 
+
+                  <div class="campo">
+                        <input type="number" required id="valorNumerico" name="valorNumerico" /> 
+                        <label for ="Edad">Edad</label>
+                    </div>  
 
 
+                    <div class="cont">
+                        <input type="text" placeholder="Buscar">
+                        <div class = "btn">
+                            <i class="fa fa-search"></i>
+                        </div>    
+                      </div>
 
                 </div>
                        <h2 class="neon"> GESTIÓN DE DATOS </h2>
                     <div class="GESTIÓN">
-                        <button class="Insertar Insertar-1" id="btnInsertar" onclick="validarCampoNumerico()">Insertar </button>
-                        <button class="Eliminar Eliminar-1" id="btnEliminar">Eliminar</button>
-                        <button class="Modificar Modificar-1" id="btnModificar">Modificar</button>
-                        <button class="Guardar Guardar-1" id="btnGuardar">Guardar</button>
-                        
+                        <button class="Insertar Insertar-1" id="btnInsertar" onclick="validarInsertar()">Insertar </button>
+                        <button class="Eliminar Eliminar-1" id="btnEliminar" onclick="validarEliminar()">Eliminar</button>
+                      <!--  <button class="Modificar Modificar-1" id="btnModificar" onclick="validarModificar()">Modificar</button> -->
+                        <button class="Guardar Guardar-1" id="btnGuardar" onclick="guardarCambios()">Guardar</button>    
                   </div>
 
-                  <div class="cont">
-                    <input type="text" placeholder="Buscar">
-                    <div class = "btn">
-                        <i class="fa fa-search"></i>
-                    </div>    
-                  </div>
+                  <table id="table" class="table__main">
+                    <thead  class="header__table">
+                        <tr>
+                            <th class="header__table-element"><button><span>Cod</span><i class="" aria-hidden="true"></i></button></th>
+                            <th class="header__table-element"><button><span>Nombre</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table-element"><button><span>Cédula</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table-element"><button><span>Dirección</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table-element"><button><span>Edad</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table-element"><button><span></span><i class="fa fa-pencil" aria-hidden="true"></i></button></th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody class="body__table"></tbody>
+                  
             </div>
         </div>
     </div>
     
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+        const insertarClienteBtn = document.getElementById('btnInsertar');
+        const nombreInput = document.querySelector('.campo:nth-child(1) input');
+        const cedulaInput = document.querySelector('.campo:nth-child(2) input');
+        const direccionInput = document.querySelector('.campo:nth-child(3) input');
+            //var valorInput = document.getElementById('valornumber').value;
+        // const valorInput = document.querySelector('.campo:nth-child(4) input')
+        const edadInput = document.querySelector('.campo:nth-child(4) input'); //
+        const confInput = document.querySelector('.campo:nth-child(4) input'); //
+
+        const tableBody = document.querySelector('.body__table');
+        //var valorNum=parseFloat(valorInput);
+        const clientesData = [];
+        
+    
+        insertarClienteBtn.addEventListener('click', function () {
+            const nombre = nombreInput.value;
+            const cedula = cedulaInput.value;
+            const direccion = direccionInput.value;
+            const edad = edadInput.value; //
+            const conf = confInput.value;
+            // const valor= valorInput.value;
+           // var valorInput = document.getElementById('valorNumerico').value;
+           // var valorNum=parseFloat(valorInput);
+            //console.log(valorNum);
+            // Validaciones
+
+            if (nombre.length > 20) {
+                showMessage('El nombre no puede exceder los 20 caracteres.', 'red');
+                return;
+            }
+
+            if (cedula.length !== 10) {
+                showMessage('La cédula debe tener 10 dígitos.', 'red');
+                return;
+            }
+    
+            if (direccion.length > 30) {
+                showMessage('La dirección no puede exceder los 30 caracteres.', 'red');
+                return;
+            }
+            if (edad<1 || edad>=65){
+                showMessage('El campo valor digitado en el campo Valor, no se encuentra dentro del rango comprendido entre 1 a 65', 'red');
+                return;
+            }
+    
+            if (nombre && cedula && direccion && edad) {
+                // Crear un objeto con los datos del cliente
+                const cliente = {
+                    codigo: clientesData.length + 1,
+                    nombre: nombre,
+                    cedula: cedula,
+                    direccion: direccion,
+                    edad:edad,
+                    conf: 'Modificar'
+                    
+                };
+    
+                // Agregar el cliente al array
+                clientesData.push(cliente);
+    
+                // Actualizar la tabla
+                updateTable();
+                showMessage('Se ha insertado correctamente el Cliente', 'green');
+                  
+                nombreInput.value = "";
+                cedulaInput.value = "";
+                direccionInput.value = "";
+                edadInput.value = "";
+    
+            } else {
+                alert('Completa todos los campos antes de agregar un cliente.');
+            }
+        });
+    
+        function updateTable() {
+        // Limpiar el cuerpo de la tabla
+        tableBody.innerHTML = '';
+    
+        // Rellenar la tabla con los datos de los clientes
+            clientesData.forEach(function (cliente) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${cliente.codigo}</td>
+                    <td>${cliente.nombre}</td>
+                    <td>${cliente.cedula}</td>
+                    <td>${cliente.direccion}</td>
+                    <td>${cliente.edad}</td>
+                    <td class="element__modifier">
+                    <button class="botonMod botonMod-active" onclick="mostrarFormularioEdicion(${cliente.codigo})">${cliente.conf}</button>
+                    </td>
+                `;
+    
+                tableBody.appendChild(row);
+            });
+        }
+
+       const eliminarBtn = document.getElementById('btnEliminar');
+    eliminarBtn.addEventListener('click', function () {
+        eliminarPrimeraFila();
+    });
+    function eliminarPrimeraFila() {
+        if (clientesData.length > 0) {
+            // Elimina el primer elemento del array
+            clientesData.shift();
+
+            // Actualiza la tabla
+            updateTable();
+            showMessage('Se ha eliminado la primera fila correctamente', 'green');
+
+        } else {
+            showMessage('No hay filas para eliminar', 'red');
+        }
+    }
+
+
+    // tableBody.addEventListener('click', function (event) {
+    //     const target = event.target;
+    //     if (target.classList.contains('botonMod')) {
+    //         const row = target.closest('tr');
+    //         const codigo = row.children[0].textContent;
+    //         const nombre = row.children[1].textContent;
+    //         console.log(nombre);
+    //         console.log(codigo);
+    //         const cedula = row.children[2].textContent;
+    //         const direccion = row.children[3].textContent;
+    //         const edad = row.children[4].textContent;
+            
+    //         mostrarFormularioEdicion(codigo);
+    //     }
+    // });
+
+    window.mostrarFormularioEdicion = function(codigo) {
+        const cliente = clientesData.find(cliente => cliente.codigo === codigo);
+        // const cod = clientesData.find(cod=> cod.codigo === codigo); 
+        console.log(cliente);
+        document.querySelector('.campo:nth-child(1) input').value = cliente.nombre;
+        document.querySelector('.campo:nth-child(2) input').value = cliente.cedula;
+        document.querySelector('.campo:nth-child(3) input').value = cliente.direccion;
+        document.querySelector('.campo:nth-child(4) input').value = cliente.edad;
+
+        // const tableBody = document.querySelector('.body__table');
+        // document.getElementById('valornumber').value = cliente.valor;
+        // const nuevoNombre = prompt('Editar Nombre:', nombre);
+        // const nuevaCedula = prompt('Editar Cédula:', cedula);
+        // const nuevaDireccion = prompt('Editar Dirección:', direccion);
+        // const nuevaEdad = prompt('Editar Edad:', edad);
+
+
+
+        // Actualizar los datos en el array
+        // const index = clientesData.findIndex(cliente => cliente.codigo === parseInt(codigo));
+        // if (index !== -1) {
+        //     clientesData[index].nombre = nuevoNombre;
+        //     clientesData[index].cedula = nuevaCedula;
+        //     clientesData[index].direccion = nuevaDireccion;
+        //     clientesData[index].edad = nuevaEdad;
+        // }
+        let btnguardarcamb= document.getElementById('btnGuardar');
+
+        btnguardarcamb.onclick=function(){
+
+        cliente.nombre = document.querySelector('.campo:nth-child(1) input').value;
+        cliente.cedula = document.querySelector('.campo:nth-child(2) input').value;
+        cliente.direccion = document.querySelector('.campo:nth-child(3) input').value;
+        cliente.edad = document.querySelector('.campo:nth-child(4) input').value;
+        
+        updateTable();
+        showMessage('Se ha modificado la fila correctamente', 'blue');
+        nombreInput.value = "";
+        cedulaInput.value = "";
+        direccionInput.value = "";
+        edadInput.value = "";
+        }
+                // Actualizar la tabla 
+    }
+
+    function showMessage(message, backgroundColor) {
+        const messageContainer = document.createElement('div');
+        messageContainer.classList.add('message-container');
+        messageContainer.style.backgroundColor = backgroundColor;
+        messageContainer.textContent = message;
+        document.body.appendChild(messageContainer);
+        setTimeout(() => {
+            document.body.removeChild(messageContainer);
+        }, 3000);
+    }
+    });
+    
+    </script>
+
 </body>
 </html>
