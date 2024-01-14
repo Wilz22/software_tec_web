@@ -14,7 +14,7 @@
         <header class="dashboard__header">
             <div class="dashboard__header-logo">
                 <div class="logo">
-                    <img class="header__information-logo" src="../../assets/imgs/logo.BN.png"  alt="Logo" />
+                    <img class="header__information-logo" src="../imgs/logo.BN.png"  alt="Logo" />
                 </div>
             </div>
 
@@ -31,7 +31,7 @@
                             <a href="../Contabilidad/tipoCuenta.html" target="_self" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Contabilidad </a>
                         </li>
                         <li class="menu__item menu__item-active">
-                            <a href="./factu_1.html" target="_self" class="activeFac"><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
+                            <a href="./factu_1.html" target="_self" class="active"><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
                         </li>
                         <li class="menu__item">
                             <a href="../CuentasPorCobrar/Cobrador.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Cuentas por cobrar</a>
@@ -108,7 +108,7 @@
                   </div>
                 <div class="dashboard__main-actions">
                     <div class="dashboard__main-actions-buttons">
-                        <button class="action-button" id="filter-button"><span>Filtrar <i class="fa fa-filter" aria-hidden="true"></i></span></button>
+                        <!-- <button class="action-button" id="filter-button"><span>Filtrar<i class="fa fa-filter" aria-hidden="true"></i></span></button>
                             <div class="filter-menu">
                                 <label>Estado</label>
                                 <select aria-label="State">
@@ -124,9 +124,12 @@
                                         Aplicar
                                     </button>
                                 </div>
-                            </div>
+                            </div> -->
                             <button id="agregarCliente" class="add-item action-button">
                                 <span>Agregar Cliente<i class="fa fa-plus" aria-hidden="true"></i></span>
+                            </button>
+                            <button id="eliminar" class="add-item action-button">
+                                <span>Eliminar todo<i class="fa fa-trash" aria-hidden="true"></i></span>
                             </button>
                             
                     </div>
@@ -136,18 +139,18 @@
                     <table id="table" class="table__main">
                         <thead  class="header__table">
                             <tr>
-                                <th class="header__table-element"><button><span>Código</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Cod</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                                 <th class="header__table-element"><button><span>Ruc</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                                 <th class="header__table-element"><button><span>Nombre</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                                 <th class="header__table-element"><button><span>Dirección</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                                 <th class="header__table-element"><button><span>Valor</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th class="header__table-element"><button><span>Estado</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th class="header__table-element"><i class="fa fa-cog" aria-hidden="true"></i></th>
+                                <th class="header__table-element"><i class="fa fa-trash" aria-hidden="true"></i></th>
+                                <th class="header__table-element"><i class="fa fa-pencil-alt" aria-hidden="true"></i></th>
                                 
                             </tr>
                         </thead>
                         <tbody class="body__table"></tbody>
-
+                    </table>       
                        
             </div>
         </div>

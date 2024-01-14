@@ -6,7 +6,7 @@
     <title>Cuentas por cobrar</title>
     <link rel="stylesheet" href="./css/cxc.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script defer src="./js/app.js" ></script>
+    <script defer src="./js/jscxc.js" ></script>
 </head>
 <body>
     <div class="dashboard">
@@ -62,13 +62,13 @@
                             <a href="./FormaPago.html"><i class="fa fa-list-ul" aria-hidden="true"></i> Forma de pago</a>
                         </li>
                         <li class="navigation__item">
-                            <a href="./comprobanteContable.html"><i class="fa fa-book" aria-hidden="true"></i> Cabecera de facturas</a>
+                            <a href="./CabeceraDeFacturas.html"><i class="fa fa-book" aria-hidden="true"></i> Cabecera de Facturas</a>
                         </li>
                         <li class="navigation__item">
-                            <a href="./BalanceComprobacion.html"><i class="fa fa-university" aria-hidden="true"></i> Estado de cuenta por factura</a>
+                            <a href="./EstadoCuenta.html"><i class="fa fa-university" aria-hidden="true"></i> Estado de Cuenta por factura</a>
                         </li>
                         <li class="navigation__item">
-                            <a href="./EstadoResultado.html"><i class="fa fa-calculator" aria-hidden="true"></i> valores recaudados por cobrar</a>
+                            <a href="./ValoresRecaudados.html"><i class="fa fa-calculator" aria-hidden="true"></i> Valores recaudados por cobrador</a>
                         </li>
                     </ul>
                 </nav>
@@ -85,7 +85,7 @@
                     </div>
                     
                     <div class="campo">
-                        <input type="text" required>
+                        <input type="number" required>
                       <label for="Cédula">Cédula</label>
                     </div>
                     
@@ -93,65 +93,170 @@
                         <input type="text" required>
                       <label for="direccion">Dirección</label>
                     </div>
+                    
+
+                  <div class="campo">
+                        <input type="number" required id="valorNumerico" name="valorNumerico" /> 
+                        <label for ="Edad">Edad</label>
+                    </div>  
+
+
+                    <div class="cont">
+                        <input type="text" placeholder="Buscar">
+                        <div class = "btn">
+                            <i class="fa fa-search"></i>
+                        </div>    
+                      </div>
+
+                </div>
                        <h2 class="neon"> GESTIÓN DE DATOS </h2>
                     <div class="GESTIÓN">
-
-                        <!--<button class="Insertar Insertar-1">
-                            <input type="submit" value= "Insertar" style="background: transparent; color: #fff;">
-                         </div>-->
-                         
-                        <button class="Insertar Insertar-1" id="btnInsertar">Insertar </button>
-                        <button class="Eliminar Eliminar-1" id="btnEliminar">Eliminar</button>
-                        <button class="Modificar Modificar-1" id="btnModificar">Modificar</button>
-                        <button class="Guardar Guardar-1" id="btnGuardar">Guardar</button>
-                        <!--<button class="Buscar Buscar-1" id="btnBuscar">Buscar</button>-->
-                        <!--<div class="Insertar">
-                            <input type="submit" value= "    Insertar    " style="background: transparent; color: #fff;">
-                         </div>
-                        <div class="Eliminar">
-                            <input type="submit" value= "Eliminar">
-                         </div>
-                        <div class="Modificar">
-                            <input type="submit" value= "Modificar">
-                         </div>
-                        <div class="Guardar">
-                            <input type="submit" value= "Guardar">
-                         </div>
-                        <div class="Buscar">
-                            <input type="submit" value= "Buscar">
-                         </div>-->
+                        <button class="Insertar Insertar-1" id="btnInsertar" onclick="validarInsertar()">Insertar </button>
+                        <button class="Eliminar Eliminar-1" id="btnEliminar" onclick="validarEliminar()">Eliminar</button>
+                      <!--  <button class="Modificar Modificar-1" id="btnModificar" onclick="validarModificar()">Modificar</button> -->
+                        <button class="Guardar Guardar-1" id="btnGuardar" onclick="guardarCambios()">Guardar</button>    
                   </div>
 
-                  <div class="cont">
-                    <input type="text" placeholder="Buscar">
-                    <div class = "btn">
-                        <i class="fa fa-search"></i>
-                    </div>    
-                  </div>
-
+                  <table id="table" class="table__main">
+                    <thead  class="header__table">
+                        <tr>
+                            <th class="header__table-element"><button><span>Cod</span><i class="" aria-hidden="true"></i></button></th>
+                            <th class="header__table-element"><button><span>Nombre</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table-element"><button><span>Cédula</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table-element"><button><span>Dirección</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table-element"><button><span>Edad</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table-element"><button><span></span><i class="fa fa-pencil" aria-hidden="true"></i></button></th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody class="body__table"></tbody>
+                  
             </div>
         </div>
     </div>
+    
     <script>
-        document.getElementById('btnInsertar').onclick = function() {
-            alert('Se insertó la información');
-        };
+        document.addEventListener('DOMContentLoaded', function () {
+            const insertarClienteBtn = document.getElementById('btnInsertar');
+            const nombreInput = document.querySelector('.campo:nth-child(1) input');
+            const cedulaInput = document.querySelector('.campo:nth-child(2) input');
+            const direccionInput = document.querySelector('.campo:nth-child(3) input');
+            const edadInput = document.querySelector('.campo:nth-child(4) input');
+            const tableBody = document.querySelector('.body__table');
     
-        document.getElementById('btnEliminar').onclick = function() {
-            alert('Se eliminó la información');
-        };
+            // Cargar los datos desde localStorage al inicio
+            let clientesData = cargarClientesDesdeLocalStorage();
+            updateTable();
     
-        document.getElementById('btnModificar').onclick = function() {
-            alert('Se modificó la información');
-        };
+            insertarClienteBtn.addEventListener('click', function () {
+                const nombre = nombreInput.value;
+                const cedula = cedulaInput.value;
+                const direccion = direccionInput.value;
+                const edad = edadInput.value;
     
-        document.getElementById('btnGuardar').onclick = function() {
-            alert('Se guardó la información');
-        };
+                // Validaciones
+                if (nombre.length > 20 || cedula.length !== 10 || direccion.length > 30 || edad < 1 || edad >= 65) {
+                    showMessage('Error en la validación de los campos.', 'red');
+                    return;
+                }
     
-        document.getElementById('btnBuscar').onclick = function() {
-            alert('Se buscó correctamente');
-        };
+                const cliente = {
+                    codigo: clientesData.length + 1,
+                    nombre: nombre,
+                    cedula: cedula,
+                    direccion: direccion,
+                    edad: edad,
+                    conf: 'Modificar'
+                };
+    
+                clientesData.push(cliente);
+                guardarClientesEnLocalStorage(clientesData);
+                updateTable();
+                showMessage('Se ha insertado correctamente el Cliente', 'green');
+                nombreInput.value = "";
+                cedulaInput.value = "";
+                direccionInput.value = "";
+                edadInput.value = "";
+            });
+    
+            const eliminarBtn = document.getElementById('btnEliminar');
+            eliminarBtn.addEventListener('click', function () {
+                eliminarPrimeraFila();
+            });
+    
+            function eliminarPrimeraFila() {
+                if (clientesData.length > 0) {
+                    clientesData.shift();
+                    guardarClientesEnLocalStorage(clientesData);
+                    updateTable();
+                    showMessage('Se ha eliminado la primera fila correctamente', 'green');
+                } else {
+                    showMessage('No hay filas para eliminar', 'red');
+                }
+            }
+    
+            window.mostrarFormularioEdicion = function (codigo) {
+                const cliente = clientesData.find(cliente => cliente.codigo === codigo);
+                document.querySelector('.campo:nth-child(1) input').value = cliente.nombre;
+                document.querySelector('.campo:nth-child(2) input').value = cliente.cedula;
+                document.querySelector('.campo:nth-child(3) input').value = cliente.direccion;
+                document.querySelector('.campo:nth-child(4) input').value = cliente.edad;
+    
+                let btnguardarcamb = document.getElementById('btnGuardar');
+                btnguardarcamb.onclick = function () {
+                    cliente.nombre = document.querySelector('.campo:nth-child(1) input').value;
+                    cliente.cedula = document.querySelector('.campo:nth-child(2) input').value;
+                    cliente.direccion = document.querySelector('.campo:nth-child(3) input').value;
+                    cliente.edad = document.querySelector('.campo:nth-child(4) input').value;
+    
+                    guardarClientesEnLocalStorage(clientesData);
+                    updateTable();
+                    showMessage('Se ha modificado la fila correctamente', 'blue');
+                    nombreInput.value = "";
+                    cedulaInput.value = "";
+                    direccionInput.value = "";
+                    edadInput.value = "";
+                };
+            }
+    
+            function updateTable() {
+                tableBody.innerHTML = '';
+                clientesData.forEach(function (cliente) {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${cliente.codigo}</td>
+                        <td>${cliente.nombre}</td>
+                        <td>${cliente.cedula}</td>
+                        <td>${cliente.direccion}</td>
+                        <td>${cliente.edad}</td>
+                        <td class="element__modifier">
+                            <button class="botonMod botonMod-active" onclick="mostrarFormularioEdicion(${cliente.codigo})">${cliente.conf}</button>
+                        </td>
+                    `;
+                    tableBody.appendChild(row);
+                });
+            }
+    
+            function showMessage(message, backgroundColor) {
+                const messageContainer = document.createElement('div');
+                messageContainer.classList.add('message-container');
+                messageContainer.style.backgroundColor = backgroundColor;
+                messageContainer.textContent = message;
+                document.body.appendChild(messageContainer);
+                setTimeout(() => {
+                    document.body.removeChild(messageContainer);
+                }, 3000);
+            }
+    
+            function cargarClientesDesdeLocalStorage() {
+                return JSON.parse(localStorage.getItem('clientesData')) || [];
+            }
+    
+            function guardarClientesEnLocalStorage(clientes) {
+                localStorage.setItem('clientesData', JSON.stringify(clientes));
+            }
+        });
     </script>
+
 </body>
 </html>
