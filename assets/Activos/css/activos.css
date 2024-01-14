@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
-    --c-blue-950: #1f244c;
+    --c-blue-950: #3e4cb9;
     --c-blue-900: #2b377d;
     --c-blue-800: #303f9d;
     --c-blue-700: #344ac1;
@@ -19,7 +19,7 @@
     --c-gray-400: #94a3b8;
     --c-green-500: #2DCD7A;
     --c-red-600: #d7232f;
-    --c-text-primary: var(--c-blue-100);
+    --c-text-primary: var(--c-white-100);
     --c-text-secondary: var(--c-blue-200);
     --c-text-tertiary: var(--c-blue-500);
 }
@@ -223,8 +223,8 @@ button:focus {
 .menu__item:focus {
     color: var(--c-text-primary);
     border-color: var(--c-text-primary);
+
 }
-/*container*/
 .dashboard__body-main{
     padding: 0px 5px;
     overflow: auto;
@@ -441,4 +441,221 @@ button:focus {
     width: 100%;
     display: flex;
     justify-content: flex-end;
+}
+.Buscador{
+
+display: flex;
+justify-content: flex-end;
+}
+.acciones button {
+    COLOR: #fff;
+    padding: 10px 20px; 
+    margin: 5px; 
+    cursor: pointer; 
+    border: none; 
+    border-radius: 15px;
+}
+.acciones button {
+    
+    color: white;
+    padding: 10px 20px; 
+    margin: 5px; 
+    cursor: pointer; 
+    border: none; 
+    border-radius: 5px; 
+}
+
+.Bonites {
+    text-align: center; 
+    margin-top: 20px; 
+}
+
+.Opcionesa {
+    padding: 20px; 
+    border-radius: 10px;
+    color: #fff;
+    font-size: 12px; 
+
+    .Bonites {
+        text-align: rigt; /* Centra el texto dentro de .Bonites */
+    }
+    
+    .Opcionesa {
+        margin: 0 auto; /* Centra el contenido de .Opcionesa */
+    }
+    
+    .acciones {
+        display: flex;
+        justify-content: center; /* Centra los botones dentro de .acciones */
+    }
+    
+    /* Asegúrate de que el estilo anterior se aplique solo a la parte necesaria del HTML,
+       ya que podría haber otras secciones con clases similares en tu proyecto. */
+    
+}
+
+.Bonites {
+    text-align: center; 
+    margin-top: 20px; 
+}
+
+.Opcionesa {
+    padding: 20px;
+    border-radius: 10px; 
+    
+}
+.campo{
+    position: relative;
+    margin: 60px 0;
+    display:flex;
+}
+
+.campo label{
+    font-family: 'Times New Roman';
+    position: absolute;
+    top: -78%;
+    left: 15px;
+    font-size: 20px;
+    color: #fff;
+    padding: 0 5px;
+    pointer-events: none;
+
+}
+
+.campo input{
+    width: 340px;
+    height: 42px;
+    font-size: 15px;
+    color: black;
+    padding: 0 10px;
+    background: #fff;
+    border: 2.3px solid black;
+    outline: none;
+    border-radius: 25px;
+}
+.dashboard__main-header {
+    color: #ffffff; 
+    padding: 5px; 
+    text-align: center; 
+}
+
+.dashboard__main-header h1 {
+    font-family: 'ARIAL  MT', sans-serif; 
+}
+
+
+
+
+
+.acciones button {
+    background-color: #d45686; 
+    color: #ffffff; 
+    padding: 10px 20px; 
+    margin:  5px; 
+    border: none; 
+    cursor: pointer;
+    border-radius: 200px;
+    text-align: center;
+}
+
+.acciones button:hover {
+    background-color: #9915aa;
+    text-align: center;
+}
+
+
+.campo select {
+    background-color: #fff; 
+    color: #fff;
+    padding: 4%; 
+    border: 1px solid #fff;
+    border-radius: px; 
+    width: 100%; 
+    font-size: 14px;
+}
+
+.campo select option {
+    background-color: #fff; 
+    color: black ;
+    padding: px; 
+    font-size: 16px; 
+}
+
+.campo label {
+    color: #fff; 
+    font-size: px; 
+}
+
+.campo select {
+    background-color: #fff;
+    color: black;
+    padding: 8px;
+    border: 1px solid #fff; 
+    border-radius: 40px;
+    width: 100%; 
+    font-size: 15px; 
+}
+
+.campo select option {
+    background-color: #fff; 
+    color: black; 
+    padding: 6px; 
+    font-size: 16px; 
+}
+.cont{
+    position: absolute;
+    left: 85%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+    padding: 16px;
+}
+
+input {
+    outline: none;
+    box-sizing: border-box;
+    height: 40px;
+    width: 0;
+    padding: 0 20px;
+    color: #000;
+    border-radius: 40px;
+    font-size: 20px;
+    border: 1px solid #61a6ea;
+    transition: all .7s ease;
+}
+
+::placeholder{
+    color: grey;
+}
+
+.btn{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80px;
+    height: 80px;
+    background: #61a6ea;
+    line-height: 80px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.btn i {
+    font-size: 25px;
+    color: white;
+    line-height: 80px;
+    transition: all .7s ease;
+}
+
+.cont:hover input {
+    width: 350px;
+}
+
+.cont:hover i{
+    transform: rotate(-360deg);
+}
+
+.btn:hover{
+    background: #61a6ea;
 }
