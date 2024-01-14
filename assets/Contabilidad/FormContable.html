@@ -6,7 +6,7 @@
     <title>Contabilidad</title>
     <link rel="stylesheet" href="./css/contabilidad.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script defer src="./js/app.js" ></script>
+    <script defer src="./js/comprobante.js" ></script>
 </head>
 <body>
     <div class="dashboard">
@@ -93,7 +93,7 @@
                                         <span>Fecha</span><i class="fa fa-asterisk" aria-hidden="true"></i>
                                     </div>
                                     <div class="input__group-bar">
-                                        <input type="date" class="input-bar">
+                                        <input type="date" id="input-date" class="input-bar">
                                     </div>
                                 </div>
                                 <div class="input-group">
@@ -101,7 +101,7 @@
                                         <span>Numeración</span><i class="fa fa-asterisk" aria-hidden="true"></i>
                                     </div>
                                     <div class="input__group-bar">
-                                        <input type="text" class="input-bar" placeholder="Ajuste contable">
+                                        <input type="text" id="input-number" class="input-bar" placeholder="Ajuste contable">
                                     </div>
                                 </div>
                             </div>
@@ -111,7 +111,7 @@
                                         <span>Tipo de comprobante contable</span><i class="fa fa-asterisk" aria-hidden="true"></i>
                                     </div>
                                     <div class="input__group-bar">
-                                        <input type="text" class="input-bar"> <!-- Select -->
+                                        <input type="text" id="input-type-voucher" class="input-bar"> <!-- Select -->
                                     </div>
                                 </div>
                                 <div class="input-group">
@@ -119,7 +119,7 @@
                                         <span>Codigo</span>
                                     </div>
                                     <div class="input__group-bar">
-                                        <input type="text" class="input-bar input-disable" value="Codigo" disabled>
+                                        <input type="text" id="input-cod-voucher" class="input-bar input-disable" value="Codigo" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -128,10 +128,13 @@
                                     <span>Observaciones</span>
                                 </div>
                                 <div class="form__textarea">
-                                    <textarea name="" id=""></textarea>
+                                    <textarea name="" id="textarea-observations"></textarea>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="modal__alert">
+                        <p class="alert"></p>
                     </div>
                     <div class="voucher__main">
                         <div class="voucher__title">
@@ -151,53 +154,41 @@
                                     </tr>
                                 </thead>
                                 <tbody class="body__table-voucher">
-                                    <tr>
-                                        <td> 1 </td>
-                                        <td>
-                                            <select>
+                                    <tr data-id="156432">
+                                        <td >${tbody.children.length + 1}</td>
+                                        <td class="input-account">
+                                            <select class="select-bar">
                                                 <option>Todos los estados</option>
                                                 <option>Activos</option>
                                                 <option>Inactivos</option>
                                             </select>
                                         </td>
-                                        <td>
-                                            <select>
-                                                <option>Todos los estados</option>
-                                                <option>Activos</option>
-                                                <option>Inactivos</option>
-                                            </select>
-                                        </td>
-                                        <td ><input type="text" class="input-bar"></td>
-                                        <td><input type="text" class="input-bar" placeholder="0"></td>
-                                        <td><input type="text" class="input-bar" placeholder="0"></td>
-                                        <td><button class="btn btn-inactive"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                                        <td><input type="text" class="input-bar input-contact" placeholder="Contacto"></td>
+                                        <td><input type="text" class="input-bar input-description"></td>
+                                        <td><input type="text" class="input-bar input-debit" placeholder="0"></td>
+                                        <td><input type="text" class="input-bar input-credit" placeholder="0"></td>
+                                        <td><button class="btn btn-inactive btn-delete-row"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
                                     </tr>
-                                    <tr>
-                                        <td> 1 </td>
-                                        <td>
-                                            <select>
+                                    <tr data-id="156432">
+                                        <td >${tbody.children.length + 1}</td>
+                                        <td class="input-account">
+                                            <select class="select-bar">
                                                 <option>Todos los estados</option>
                                                 <option>Activos</option>
                                                 <option>Inactivos</option>
                                             </select>
                                         </td>
-                                        <td>
-                                            <select>
-                                                <option>Todos los estados</option>
-                                                <option>Activos</option>
-                                                <option>Inactivos</option>
-                                            </select>
-                                        </td>
-                                        <td ><input type="text" class="input-bar"></td>
-                                        <td><input type="text" class="input-bar" placeholder="0"></td>
-                                        <td><input type="text" class="input-bar" placeholder="0"></td>
-                                        <td><button class="btn btn-inactive"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="7" class="add-row"><a href=""><span><i class="fa fa-plus" aria-hidden="true"></i> Agregar fila</span></a></td>
+                                        <td><input type="text" class="input-bar input-contact" placeholder="Contacto"></td>
+                                        <td><input type="text" class="input-bar input-description"></td>
+                                        <td><input type="text" class="input-bar input-debit" placeholder="0"></td>
+                                        <td><input type="text" class="input-bar input-credit" placeholder="0"></td>
+                                        <td><button class="btn btn-inactive btn-delete-row"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
                                     </tr>
                                 </tbody>
                                 <tfoot class="footer__row-table">
+                                    <tr>
+                                        <td colspan="7"><a href="#"  id="add-row"><span><i class="fa fa-plus" aria-hidden="true"></i> Agregar fila</span></a></td>
+                                    </tr>
                                     <tr class="tfooter">
                                         <td colspan="3"></td>
                                         <td colspan="1"><span>Total</span></td>
@@ -218,10 +209,12 @@
                 </div>
                 <div class="dashboard__body-footer">
                     <p>Los campos marcados con * son obligatorios</p>
-                    <div class="btn-voucher">
-                        <a href="./comprobanteContable.html"> <button class="add-item action-button"><span>Cancelar <i class="fa fa-ban" aria-hidden="true"></i></span></button> </a>
-                        <button class="add-item action-button"><span>Guardar y crear otro <i class="fa fa-file-text" aria-hidden="true"></i></span></button>
-                        <button class="add-item action-button"><span>Guardar <i class="fa fa-bookmark" aria-hidden="true"></i></span></button>
+                    <div class="">
+                        <form class="save-voucher btn-voucher">
+                            <a href="./comprobanteContable.html"> <button class="add-item action-button"><span>Cancelar <i class="fa fa-ban" aria-hidden="true"></i></span></button> </a>
+                            <!-- <button class="add-item action-button submit-btn"><span>Guardar y crear otro <i class="fa fa-file-text" aria-hidden="true"></i></span></button> -->
+                            <button class="add-item action-button submit-btn"><span>Guardar <i class="fa fa-bookmark" aria-hidden="true"></i></span></button>
+                        </form>
                     </div>
                 </div>
             </div>
