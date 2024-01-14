@@ -60,19 +60,19 @@
                             <a href="./TipoDeActivo.html"><i class="fa fa-file-text" aria-hidden="true"></i> Tipo de Activo </a>
                         </li>
                         <li class="navigation__item">
-                            <a href="./cuenta.html"><i class="fa fa-list-ul" aria-hidden="true"></i> Activo </a>
+                            <a href="./activos_1.html"><i class="fa fa-list-ul" aria-hidden="true"></i> Activo </a>
                         </li>
                         <li class="navigation__item">
-                            <a href="./comprobanteContable.html"><i class="fa fa-book" aria-hidden="true"></i> Cabecera de depreciación </a>
+                            <a href="./cabeceraDeDepreciación.html"><i class="fa fa-book" aria-hidden="true"></i> Cabecera de depreciación </a>
                         </li>
                         <!-- <li class="navigation__item">
                             <a href="./libroDiario.html"><i class="fa fa-book" aria-hidden="true"></i> Libro diario</a>
                         </li> -->
                         <li class="navigation__item">
-                            <a href="./BalanceComprobacion.html"><i class="fa fa-university" aria-hidden="true"></i> Reporte de Valores </a>
+                            <a href="./reporteDeValores.html"><i class="fa fa-university" aria-hidden="true"></i> Reporte de Valores </a>
                         </li>
                         <li class="navigation__item">
-                            <a href="./EstadoResultado.html"><i class="fa fa-calculator" aria-hidden="true"></i> Reporte Cruzado </a>
+                            <a href="./reporteCruzado.html"><i class="fa fa-calculator" aria-hidden="true"></i> Reporte Cruzado </a>
                         </li>
                     </ul>
                 </nav>
@@ -80,78 +80,87 @@
             </div>
             <div class="dashboard__body-main">
                 <div class="dashboard__main-header">
-                    <h1>Tipo de cuentas</h1>
+                    <h1>Tipo de Activo</h1> 
                 </div>
-                <div class="dashboard__main-actions">
-                    <div class="dashboard__main-actions-buttons">
-                        <button class="action-button" id="filter-button"><span>Filtrar <i class="fa fa-filter" aria-hidden="true"></i></span></button>
-                            <div class="filter-menu">
-                                <label>Estado</label>
-                                <select aria-label="State">
-                                    <option>Todos los estados</option>
-                                    <option>Activos</option>
-                                    <option>Inactivos</option>
-                                </select>
-                                <div class="filter-menu-buttons">
-                                    <button class="btn btn-reset">
-                                        limpiar
-                                    </button>
-                                    <button class="btn btn-apply">
-                                        Aplicar
-                                    </button>
-                                </div>
-                            </div>
-                        <button class="add-item action-button"><span>Agregar cuenta <i class="fa fa-plus" aria-hidden="true"></i></span></button> 
+                <div class="cont">
+                    <input type="text" placeholder="Buscar">
+                    <div class = "btn">
+                        <i class="fa fa-search"></i>
+                    </div>    
+                  </div>
+                
+                <div class="contenedor">
+                    <!-- Campo 1: Nombre -->
+                    <div class="campo">
+                     <input type="text" id="Nombre" class="caja-input">
+                      <label for="Nombre">Nombre Activo</label>
+                      
                     </div>
-                    <input type="text" class="search-bar" placeholder="Buscar">
-                </div>
-                <div class="dashboard__main-table">
-                    <table id="table" class="table__main">
-                        <thead  class="header__table">
-                            <tr>
-                                <th class="header__table-element"><button><span>Código </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th class="header__table-element"><button><span>Nombre </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th class="header__table-element"><button><span>Estado </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th class="header__table-element"><button><span>Descripción </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th class="header__table-element"><i class="fa fa-cog" aria-hidden="true"></i></th>
-                            </tr>
-                        </thead>
-                        <tbody class="body__table">
-                            <tr>
-                                <td> 1 </td>
-                                <td>Activos Corrientes</td>
-                                <td class="element__modifier"><button class="btn btn-active">Activo</button></td>
-                                <td class="element__modifier"><span>Descripcion</span></td>
-                                <td><button aria-label="Name" class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td> 1 </td>
-                                <td>Activos Corrientes</td>
-                                <td class="element__modifier"><button class="btn btn-inactive">Inactivo</button></td>
-                                <td class="element__modifier"><span>Descripcion</span></td>
-                                <td><button aria-label="Name" class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td> 1 </td>
-                                <td>Activos Corrientes</td>
-                                <td class="element__modifier"><button class="btn btn-active">Activo</button></td>
-                                <td class="element__modifier"><span>Descripcion</span></td>
-                                <td><button aria-label="Name" class="btn"><i class="fa fa-ellipsis-h" aria-hidden="true"></i></button></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="footer__table">
-                    <div class="footer__table-container">
-                        <button aria-label="Name" class="btn footer__table-btn-preview"><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-                        <button class="btn page-btn-active">1</button>
-                        <button class="btn">2</button>
-                        <button class="btn">3</button>
-                        <button class="btn">4</button>
-                        <button  aria-label="Name" class="btn footer__table-btn-next"><i class="fa fa-arrow-right" aria-hidden="true"></i></button>
+                    
+                    <!-- Campo 2: Tipo Activo con Menú de Opciones -->
+                     <div class="campo">
+                     <label for="TipoActivo">Tipo de Activo</label>
+                     <select id="TipoActivo" class="caja-input">
+                    <option value="tipo1"></option>
+                      <option value="tipo1">Circulantes</option>
+                      <option value="tipo1">Fijos</option>
+                      <option value="tipo1">Intangibles</option>
+                      <option value="tipo1">Financieros</option>
+                     <option value="tipo2">Diferidos</option>
+                     <!-- Agrega más opciones según sea necesario -->
+                     </select>
                     </div>
+
+                     <!-- Campo 3: Código Activo con Menú de Opciones -->
+                    <div class="campo">
+                     <label for="CodigoActivo">Código Activo</label>
+                     <select id="CodigoActivo" class="caja-input">
+                    <option value="codigo1"></option>
+                     <option value="codigo1"> #C25263 </option>
+                     <option value="codigo1"> #F25263 </option>
+                     <option value="codigo1"> #I25263 </option>
+                      <option value="codigo2">#F39409</option>
+                       <option value="codigo3">#D40595 </option>
+                    
+                        </select>
+                    </div>
+
+                    </div>
+    <script>
+        function insertar() {
+            alert("Insertar opción seleccionada");
+        }
+
+        function eliminar() {
+            alert("Eliminar opción seleccionada");
+        }
+
+        function modificar() {
+            alert("Modificar opción seleccionada");
+        }
+
+        function guardar() {
+            alert("Guardar opción seleccionada");
+        }
+
+    </script>
+    <div class="Bonites">
+        <div class="Bonotesss">
+            <div class="Opcionesa">
+                <h1>Opción que desea Realizar</h1>
+                <div class="acciones">
+                    <button onclick="insertar()">Insertar</button>
+                    <button onclick="eliminar()">Eliminar</button>
+                    <button onclick="modificar()">Modificar</button>
+                    <button onclick="guardar()">Guardar</button>
                 </div>
             </div>
+           
+        </div>
+    </div>
+
+            </div>
+
         </div>
     </div>
 </body>
