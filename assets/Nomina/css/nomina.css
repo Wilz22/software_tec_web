@@ -606,7 +606,7 @@ input[type=date]{
 
 .campo{
     position: relative;
-    margin: 10px;
+    margin: 30px;
     display:flex;
 }
 
@@ -641,6 +641,7 @@ input[type=date]{
     background-color: #0f172a;
 
 }
+
 
 
 .motivo{
@@ -887,4 +888,60 @@ button[class=Guardar4] {
     margin-left: 550px;
     margin-block-start: -60px;
 
+}
+
+
+.table__desc{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+
+
+.header__table  th,
+.body__table td,
+
+.footer__row-table td{
+    /* margin-right: auto;
+    text-align: center; */
+    border-bottom: 1px solid var(--c-gray-700);
+    padding: 15px;
+}
+
+/* .header__table-element, */
+
+.body__table td {
+    text-align: center;
+    padding: 15px;
+    /* margin: auto;
+    width: auto; */
+    
+}
+
+.header__table-element button{
+    background-color: transparent;
+    /* text-align: right; */
+    border: 0;
+    color: var(--c-blue-600);
+    cursor: pointer;
+    /* width: auto;
+    height: auto; */
+}
+/* .header__table-element{
+    color: var(--c-blue-600);  
+} */
+.header__table-element i{
+    margin-left: 15px;
+}
+
+.message-container {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    background-color: #ff6961; /* rojo claro */
+    color: white;
+    border-radius: 8px;
 }
