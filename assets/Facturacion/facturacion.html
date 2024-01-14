@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facturacion</title>
+    <link rel="stylesheet" href="./css/factu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script defer src="./js/facturacion.js" ></script>
+</head>
+<body>
+    <div class="dashboard">
+        <header class="dashboard__header">
+            <div class="dashboard__header-logo">
+                <div class="logo">
+                    <img class="header__information-logo" src="../imgs/logo.BN.png"  alt="Logo" />
+                </div>
+            </div>
+
+            <div class="dashboard__header-menu">
+                <nav class="menu">
+                    <ul>
+                        <li class="menu__item">
+                            <a href="../Nomina/NominaIngresoEgreso.html" target="_self" ><i class="fa fa-home" aria-hidden="true"></i> Nomina</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="../Activos/activos_1.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Activos</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="../Contabilidad/tipoCuenta.html" target="_self" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Contabilidad </a>
+                        </li>
+                        <li class="menu__item menu__item-active">
+                            <a href="./factu_1.html" target="_self" class="active"><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="../CuentasPorCobrar/Cobrador.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Cuentas por cobrar</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="dashboard__header-information">
+                <button class="user__profile">
+                    <div class="user__profile-name">
+                        <span>Santiago Llumiquinga</span>
+                        <span>Admin</span>
+                    </div>
+                    <img src="../imgs/iconuser.png" alt="User"/>
+                </button>
+            </div>
+        </header>
+
+
+        <div class="dashboard__body">
+            <div class="dashboard__body-navigaation">
+                <nav class="navigation">
+                    <ul>
+                        <li class="navigation__item">
+                            <a href="./factu_1.html"><i class="fa fa-file-text" aria-hidden="true"></i>Clientes</a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="./ciudad_entrega.html"><i class="fa fa-list-ul" aria-hidden="true"></i>Ciudad Entrega</a>
+                        </li>
+                        <li class="navigation__item navigation__item-active">
+                            <a href="./facturacion.html"><i class="fa fa-book" aria-hidden="true"></i>Facturación</a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="./BalanceComprobacion.html"><i class="fa fa-university" aria-hidden="true"></i>Ventas|Ciudad</a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="./EstadoResultado.html"><i class="fa fa-calculator" aria-hidden="true"></i>Reportes</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+            <div class="dashboard__body-main">
+                <div class="dashboard__main-header"  style="display: flex; justify-content: space-between;">
+                    <h1>Detalle Factura</h1>
+                    <h1 style="font-size: 1.05rem;">Numero Factura: 00001</h1>                        
+                </div>
+                
+                <div class="voucher__document-form">
+                    <div class="document__form-group">
+                        <div class="input-group">
+                            <div class="input__group-label">
+                                <span>Ruc</span><i class="fa fa-asterisk" aria-hidden="true"></i>
+                            </div>
+                            <div class="input__group-bar">
+                                <input id="ruc" type="text" class="input-bar"> 
+                            </div>
+                        </div>
+                        
+                        <div class="input-group">
+                            <div class="input__group-label">
+                                <span>Ciudad Entrega</span><i class="fa fa-asterisk" aria-hidden="true"></i>
+                            </div>
+                            <div class="input__group-bar">
+                                <select id="ciudadesList" class="input-bar" required>
+                                </select>
+                            </div>
+                        </div>
+                    </div>           
+                    <div class="document__form-group">
+                        <div class="input-group">
+                            <div class="input__group-label">
+                                <span>Nombres</span><i class="fa fa-asterisk" aria-hidden="true"></i>
+                            </div>
+                            <div class="input__group-bar">
+                                <input id="nombres" type="text" class="input-bar">
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <div class="input__group-label">
+                                <span>Dirección</span>
+                            </div>
+                            <div class="input__group-bar">
+                                <input id="direccion" type="text" class="input-bar">
+                            </div>
+                        </div>
+                    </div>   
+                    <div class="document__form-group">
+
+                        <div class="input-group">
+                            <div class="input__group-label">
+                                <span>Fecha</span><i class="fa fa-asterisk" aria-hidden="true"></i>
+                            </div>
+                            <div class="input__group-bar">
+                                <input type="date" class="input-bar" id="fechaInput">                              
+                            </div>
+                        </div>
+                    
+               
+                        <div class="input-group" id="codigoDiv" style="display: none;">
+                            <div class="input__group-label">
+                                <span>Saldo Disponible</span>
+                            </div>
+                            <div class="input__group-bar">
+                                <input id= "saldo" type="text" class="input-bar">
+                            </div>
+                        </div>
+                     
+                        <div class="input-group">
+                            <div class="input__group-bar">
+                                <input type="checkbox" id="mostrarCodigo" onchange="toggleCodigoDiv()">
+                                <label for="mostrarCodigo">Mostrar Saldo</label>
+                            </div>
+                        </div>
+                    </div> 
+                </div><br>
+                <div class="dashboard__main-header">
+                    <h1>Ciudad Entrega</h1>
+                </div>
+                <div class="dashboard__main-actions">
+                    <div class="dashboard__main-actions-buttons">
+
+                        <input type="text" class="search-bar" placeholder="Buscar">    
+                        <button id="agregarCliente" class="add-item action-button">
+                            <span>Agregar Factura<i class="fa fa-plus" aria-hidden="true"></i></span>
+                        </button>
+                            
+                            
+                    </div>
+                   
+                </div>
+                <div class="dashboard__main-table">
+                    <table id="table" class="table__main">
+                        <thead  class="header__table">
+                            <tr>
+                                <th class="header__table-element"><button><span>Fecha</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Ruc</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Nombres</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Dirección</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Ciudad Entrega</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                
+                                <th class="header__table-element"><i class="fa fa-cog" aria-hidden="true"></i></th>
+                                <th class="header__table-element"><i class="fa fa-pencil-alt" aria-hidden="true"></i></th>
+
+                            </tr>
+                        </thead>
+                        <tbody class="body__table"></tbody>
+                    </table>                   
+                </div><br><br><br>
+                <div class="dashboard__main-header">
+                    <h1>Ciudad Entrega</h1>
+                </div>   
+
+
+            
+                <div class="dashboard__main-table">
+                    <table id="table" class="table__main">
+                        <thead  class="header__table">
+                            <tr>
+                                <th class="header__table-element"><button><span>Cantidad</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Descripcción</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Precio Unitario</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Total</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                
+                                <th class="header__table-element"><i class="fa fa-cog" aria-hidden="true"></i></th>
+                                <th class="header__table-element"><i class="fa fa-pencil-alt" aria-hidden="true"></i></th>
+
+                            </tr>
+                        </thead>
+                        <tbody class="body__table"></tbody>
+                    </table>       
+                </div>
+        </div>
+    </div>
+</body>
+
+</html>

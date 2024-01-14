@@ -1,17 +1,8 @@
-function limpiarcampos(){  
-    document.getElementById('fechaInput').value = '';
-    document.getElementById('ruc').value = '';
-    document.getElementById('nombres').value = '';
-    document.getElementById('direccion').value = '';
-    document.getElementById('ciudadesList').value = '';
-    document.getElementById('fechaInput').value = '';
-}
-
 document.addEventListener('DOMContentLoaded', function () {
     const agregarClienteBtn = document.getElementById('agregarCliente');
-    // const rucInput = document.querySelector('.campo:nth-child(1) input');
-    // const nombresInput = document.querySelector('.campo:nth-child(2) input');
-    // const direccionInput = document.querySelector('.campo:nth-child(3) input');
+    const rucInput = document.querySelector('.campo:nth-child(1) input');
+    const nombresInput = document.querySelector('.campo:nth-child(2) input');
+    const direccionInput = document.querySelector('.campo:nth-child(3) input');
     const tableBody = document.querySelector('.body__table');
     const clientesData = [];
     const btnfilter= document.getElementById("filter-button")
@@ -22,10 +13,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // }); 
    
     agregarClienteBtn.addEventListener('click', function () {
-        const fecha=document.getElementById('fechaInput').value;
-        const ruc = document.getElementById('ruc').value;
-        const nombres = document.getElementById('nombres').value;
-        const direccion = document.getElementById('direccion').value;
+        const ruc = rucInput.value;
+        const nombres = nombresInput.value;
+        const direccion = direccionInput.value;
         // const valor= valorInput.value;
         const valorInput = document.getElementById('ciudadesList').value;
         const valorNum=valorInput;
@@ -50,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function () {
             // Crear un objeto con los datos del cliente
             const cliente = {
                 codigo: clientesData.length + 1,
-                fecha:fecha,
                 ruc: ruc,
                 nombres: nombres,
                 direccion: direccion,
@@ -65,9 +54,10 @@ document.addEventListener('DOMContentLoaded', function () {
             updateTable();
 
             showMessage('Se ha insertado correctamente el Cliente', 'green');
-            limpiarcampos();
-
-
+            rucInput.value = '';
+            nombresInput.value = '';
+            direccionInput.value = '';
+            document.getElementById('ciudadesList').value = ''; 
         } else {
             alert('Completa todos los campos antes de agregar un cliente.');
         }
@@ -80,7 +70,6 @@ document.addEventListener('DOMContentLoaded', function () {
         clientesData.forEach(function (cliente) {
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td>${cliente.fecha}</td>
                 <td>${cliente.ruc}</td>
                 <td>${cliente.nombres}</td>
                 <td>${cliente.direccion}</td>
@@ -120,11 +109,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const cliente = clientesData.find(cliente => cliente.codigo === codigo);
         //console.log(cliente);
         // Llenar el formulario con los datos del cliente
-
-        document.getElementById('fechaInput').value = cliente.fecha;
-        document.getElementById('ruc').value = cliente.ruc;
-        document.getElementById('nombres').value = cliente.nombres;
-        document.getElementById('direccion').value = cliente.direccion;
+        document.querySelector('.campo:nth-child(1) input').value = cliente.ruc;
+        document.querySelector('.campo:nth-child(2) input').value = cliente.nombres;
+        document.querySelector('.campo:nth-child(3) input').value = cliente.direccion;
         document.getElementById('ciudadesList').value = cliente.valor;
 
         // Actualizar el formulario para reflejar el modo de edición
@@ -149,17 +136,19 @@ document.addEventListener('DOMContentLoaded', function () {
         guardarCambiosBtn.onclick = function () {
         document.getElementById('guardarCambiosBtn').style.display = 'block';
         // Actualizar los datos del cliente en el array
-        cliente.fecha =document.getElementById('fechaInput').value
-        cliente.ruc = document.getElementById('ruc').value
-        cliente.nombres = document.getElementById('nombres').value
-        cliente.direccion =document.getElementById('direccion').value
-        cliente.valor = document.getElementById('ciudadesList').value 
+        cliente.ruc = document.querySelector('.campo:nth-child(1) input').value;
+        cliente.nombres = document.querySelector('.campo:nth-child(2) input').value;
+        cliente.direccion = document.querySelector('.campo:nth-child(3) input').value;
+        cliente.valor = document.getElementById('ciudadesList').value;
 
         // Puedes agregar más lógica de validación según tus necesidades
 
         // Después de la actualización, volver a mostrar el botón de agregar y limpiar el formulario
         document.getElementById('agregarCliente').style.display = 'block';
-        limpiarcampos();
+        document.querySelector('.campo:nth-child(1) input').value = '';
+        document.querySelector('.campo:nth-child(2) input').value = '';
+        document.querySelector('.campo:nth-child(3) input').value = '';
+        document.getElementById('ciudadesList').value = '';
 
         document.getElementById('guardarCambiosBtn').style.display = 'none';
 
