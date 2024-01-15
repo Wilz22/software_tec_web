@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contabilidad</title>
-    <link rel="stylesheet" href="./css/activos.css">
+    <link rel="stylesheet" href="./css/Cabecera.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script defer src="./js/app.js" ></script>
 </head>
@@ -158,11 +158,11 @@
                 
                     <script>
                         var activosDetalle = [
-                            { codigo: 'ACT_001', activo: 'Computadora', numDepreciaciones: 12, valorDepreciacion: 50, valorActual: 950, seleccionado: false, estado: 'No Depreciado', mesDepreciacion: null },
-                            { codigo: 'ACT_002', activo: 'Impresora', numDepreciaciones: 10, valorDepreciacion: 30, valorActual: 70, seleccionado: false, estado: 'No Depreciado', mesDepreciacion: null },
-                            { codigo: 'ACT_003', activo: 'Escritorio', numDepreciaciones: 8, valorDepreciacion: 20, valorActual: 180, seleccionado: false, estado: 'No Depreciado', mesDepreciacion: null },
-                            { codigo: 'ACT_004', activo: 'Silla', numDepreciaciones: 6, valorDepreciacion: 10, valorActual: 60, seleccionado: false, estado: 'No Depreciado', mesDepreciacion: null },
-                            { codigo: 'ACT_005', activo: 'Lámpara', numDepreciaciones: 4, valorDepreciacion: 15, valorActual: 45, seleccionado: false, estado: 'No Depreciado', mesDepreciacion: null },
+                            { codigo: 'Cod_001', activo: 'Automovil', numDepreciaciones: 10, valorDepreciacion: 500, valorActual: 1000, seleccionado: true, estado: 'Depreciado', mesDepreciacion: null },
+                            { codigo: 'Cod_002', activo: 'Casa', numDepreciaciones: 8, valorDepreciacion: 300, valorActual: 200, seleccionado: false, estado: 'No Depreciado', mesDepreciacion: null },
+                            { codigo: 'Cod_003', activo: 'Computadora', numDepreciaciones: 6, valorDepreciacion: 200, valorActual: 450, seleccionado: false, estado: 'No Depreciado', mesDepreciacion: null },
+                            { codigo: 'Cod_004', activo: 'Celular', numDepreciaciones: 24, valorDepreciacion: 100, valorActual: 1200, seleccionado: false, estado: 'No Depreciado', mesDepreciacion: null },
+                            { codigo: 'Cod_005', activo: 'Moto', numDepreciaciones: 20, valorDepreciacion: 150, valorActual: 5000, seleccionado: true, estado: 'Depreciado', mesDepreciacion: null },
                         ];
                 
                         function buscar() {
@@ -277,9 +277,9 @@
                             var responsable = document.getElementById('responsable').value;
                 
                             var informeDepreciacion = [
-                                { codigo: 'ACT_001', activo: 'Computadora', valorInicial: 1000, valorDepreciado: 100, valorActual: 900 },
-                                { codigo: 'ACT_002', activo: 'Impresora', valorInicial: 500, valorDepreciado: 50, valorActual: 450 },
-                                { codigo: 'ACT_003', activo: 'Escritorio', valorInicial: 800, valorDepreciado: 80, valorActual: 720 }
+                                { codigo: 'Cod_001', activo: 'Vehiculo', valorInicial: 15.000, valorDepreciado: 5.000, valorActual: 10.000 },
+                                { codigo: 'Cod_002', activo: 'Casa', valorInicial: 20.000, valorDepreciado: 15.000, valorActual: 5.000 },
+                                { codigo: 'Cod_003', activo: 'Computadora', valorInicial: 1.000, valorDepreciado: 500, valorActual: 500 }
                             ];
                 
                             var informeHTML = construirInformeHTML(numero, fecha, observacion, responsable, informeDepreciacion);
@@ -294,9 +294,9 @@
                 
                             var mesSeleccionado = document.getElementById("mes").value;
                             var informePorMes = [
-                                { codigo: 'ACT_001', activo: 'Computadora', valorDepreciado: 10 },
-                                { codigo: 'ACT_002', activo: 'Impresora', valorDepreciado: 5 },
-                                { codigo: 'ACT_003', activo: 'Escritorio', valorDepreciado: 8 }
+                                { codigo: 'Cod_001', activo: 'Vehiculo', valorDepreciado: 10 },
+                                { codigo: 'Cod_002', activo: 'Casa', valorDepreciado: 5 },
+                                { codigo: 'Cod_003', activo: 'Computadora', valorDepreciado: 8 }
                             ];
                 
                             var informeHTML = construirInformeHTML(numero, fecha, observacion, responsable, informePorMes);
@@ -332,19 +332,7 @@
                             var modal = document.getElementById('miModal');
                             modal.style.display = 'none';
                         }
-                
-                        function imprimirInforme() {
-                            var contenidoInforme = document.getElementById('informeContainer').innerHTML;
-                
-                            var ventanaImpresion = window.open('', '_blank');
-                            ventanaImpresion.document.write('<html><head><title>Informe de Depreciación</title>');
-                            ventanaImpresion.document.write('</head><body>');
-                            ventanaImpresion.document.write(contenidoInforme);
-                            ventanaImpresion.document.write('</body></html>');
-                
-                            ventanaImpresion.document.close(); // Cerrar el documento para finalizar la carga
-                            ventanaImpresion.print();
-                        }
+
                     </script>
                 </body>
                 
