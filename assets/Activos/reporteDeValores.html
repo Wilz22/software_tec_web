@@ -23,11 +23,11 @@
                         <li class="menu__item">
                             <a href="" ><i class="fa fa-home" aria-hidden="true"></i> Nomina</a>
                         </li>
-                        <li class="menu__item">
-                            <a href=""><i class="fa fa-home" aria-hidden="true"></i> Activos</a>
-                        </li>
                         <li class="menu__item menu__item-active">
-                            <a href="" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Contabilidad </a>
+                            <a href="" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Activos </a>
+                        </li>
+                        <li class="menu__item">
+                            <a href=""><i class="fa fa-home" aria-hidden="true"></i> Contabilidad</a>
                         </li>
                         <li class="menu__item">
                             <a href=""><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
@@ -38,11 +38,10 @@
                     </ul>
                 </nav>
             </div>
-
             <div class="dashboard__header-information">
                 <button class="user__profile">
                     <div class="user__profile-name">
-                        <span>Agustin Mites</span>
+                        <span>Johanna Moncayo</span>
                         <span>Admin</span>
                     </div>
                     <img src="../../assets/imgs/iconuser.png" alt="User"/>
@@ -78,9 +77,282 @@
 
             </div>
             <div class="dashboard__body-main">
-                
+                <div class="dashboard__main-header">
+                    <h1> Reporte De Valores </h1>
+                </div>
+                <div class="campo">
+                     <label for="Nombre">Balance General </label>
+            </div>
+           
+                <div class="dashboard__main-actions-buttons">
+                    
+                        <div class="filter-menu">
+                            <label>Estado</label>
+                            <select aria-label="State">
+                                <option>Todos los estados</option>
+                                <option>Activos</option>
+                                <option>Inactivos</option>
+                            </select>
+                            <div class="filter-menu-buttons">
+                                <button class="btn btn-reset">
+                                    limpiar
+                                </button>
+                                <button class="btn btn-apply">
+                                    Aplicar
+                                </button>
+                            </div>
+                        </div>
+                   
+                </div>
+
+            
+            <div class="dashboard__main-table">
+                <table id="table" class="table__main">
+                    <thead  class="header__table">
+                        <tr>
+                            <th class="header__table-element"><button><span>Código </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table-element"><button><span>Nombre </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table-element"><button><span>Estado </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table-element"><button><span>Descripción </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody class="body__table">
+                        <tr>
+                            <td id="cod_account"> 1 </td>
+                            <td id="assets_account">Activos Corrientes</td>
+                            <td id="btn_account" class="element__modifier"><button class="btn btn-active">Activo</button></td>
+                            <td id="description_account" class="element__modifier"><span>Descripcion</span></td>
+
+                        </tr>
+                        <tr>
+                            <td> 1 </td>
+                            <td>Activos Corrientes</td>
+                            <td class="element__modifier"><button class="btn btn-inactive">Inactivo</button></td>
+                            <td class="element__modifier"><span>Descripcion</span></td>
+
+                        </tr>
+                        <tr>
+                            <td> 1 </td>
+                            <td>Activos Corrientes</td>
+                            <td class="element__modifier"><button class="btn btn-active">Activo</button></td>
+                            <td class="element__modifier"><span>Descripcion</span></td>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    <div class="campo">
+         <label for="Nombre">Estado de Resultados </label>
+        </div> 
+    <div class="dashboard__main-actions-buttons">
+        
+            <div class="filter-menu">
+                <label>Estado</label>
+                <select aria-label="State">
+                    <option>Todos los estados</option>
+                    <option>Activos</option>
+                    <option>Inactivos</option>
+                </select>
+                <div class="filter-menu-buttons">
+                    <button class="btn btn-reset">
+                        limpiar
+                    </button>
+                    <button class="btn btn-apply">
+                        Aplicar
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
+
+            
+        <div class="dashboard__main-table">
+            <table id="table" class="table__main">
+                <thead  class="header__table">
+                    <tr>
+                        <th class="header__table-element"><button><span>Código </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                        <th class="header__table-element"><button><span>Nombre </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                        <th class="header__table-element"><button><span>Estado </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                        <th class="header__table-element"><button><span>Descripción </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                        
+                    </tr>
+                </thead>
+                <tbody class="body__table">
+                    <tr>
+                        <td id="cod_account"> 1 </td>
+                        <td id="assets_account">Activos Corrientes</td>
+                        <td id="btn_account" class="element__modifier"><button class="btn btn-active">Activo</button></td>
+                        <td id="description_account" class="element__modifier"><span>Descripcion</span></td>
+
+                    </tr>
+                    <tr>
+                        <td> 1 </td>
+                        <td>Activos Corrientes</td>
+                        <td class="element__modifier"><button class="btn btn-inactive">Inactivo</button></td>
+                        <td class="element__modifier"><span>Descripcion</span></td>
+
+                    </tr>
+                    <tr>
+                        <td> 1 </td>
+                        <td>Activos Corrientes</td>
+                        <td class="element__modifier"><button class="btn btn-active">Activo</button></td>
+                        <td class="element__modifier"><span>Descripcion</span></td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="campo">
+            <label for="Nombre"> Flujo de Efectivo </label>
+           </div> 
+       <div class="dashboard__main-actions-buttons">
+           
+               <div class="filter-menu">
+                   <label>Estado</label>
+                   <select aria-label="State">
+                       <option>Todos los estados</option>
+                       <option>Activos</option>
+                       <option>Inactivos</option>
+                   </select>
+                   <div class="filter-menu-buttons">
+                       <button class="btn btn-reset">
+                           limpiar
+                       </button>
+                       <button class="btn btn-apply">
+                           Aplicar
+                       </button>
+                   </div>
+               </div>
+           </div>
+   
+               
+           <div class="dashboard__main-table">
+               <table id="table" class="table__main">
+                   <thead  class="header__table">
+                       <tr>
+                           <th class="header__table-element"><button><span>Código </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                           <th class="header__table-element"><button><span>Nombre </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                           <th class="header__table-element"><button><span>Estado </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                           <th class="header__table-element"><button><span>Descripción </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                           
+                       </tr>
+                   </thead>
+                   <tbody class="body__table">
+                       <tr>
+                           <td id="cod_account"> 1 </td>
+                           <td id="assets_account">Activos Corrientes</td>
+                           <td id="btn_account" class="element__modifier"><button class="btn btn-active">Activo</button></td>
+                           <td id="description_account" class="element__modifier"><span>Descripcion</span></td>
+   
+                       </tr>
+                       <tr>
+                           <td> 1 </td>
+                           <td>Activos Corrientes</td>
+                           <td class="element__modifier"><button class="btn btn-inactive">Inactivo</button></td>
+                           <td class="element__modifier"><span>Descripcion</span></td>
+   
+                       </tr>
+                       <tr>
+                           <td> 1 </td>
+                           <td>Activos Corrientes</td>
+                           <td class="element__modifier"><button class="btn btn-active">Activo</button></td>
+                           <td class="element__modifier"><span>Descripcion</span></td>
+                           
+                       </tr>
+                   </tbody>
+               </table>
+        </div>
+        <div class="campo">
+            <label for="Nombre"> Notas a los Estados Financieros </label>
+           </div> 
+       <div class="dashboard__main-actions-buttons">
+           
+               <div class="filter-menu">
+                   <label>Estado</label>
+                   <select aria-label="State">
+                       <option>Todos los estados</option>
+                       <option>Activos</option>
+                       <option>Inactivos</option>
+                   </select>
+                   <div class="filter-menu-buttons">
+                       <button class="btn btn-reset">
+                           limpiar
+                       </button>
+                       <button class="btn btn-apply">
+                           Aplicar
+                       </button>
+                   </div>
+               </div>
+           </div>
+   
+               
+           <div class="dashboard__main-table">
+               <table id="table" class="table__main">
+                   <thead  class="header__table">
+                       <tr>
+                           <th class="header__table-element"><button><span>Código </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                           <th class="header__table-element"><button><span>Nombre </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                           <th class="header__table-element"><button><span>Estado </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                           <th class="header__table-element"><button><span>Descripción </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                           
+                       </tr>
+                   </thead>
+                   <tbody class="body__table">
+                       <tr>
+                           <td id="cod_account"> 1 </td>
+                           <td id="assets_account">Activos Corrientes</td>
+                           <td id="btn_account" class="element__modifier"><button class="btn btn-active">Activo</button></td>
+                           <td id="description_account" class="element__modifier"><span>Descripcion</span></td>
+   
+                       </tr>
+                       <tr>
+                           <td> 1 </td>
+                           <td>Activos Corrientes</td>
+                           <td class="element__modifier"><button class="btn btn-inactive">Inactivo</button></td>
+                           <td class="element__modifier"><span>Descripcion</span></td>
+   
+                       </tr>
+                       <tr>
+                           <td> 1 </td>
+                           <td>Activos Corrientes</td>
+                           <td class="element__modifier"><button class="btn btn-active">Activo</button></td>
+                           <td class="element__modifier"><span>Descripcion</span></td>
+                           
+                       </tr>
+                   </tbody>
+               </table>
+           
+</div>
+<div class="Bonites">
+ <div class="Bonotesss">
+     <div class="Opcionesa">
+         <h1>Opción que desea Realizar</h1>
+         <div class="acciones">
+             <button onclick="insertar()">Insertar</button>
+             <button onclick="eliminar()">Eliminar</button>
+             <button onclick="modificar()">Modificar</button>
+             <button onclick="guardar()">Guardar</button>
+          
+      </div>
+</div>
+<script>
+function insertar() {
+alert("Insertar opción seleccioanda");
+}
+
+function eliminar() {
+alert("Eliminar opción seleccionada");
+}
+
+function modificar() {
+alert("Modificar opción seleccionada");
+}
+
+function guardar() {
+alert("Guardar opción seleccionada");
+}
+
+</script>
+</div>
 </body>
 </html>

@@ -228,13 +228,14 @@ button:focus {
 .dashboard__body-main{
     padding: 0px 5px;
     overflow: auto;
+   
 }
 
 .dashboard__main-header > h1{
-    color: var(--c-blue-500);
+    color: #fff;
     font-size: 1.25rem;
     font-weight: 700;
-    margin-bottom: 16px;
+    margin-bottom: 15px;
 }
 
 .dashboard__main-actions{
@@ -250,38 +251,6 @@ button:focus {
     align-items: center;
 }
 
-.search-bar {
-    background-color: var(--c-gray-800);
-    border: 1px solid var(--c-gray-700);
-    color: var(--c-text-primary);
-    font-size: 1rem;
-    line-height: 1.5rem;
-    border-radius: 5px;
-    padding: 0px 10px 0px 32px;
-    height: 40px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
-    background-size: 16px;
-    background-repeat: no-repeat;
-    background-position: left 10px center;
-    width: 100%;
-    max-width: 320px;
-    transition: 0.2s;
-}
-
-.search-bar:hover {
-    border-color: var(--c-blue-300);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%236291fd' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
-    color: var(--c-text-primary);
-    box-shadow: 0 0 0 4px var(--c-gray-800), 0 0 0 5px var(--c-text-tertiary);
-}
-
-.search-bar:focus {
-    outline: none;
-    border-color: var(--c-blue-500);
-    color: var(--c-text-primary);
-    box-shadow: 0 0 0 4px var(--c-gray-800), 0 0 0 5px var(--c-text-tertiary);
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%232869ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-search'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
-}
 
 .action-button {
     border-radius: 4px;
@@ -366,7 +335,7 @@ button:focus {
 .filter-menu select:focus, .filter-menu select.active {
     outline: none;
     color: var(--c-blue-300);
-    border-color: var(--c-blue-300);
+    border-color:#fff;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%232869ff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-chevron-down'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
 }
 
@@ -380,6 +349,8 @@ button:focus {
     width: 100%;
     max-height: 100%;
     overflow: auto;
+    color: #fff;
+
 }
 
 .header__table  th,
@@ -602,60 +573,155 @@ justify-content: flex-end;
     padding: 6px; 
     font-size: 16px; 
 }
-.cont{
-    position: absolute;
-    left: 85%;
-    top: 20%;
-    transform: translate(-50%, -50%);
-    padding: 16px;
+
+form {
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: right;
 }
 
-input {
-    outline: none;
-    box-sizing: border-box;
-    height: 40px;
-    width: 0;
-    padding: 0 20px;
-    color: #000;
-    border-radius: 40px;
-    font-size: 20px;
-    border: 1px solid #61a6ea;
-    transition: all .7s ease;
+label {
+    font-size: 16px;
+    margin-right: 10px;
 }
 
-::placeholder{
-    color: grey;
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+    width: 200px;
 }
 
-.btn{
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 80px;
-    height: 80px;
-    background: #61a6ea;
-    line-height: 80px;
-    border-radius: 50%;
-    text-align: center;
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #b12bd3;
+    color: #fff;
+    border: none;
+    border-radius: 15px;
     cursor: pointer;
-    transition: .5s;
+    transition: background-color 0.3s;
 }
 
-.btn i {
+button:hover {
+    background-color: #37d84d;
+}
+.neon{
+    text-align: center;
     font-size: 25px;
-    color: white;
-    line-height: 80px;
-    transition: all .7s ease;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: 1s;
+    margin: 10px;
+}
+.contenedor{
+
+text-align: left;
+position: relative;
+margin: 60px 0;
+
+}
+text
+.neon:hover{
+    color: #fff;
+
 }
 
-.cont:hover input {
-    width: 350px;
+.GESTIÓN {
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    position: relative;
+    letter-spacing: 2px;
 }
 
-.cont:hover i{
-    transform: rotate(-360deg);
+.form-group{
+text-align: left;
+position: relative;
+margin: 60px 0;
+}
+/* 
+/* Reset de estilos para asegurar consistencia en diferentes navegadores */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.btn:hover{
-    background: #61a6ea;
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+.dashboard__main-header {
+    margin-bottom: 20px;
+}
+
+.container {
+    max-width: 800px; /* Puedes ajustar el ancho máximo según tu diseño */
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilos para los formularios y tablas */
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input,
+select,
+textarea,
+button {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    max-width: 600px;
+    margin: 10% auto;
+    position: relative;
+}
+
+.cerrar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
 }

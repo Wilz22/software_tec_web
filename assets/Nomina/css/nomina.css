@@ -945,3 +945,33 @@ button[class=Guardar4] {
     color: white;
     border-radius: 8px;
 }
+
+.flex-container{
+    margin: 50px;
+    align-items: center;
+}
+
+.header__table  th,
+.cuerpo_tabla td,
+.footer__row-table td{
+    text-align: left;
+    border-bottom: 1px solid var(--c-gray-700);
+    padding: 15px 10px;
+}
+
+.header__table  th,
+.cuerpo_tabla td,
+.footer__row-table td{
+    /* margin-right: auto;
+    text-align: center; */
+    border-bottom: 1px solid var(--c-gray-700);
+    padding: 15px;
+}
+
+.cuerpo_tabla td {
+    text-align: center;
+    padding: 15px;
+    /* margin: auto;
+    width: auto; */
+    
+}

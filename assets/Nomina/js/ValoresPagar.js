@@ -1,11 +1,7 @@
 function limpiartodo(){
                 
-    document.getElementById('cedula').value= "";
-    document.getElementById('nombres').value = "";
-    document.getElementById('apellidos').value = "";
-    document.getElementById('telefono').value= "";
-    document.getElementById('sueldo').value = "";
-    document.getElementById('fecha').value = "";
+    document.getElementById('empleado').value= "";
+    document.getElementById('valor').value = "";
 }
         document.addEventListener('DOMContentLoaded', function () {
         const insertarClienteBtn = document.getElementById('Insertar');
@@ -23,62 +19,34 @@ function limpiartodo(){
         const clientesData = [];
 
         insertarClienteBtn.addEventListener('click', function () {
-            const cedula= document.getElementById('cedula').value;
-            const Nombres= document.getElementById('nombres').value;
-            const Apellidos= document.getElementById('apellidos').value;
-            const Telefono= document.getElementById('telefono').value;
-            const Sueldo= document.getElementById('sueldo').value;
-            const Fecha= document.getElementById('fecha').value;
-            console.log(cedula);
-            console.log(Nombres);
-            console.log(Apellidos);
-            console.log(Telefono);
+            const Empleado= document.getElementById('empleado').value;
+            const Valor= document.getElementById('valor').value;
+            console.log(Empleado);
+            console.log(Valor);
             //console.log(DetalleInputii);
-            console.log(Sueldo);
-            console.log(Fecha);
+
             // const valor= valorInput.value;
            // var valorInput = document.getElementById('valorNumerico').value;
            // var valorNum=parseFloat(valorInput);
             //console.log(valorNum);
             // Validaciones
-            if (cedula.length !== 10) {
-                showMessage('La Cédula debe tener 10 dígitos.', 'red');
+            if (Empleado.length > 25) {
+                showMessage('Los Nombres del Empleado no pueden exceder los 25 caracteres.', 'red');
                 return;
             }
 
-            if (Nombres.length > 25) {
-                showMessage('Los Nombres no pueden exceder los 25 caracteres.', 'red');
+            if (Valor.length !== 5) {
+                showMessage('El Valor debe tener 5 dígitos.', 'red');
                 return;
             }
 
-    
-            if (Apellidos.length > 30) {
-                showMessage('La Apellidos no pueden exceder los 30 caracteres.', 'red');
-                return;
-            }
-            if (Telefono.length !== 10){
-                showMessage('El Teléfono debe tener 10 dígitos.', 'red');
-                return;
-            }
-            if (Sueldo.length !== 5){
-                showMessage('El Sueldo no puede exceder de 5 carácteres.', 'red');
-                return;
-            }
 
-            if (Fecha.length !== 10){
-                showMessage('El Sueldo no puede exceder de 5 carácteres.', 'red');
-                return;
-            }
-            if (cedula && Nombres && Apellidos && Telefono && Sueldo && Fecha) {
+            if (Empleado && Valor) {
                 // Crear un objeto con los datos del cliente
                 const cliente = {
                     codigo: clientesData.length + 1,
-                    cedula: cedula,
-                    Nombres: Nombres,
-                    Apellidos: Apellidos,
-                    Telefono:Telefono,
-                    Sueldo:Sueldo,
-                    Fecha:Fecha,
+                    Empleado: Empleado,
+                    Valor: Valor,
                     conf: 'Modificar'
                     
                 };
@@ -104,12 +72,8 @@ function limpiartodo(){
             clientesData.forEach(function (cliente) {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${cliente.cedula}</td>
-                    <td>${cliente.Nombres}</td>
-                    <td>${cliente.Apellidos}</td>
-                    <td>${cliente.Telefono}</td>
-                    <td>${cliente.Sueldo}</td>
-                    <td>${cliente.Fecha}</td>
+                    <td>${cliente.Empleado}</td>
+                    <td>${cliente.Valor}</td>
                     <td class="element__modifier">
                     <button class="botonMod botonMod-active" onclick="mostrarFormularioEdicion(${cliente.codigo})">${cliente.conf}</button>
                     </td>
@@ -158,12 +122,9 @@ function limpiartodo(){
         const cliente = clientesData.find(cliente => cliente.codigo === codigo);
         // const cod = clientesData.find(cod=> cod.codigo === codigo); 
         console.log(cliente);
-        document.getElementById('cedula').value = cliente.cedula;
-        document.getElementById('nombres').value = cliente.Nombres;
-        document.getElementById('apellidos').value = cliente.Apellidos;
-        document.getElementById('telefono').value = cliente.Telefono;
-        document.getElementById('sueldo').value = cliente.Sueldo;
-        document.getElementById('fecha').value = cliente.Fecha;
+        document.getElementById('empleado').value = cliente.Empleado;
+        document.getElementById('valor').value = cliente.Valor;
+
 
         // const tableBody = document.querySelector('.body__table');
         // document.getElementById('valornumber').value = cliente.valor;
@@ -186,12 +147,8 @@ function limpiartodo(){
 
         btnGuardarcamb.onclick=function(){
 
-        cliente.cedula = document.getElementById('cedula').value 
-        cliente.Nombres = document.getElementById('nombres').value 
-        cliente.Apellidos =document.getElementById('apellidos').value 
-        cliente.Telefono = document.getElementById('telefono').value
-        cliente.Sueldo =document.getElementById('sueldo').value
-        cliente.Fecha =document.getElementById('fecha').value 
+        cliente.Empleado = document.getElementById('empleado').value 
+        cliente.Valor = document.getElementById('valor').value 
         
         updateTable();
         showMessage('Se ha modificado la fila correctamente', 'blue');

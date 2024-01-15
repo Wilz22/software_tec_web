@@ -6,7 +6,7 @@
     <title>Contabilidad</title>
     <link rel="stylesheet" href="./css/activos.css">   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script defer src="./js/activos.js" ></script>
+    <script defer src="./js/app.js" ></script>
 </head>
 <body>
     <div class="dashboard">
@@ -79,110 +79,51 @@
             </div>
             <div class="dashboard__body-main">
                 <div class="dashboard__main-header">
-                    <h1>Activos </h1>
-                </div>
-                <div class="cont">
-                    <input type="text" placeholder="Buscar">
-                    <div class = "btn">
-                        <i class="fa fa-search"></i>
-                    </div>    
-                  </div>
-                 
-               <div class="contenedor">
-                   <!-- Campo 1: Nombre -->
-                   <div class="campo">
-                    <input type="text" id="Nombre" class="caja-input">
-                     <label for="Nombre">ID</label>
+                    <h1>Activos </h1> 
+                        <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Botón de Búsqueda</title>
+                    
+                    
+                    <!-- Formulario con el botón de búsqueda -->
+                    <form action="/buscar" method="get">
+                        <label for="buscar">Buscar:</label>
+                        <input type="text" id="buscar" name="q" placeholder="Ingrese su búsqueda" required>
+                        <button type="submit">Buscar</button>
+                    </form>
+
+               <div class="form-group">
+                    <label for="codigo">Codigo:</label>
+                    <input type="text" id="nombre" placeholder="Ej. Automovil">
+                
+
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" placeholder="Ej. Automovil">
+                    </div>
                      
                    </div>
-                </div> 
-               
-                <div class="contenedor">
-                    <!-- Campo 1: Nombre -->
-                    <div class="campo">
-                     <input type="text" id="Nombre" class="caja-input">
-                      <label for="Nombre">Nombre:</label>
-                      
-                    </div>
-                   
-                   <!-- Campo 2: Tipo Activo con Menú de Opciones -->
-                    <div class="campo">
-                    <label for="TipoActivo">Periodos de Preciación Total:</label>
-                    <select id="TipoActivo" class="caja-input">
-                   <option value="tipo1"></option>
-                     <option value="tipo1">6 meses</option>
-                     <option value="tipo1">8 meses</option>
-                     <option value="tipo1">12 meses</option>
-                     <option value="tipo1">16 meses</option>
-                    <option value="tipo2">24 meses</option>
-                    <!-- Agrega más opciones según sea necesario -->
-                    </select>
-                   </div>
-                </div> 
-               
-                <div class="contenedor">
-                    <!-- Campo 1: Nombre -->
-                    <div class="campo">
-                      <label for="sueldo"> Valor Compra: </label><br>
-                    <input type="text" id="text" name="sueldo" placeholder="    ......$$" /><br><br>
-                    </div>
-                 </div> 
-                 <div class="contenedor">
-                    <div class="campo">
-                        <label for="sueldo"> Valor Numérico: </label><br>
-                      <input type="number" id="ValorNUmerico" name="ValorNUmerico" value="0" /><br><br>
-                      </div>
-                    
-                 </div>
-           <!-- Campo 3: Código Activo con Menú de Opciones -->
-                   <div class="campo">
-                    <label for="CodigoActivo">Tipo Activo:</label>
-                    <select id="CodigoActivo" class="caja-input">
-                        <option value="tipo1"></option>
-                        <option value="tipo1">Circulantes</option>
-                        <option value="tipo1">Fijos</option>
-                        <option value="tipo1">Intangibles</option>
-                        <option value="tipo1">Financieros</option>
-                       <option value="tipo2">Diferidos</option>
-                       </select>
-                       
-                   </div>
-                   <div class="Bonites">
-                    <div class="Bonotesss">
-                        <div class="Opcionesa">
-                            <h1>Opción que desea Realizar</h1>
-                            <div class="acciones">
-                                <button onclick="insertar()">Insertar</button>
-                                <button onclick="eliminar()">Eliminar</button>
-                                <button onclick="modificar()">Modificar</button>
-                                <button onclick="guardar()">Guardar</button>
-                             
-                         </div>
-                     </div>
-                 </div>
-                   </div>
-   <script>
-       function insertar() {
-           alert("El campo valor digitado en el campo Valor Numérico, no se encuentra dentro del rango comprendido entre Valor Minimo y Valor Maximo");
-       }
+                  </div>
+                <h2 class="neon"> Opción que desea realizar </h2>
+             <div class="GESTIÓN">
+                 <button class="Insertar Insertar-1" id="btnInsertar" onclick="validarInsertar()">Insertar </button>
+                 <button class="Eliminar Eliminar-1" id="btnEliminar" onclick="validarEliminar()">Eliminar</button>
+               <!--  <button class="Modificar Modificar-1" id="btnModificar" onclick="validarModificar()">Modificar</button> -->
+                 <button class="Guardar Guardar-1" id="btnGuardar" onclick="guardarCambios()">Guardar</button>    
+           </div>
 
-       function eliminar() {
-           alert("Eliminar opción seleccionada");
-       }
-
-       function modificar() {
-           alert("Modificar opción seleccionada");
-       }
-
-       function guardar() {
-           alert("Guardar opción seleccionada");
-       }
-
-       function buscar() {
-           alert("Buscar opción seleccionada");
-       }
-   </script>
-   </div>
-   
-</body>
-</html>
+           <table id="table" class="table__main">
+             <thead  class="header__table">
+                 <tr>
+                     <th class="header__table-element"><button><span>Cod</span><i class="" aria-hidden="true"></i></button></th>
+                     <th class="header__table-element"><button><span>Nombre</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                     <th class="header__table-element"><button><span>CodigoActivo</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                     <th class="header__table-element"><button><span></span><i class="fa fa-pencil" aria-hidden="true"></i></button></th>
+                     
+                 </tr>
+             </thead>
+             <tbody class="body__table"></tbody>
+           </table>
+           
+     </div>
+ </div>

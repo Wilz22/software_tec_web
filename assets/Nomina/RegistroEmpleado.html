@@ -6,10 +6,8 @@
     <title>Registro Empleado</title>
     <link rel="stylesheet" href="../../assets/css/Stylelayout.css">
     <link rel="stylesheet" href="./css/nomina.css">
-    <!-- iconos -->
-    <!-- https://fontawesome.com/v4/icons/ -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script defer src="./js/IngresoEgreso.js" ></script>
+    <script defer src="./js/RegistroEmpleado.js" ></script>
 </head>
 <body>
     <div class="dashboard">
@@ -84,30 +82,30 @@
             <div class="rempleado">
             <form action="/action_page.php"></form>
                 <div class="dato">
-                    <input type="text" required><br><br>
+                    <input type="text" id="cedula" required><br><br>
                     <label for="cedula"> Ingresar número de cédula </label><br>
                 </div>
                 <div class="dato">
-                    <input type="text" required><br><br>
+                    <input type="text" id= "nombres" required><br><br>
                     <label for="Nombres"> Ingrese sus Nombres </label><br>
                 </div>
                 <div class="dato">
-                    <input type="text" required><br><br>
+                    <input type="text" id="apellidos" required><br><br>
                     <label for="Apellidos"> Ingrese sus Apellidos </label><br>
                 </div>
             </div>
             <div>
 
             <div class="dato">
-                <input type="text" required><br><br>
+                <input type="text" id="telefono" required><br><br>
                 <label for="Telefono"> Ingresar Número de Teléfono </label><br>
             </div>
             <div class="dato">
-                <input type="text" required><br><br>
+                <input type="text" id="sueldo" required><br><br>
                 <label for="Sueldo"> Ingrese el sueldo acordado </label><br>
             </div>
             <div class="fecha">
-                <input type="date" required>
+                <input type="date" id="fecha" required>
                 <label for="Fecha"> Ingrese la fecha de ingreso </label>
             </div>
             </div>
@@ -122,14 +120,13 @@
                         <th class="header__table-element"><button><span>Teléfono </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                         <th class="header__table-element"><button><span>Sueldo </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                         <th class="header__table-element"><button><span>Fecha Ingreso </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                        <th class="header__table-element"><i class="fa fa-cog" aria-hidden="true"></i></th>
+                        <th class="header__table-element"><i class="fa fa-pencil-alt" aria-hidden="true"></i></th>
                         
                     </tr>
                 </thead>
                 <tbody class="body__table"></tbody> 
     </div>
         <div class="flex-container">
-            <button class="Guardar" id="Modificar" onclick="milegrilla()"><span> Modificar </span></button>
             <button class="Guardar1" id="Insertar" ><span> Insertar </span></button>
             <button class="Guardar2" id="Eliminar"><span> Eliminar </span></button>
             <button class="Guardar3" id="Guardar"><span> Guardar </span></button>

@@ -9,7 +9,7 @@
     <!-- iconos -->
     <!-- https://fontawesome.com/v4/icons/ -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script defer src="./js/IngresoEgreso.js" ></script>
+    <script defer src="./js/ValoresPagar.js" ></script>
 </head>
 <body>
     <div class="dashboard">
@@ -79,6 +79,18 @@
                 <div class="dashboard__main-header">
                 <h1>Reporte de Valores a Pagar</h1>
             </div>
+            <input type="text" class="search-bar" placeholder="Buscar">
+            <div class="contenedor">
+            <form action="/action_page.php"></form>
+                <div class="campo">
+                    <input type="text" id="empleado" required><br><br>
+                    <label for="Empleado"> Nombre del Empleado </label><br>
+                </div>
+                <div class="campo">
+                    <input type="text" id= "valor" required><br><br>
+                    <label for="Valor"> Valor a Recibir </label><br>
+                </div>
+            </div>
                 <div class="dashboard__main-table">
                     <table id="table" class="table__main">
                         <thead  class="header__table">
@@ -93,7 +105,6 @@
             </div>
     <br>
     <div class="flex-container">
-        <button class="Guardar" id="Modificar" onclick="milegrilla()"><span> Modificar </span></button>
         <button class="Guardar1" id="Insertar" ><span> Insertar </span></button>
         <button class="Guardar2" id="Eliminar"><span> Eliminar </span></button>
         <button class="Guardar3" id="Guardar"><span> Guardar </span></button>
