@@ -9,7 +9,7 @@
     <!-- iconos -->
     <!-- https://fontawesome.com/v4/icons/ -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script defer src="./js/IngresoEgreso.js" ></script>
+    <script defer src="./js/DetalleNomina.js" ></script>
 </head>
 <body>
     <div class="dashboard">
@@ -64,13 +64,13 @@
                             <a href="./RegistroEmpleado.html"><i class="fa fa-address-book" aria-hidden="true"></i> Registro Empleado </a>
                         </li>
                         <li class="navigation__item">
-                            <a href="./detalledeNomina.html"><i class="fa fa-book" aria-hidden="true"></i> Detalle de Nómina</a>
+                            <a href="./DetalleNomina.html"><i class="fa fa-book" aria-hidden="true"></i> Detalle de Nómina</a>
                         </li>
                         <li class="navigation__item">
-                            <a href="./ValoresaPagar.html"><i class="fa fa-briefcase" aria-hidden="true"></i> Valores a Pagar</a>
+                            <a href="./ValoresPagar.html"><i class="fa fa-briefcase" aria-hidden="true"></i> Valores a Pagar</a>
                         </li>
                         <li class="navigation__item">
-                            <a href="./ReportedeNomina.html"><i class="fa fa-file-text" aria-hidden="true"></i> Reporte de Nómina</a>
+                            <a href="./ReporteNomina.html"><i class="fa fa-file-text" aria-hidden="true"></i> Reporte de Nómina</a>
                         </li>
                     </ul>
                 </nav>
@@ -111,9 +111,9 @@
                 </table>
         </div>
         <div class="flex-container">
-            <button class="Guardar1" id="Insertar" ><span> Insertar </span></button>
-            <button class="Guardar2" id="Eliminar"><span> Eliminar </span></button>
-            <button class="Guardar3" id="Guardar"><span> Guardar </span></button>
+            <button class="Guardar1" id="Insert" ><span> Insertar </span></button>
+            <button class="Guardar2" id="Delete"><span> Eliminar </span></button>
+            <button class="Guardar3" id="Keep"><span> Guardar </span></button>
           </div> 
         <div class="dashboard__main-header">
         <h2>Detalle de Nómina</h2>
@@ -134,17 +134,19 @@
                     <label for="Valor"> Valor </label>
                 </div>
             </div>
-        <table id="table" class="table__main">
-          <thead class="header__table">
-            <tr>
-                <th class="header__table-element"><button><span>Motivo de Ingreso</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                <th class="header__table-element"><button><span>Egreso</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                <th class="header__table-element"><button><span>Valor</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                <th class="header__table-element"><i class="fa fa-pencil-alt" aria-hidden="true"></i></th>
-            </tr>
-          </thead>
-          <tbod tbody class="body__table"></tbodyy></tbody>
-        </table>
+            <div class="dashboard__main-table">
+                <table id="table" class="table__main">
+                    <thead  class="header__table">
+                        <tr>
+                            <th class="header__table-element"><button><span>Ingreso</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table-element"><button><span>Egreso</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table-element"><button><span>Valor</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>                            
+                            <th class="header__table-element"><i class="fa fa-pencil-alt" aria-hidden="true"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody class="cuerpo_tabla"></tbody> 
+                </table>
+        </div>
 </div>
 <br>
 <div class="flex-container">
