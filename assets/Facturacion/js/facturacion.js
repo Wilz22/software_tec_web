@@ -7,6 +7,13 @@ function limpiarcampos(){
     document.getElementById('fechaInput').value = '';
 }
 
+function cambiosGuardados(){
+
+    showMessage('Registros insertados con exito','green');
+
+}
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const agregarClienteBtn = document.getElementById('agregarCliente');
     // const rucInput = document.querySelector('.campo:nth-child(1) input');
@@ -14,8 +21,13 @@ document.addEventListener('DOMContentLoaded', function () {
     // const direccionInput = document.querySelector('.campo:nth-child(3) input');
     const tableBody = document.querySelector('.body__table');
     const clientesData = [];
-    const btnfilter= document.getElementById("filter-button")
-
+    const btnfilter= document.getElementById("filter-button");
+    document.querySelector('.search-bar').addEventListener('input', buscarEnTabla);
+    document.querySelector('.search-bar').addEventListener('keyup', function(event) {
+        if (event.key === 'Enter') {
+            buscarEnTabla();
+        }
+    });
 
     // btnfilter.addEventListener("click", () => {
     //     document.querySelector(".filter-menu").classList.toggle("active")
@@ -169,20 +181,23 @@ document.addEventListener('DOMContentLoaded', function () {
         };
     };
 
-    function showMessage(message, backgroundColor) {
-        const messageContainer = document.createElement('div');
-        messageContainer.classList.add('message-container');
-        messageContainer.style.backgroundColor = backgroundColor;
-        messageContainer.textContent = message;
-        document.body.appendChild(messageContainer);
-
-        setTimeout(() => {
-            document.body.removeChild(messageContainer);
-        }, 3000);
-    }
+    
  
 
 });
+
+function showMessage(message, backgroundColor) {
+    const messageContainer = document.createElement('div');
+    messageContainer.classList.add('message-container');
+    messageContainer.style.backgroundColor = backgroundColor;
+    messageContainer.textContent = message;
+    document.body.appendChild(messageContainer);
+
+    setTimeout(() => {
+        document.body.removeChild(messageContainer);
+    }, 3000);
+}
+
 
 function llenarCiudadesList(ciudades) {
     const ciudadesList = document.getElementById('ciudadesList');
@@ -234,7 +249,6 @@ function updateCodigo() {
 
 // Llenar la lista de ciudades al cargar la página
 llenarCiudadesList(['Quito', 'Guayaquil', 'Cuenca', 'Ambato']);
-
 function toggleCodigoDiv() {
     const codigoDiv = document.getElementById('codigoDiv');
     const mostrarCodigoCheckbox = document.getElementById('mostrarCodigo');
@@ -249,3 +263,97 @@ const fechaHoy = new Date().toISOString().split('T')[0];
 
         // Establece la fecha por defecto en el campo de entrada de fecha
         document.getElementById('fechaInput').value = fechaHoy;
+
+function agregarFila() {
+        const tbody = document.querySelector('.body__table-voucher');
+
+        // Crear una nueva fila
+        const nuevaFila = document.createElement('tr');
+        nuevaFila.dataset.id = '156432';
+
+        // Añadir celdas a la nueva fila
+        for (let i = 0; i < 5; i++) {
+            const nuevaCelda = document.createElement('td');
+            if (i === 0) {
+                nuevaCelda.textContent = tbody.children.length + 1;
+            } else {
+                const nuevoInput = document.createElement('input');
+                nuevoInput.type = 'text';
+                nuevoInput.classList.add('input-bar');
+                if (i === 3 || i === 4) {
+                    nuevoInput.placeholder = '0';
+                } else if (i === 1) {
+                    nuevoInput.placeholder = 'Descripción';
+                    nuevoInput.classList.add('input-contact');
+                }
+                nuevaCelda.appendChild(nuevoInput);
+            }
+            nuevaFila.appendChild(nuevaCelda);
+        }
+
+        // Añadir botón de eliminar
+        const nuevoBoton = document.createElement('button');
+        nuevoBoton.classList.add('btn', 'btn-inactive', 'btn-delete-row');
+        nuevoBoton.innerHTML = '<i class="fa fa-trash" aria-hidden="true"></i>';
+        nuevoBoton.addEventListener('click', function () {
+            eliminarFila(this);
+        });
+        const celdaBoton = document.createElement('td');
+        celdaBoton.appendChild(nuevoBoton);
+        nuevaFila.appendChild(celdaBoton);
+
+        // Añadir la nueva fila al tbody
+        tbody.appendChild(nuevaFila);
+    }
+
+    // Función para eliminar una fila
+    function eliminarFila(boton) {
+        const filaAEliminar = boton.closest('tr');
+        filaAEliminar.remove();
+    }
+
+
+    
+    function buscarEnTabla() {
+        var input = document.querySelector('.search-bar');
+        var filter = input.value.toUpperCase();
+    
+        // Filtra el array clientesData basado en el RUC
+        var resultadosFiltrados = clientesData.filter(function(cliente) {
+            return cliente.ruc.toUpperCase().indexOf(filter) > -1;
+        });
+    
+        // Actualiza la tabla con los resultados filtrados
+        updateTable(resultadosFiltrados);
+    }
+    
+    function updateTable(clientes) {
+        // Limpiar el cuerpo de la tabla
+        var tableBody = document.querySelector('.body__table');
+        tableBody.innerHTML = '';
+    
+        clientes.forEach(function (cliente) {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${cliente.fecha}</td>
+                <td>${cliente.ruc}</td>
+                <td>${cliente.nombres}</td>
+                <td>${cliente.direccion}</td>
+                <td>${cliente.valor}</td>
+                <td>
+                    <button aria-label="Eliminar" class="btn" onclick="showOptions(${cliente.codigo})">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </button>
+                </td>
+                <td>
+                    <button aria-label="Editar" class="btn" onclick="showEdit(${cliente.codigo})">
+                        <i class="fa fa-pencil" aria-hidden="true"></i>
+                    </button>
+                </td>
+            `;
+    
+            tableBody.appendChild(row);
+        });
+    }
+
+    

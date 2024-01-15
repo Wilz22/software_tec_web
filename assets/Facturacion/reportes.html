@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contabilidad</title>
+    <link rel="stylesheet" href="./css/factu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script defer src="./js/reportes.js" ></script>
+</head>
+<style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    
+  
+
+
+  
+  </style>
+  
+<body>
+    <div class="dashboard">
+        <header class="dashboard__header">
+            <div class="dashboard__header-logo">
+                <div class="logo">
+                    <img class="header__information-logo" src="../../assets/imgs/logo.BN.png"  alt="Logo" />
+                </div>
+            </div>
+
+            <div class="dashboard__header-menu">
+                <nav class="menu">
+                    <ul>
+                        <li class="menu__item">
+                            <a href="../Nomina/NominaIngresoEgreso.html" target="_self" ><i class="fa fa-home" aria-hidden="true"></i> Nomina</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="../Activos/activos_1.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Activos</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="../Contabilidad/tipoCuenta.html" target="_self" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Contabilidad </a>
+                        </li>
+                        <li class="menu__item menu__item-active">
+                            <a href="./factu_1.html" target="_self" class="active"><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
+                        </li>
+                        <li class="menu__item">
+                            <a href="../CuentasPorCobrar/Cobrador.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Cuentas por cobrar</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="dashboard__header-information">
+                <button class="user__profile">
+                    <div class="user__profile-name">
+                        <span>Santiago Llumiquinga</span>
+                        <span>Admin</span>
+                    </div>
+                    <img src="../../assets/imgs/iconuser.png" alt="User"/>
+                </button>
+            </div>
+        </header>
+
+
+        <div class="dashboard__body">
+            <div class="dashboard__body-navigaation">
+                <nav class="navigation">
+                    <ul>
+                        <li class="navigation__item">
+                            <a href="./factu_1.html"><i class="fa fa-file-text" aria-hidden="true"></i>Clientes</a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="./ciudad_entrega.html"><i class="fa fa-list-ul" aria-hidden="true"></i>Ciudad Entrega</a>
+                        </li>
+                        <li class="navigation__item">
+                            <a href="./facturacion.html"><i class="fa fa-book" aria-hidden="true"></i>Facturación</a>
+                        </li>
+                        <li class="navigation__item  navigation__item-active">
+                            <a href="./reportes.html"><i class="fa fa-calculator" aria-hidden="true"></i>Reportes</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="dashboard__body-main">
+                <div class="dashboard__main-actions-buttons">
+                <button id="ventasPorCiudadBtn" class="action-button">Reporte Ventas por Ciudad</button>
+                <button id="reporteCruzadoBtn" class="action-button">Reporte Cliente y Artículo Cruzado</button>
+                </div>
+                <div id="reporteContainer" class="reporte-container">
+                    <iframe id="iframeReporte" class="iframe-reporte"></iframe>
+                    <button id="imprimirReporteBtn"class="action-button">Imprimir Reporte</button>
+
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</body>
+</html>

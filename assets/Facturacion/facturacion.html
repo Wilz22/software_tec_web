@@ -65,10 +65,7 @@
                             <a href="./facturacion.html"><i class="fa fa-book" aria-hidden="true"></i>Facturación</a>
                         </li>
                         <li class="navigation__item">
-                            <a href="./BalanceComprobacion.html"><i class="fa fa-university" aria-hidden="true"></i>Ventas|Ciudad</a>
-                        </li>
-                        <li class="navigation__item">
-                            <a href="./EstadoResultado.html"><i class="fa fa-calculator" aria-hidden="true"></i>Reportes</a>
+                            <a href="./reportes.html"><i class="fa fa-calculator" aria-hidden="true"></i>Reportes</a>
                         </li>
                     </ul>
                 </nav>
@@ -154,7 +151,7 @@
                 <div class="dashboard__main-actions">
                     <div class="dashboard__main-actions-buttons">
 
-                        <input type="text" class="search-bar" placeholder="Buscar">    
+                        <input type="text" class="search-bar" placeholder="Buscar" oninput="buscarEnTabla()">    
                         <button id="agregarCliente" class="add-item action-button">
                             <span>Agregar Factura<i class="fa fa-plus" aria-hidden="true"></i></span>
                         </button>
@@ -189,23 +186,83 @@
             
                 <div class="dashboard__main-table">
                     <table id="table" class="table__main">
-                        <thead  class="header__table">
+                        <thead class="header__table">
                             <tr>
-                                <th class="header__table-element"><button><span>Cantidad</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th class="header__table-element"><button><span>Descripcción</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th class="header__table-element"><button><span>Precio Unitario</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th class="header__table-element"><button><span>Total</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                
-                                <th class="header__table-element"><i class="fa fa-cog" aria-hidden="true"></i></th>
-                                <th class="header__table-element"><i class="fa fa-pencil-alt" aria-hidden="true"></i></th>
-
+                                <th class="header__table-element"><span>Item<i class="fa fa-hashtag" aria-hidden="true"></i></span></th>
+                                <th class="header__table-element"><span>Descripción</span></th>
+                                <th class="header__table-element"><span>Cantidad</span></th>
+                                <th class="header__table-element"><span>Precio Unitario</span></th>
+                                <th class="header__table-element"><span>Precio Total</span></th>
                             </tr>
                         </thead>
-                        <tbody class="body__table"></tbody>
-                    </table>       
+                        <tbody class="body__table-voucher">
+                            <tr data-id="156432">
+                                <td>1</td>
+                                <td><input type="text" class="input-bar input-contact" placeholder="Descripcion"></td>
+                                <td><input type="text" class="input-bar input-description"></td>
+                                <td><input type="text" class="input-bar input-debit" placeholder="0"></td>
+                                <td><input type="text" class="input-bar input-credit" placeholder="0"></td>
+                                <td><button class="btn btn-inactive btn-delete-row" onclick="eliminarFila(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                            </tr>
+                            <tr data-id="156432">
+                                <td>2</td>
+                                <td><input type="text" class="input-bar input-contact" placeholder="Descripcion"></td>
+                                <td><input type="text" class="input-bar input-description"></td>
+                                <td><input type="text" class="input-bar input-debit" placeholder="0"></td>
+                                <td><input type="text" class="input-bar input-credit" placeholder="0"></td>
+                                <td><button class="btn btn-inactive btn-delete-row" onclick="eliminarFila(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                            </tr>
+                        </tbody>
+                        <tr>
+                            <div class="dashboard__main-actions-buttons">
+                                <button id="add-row" class="add-item action-button" onclick="agregarFila()">
+                                    <span>Agregar Fila<i class="fa fa-plus" aria-hidden="true"></i></span>
+                                </button>
+                            </div>
+                            
+                        </tr>
+                    </table>
+                    
+                </div>
+                <div class="dashboard__body-footer">
+
+                    <div class="">
+                        <form class="save-voucher btn-voucher">
+                            <button type="button" class="add-item action-button" onclick="cambiosGuardados()"><span>Guardar <i class="fa fa-plus" aria-hidden="true"></i></span></button>
+                        </form>
+                    </div>
                 </div>
         </div>
     </div>
+    
 </body>
+<!-- Agrega este script al final del body o en el head -->
+<script>
+    function buscarEnTabla() {
+        // Obtener el valor de la barra de búsqueda
+        var input = document.querySelector('.search-bar');
+        var filter = input.value.toUpperCase();
+
+        // Obtener la tabla y las filas de la tabla
+        var table = document.getElementById('table');
+        var rows = table.getElementsByTagName('tr');
+
+        // Iterar sobre las filas y mostrar/ocultar según el valor de búsqueda
+        for (var i = 0; i < rows.length; i++) {
+            var cells = rows[i].getElementsByTagName('td');
+            var shouldShow = false;
+
+            for (var j = 0; j < cells.length; j++) {
+                var cellText = cells[j].innerText || cells[j].textContent;
+                if (cellText.toUpperCase().indexOf(filter) > -1) {
+                    shouldShow = true;
+                    break;
+                }
+            }
+
+            rows[i].style.display = shouldShow ? '' : 'none';
+        }
+    }
+</script>
 
 </html>

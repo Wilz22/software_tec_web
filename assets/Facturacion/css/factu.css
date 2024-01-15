@@ -246,7 +246,20 @@ button:focus {
     height: 85vh;
     padding: 0px 5px;
     overflow: auto;
+    display: flex;
+    flex-direction: column;
 }
+.reporte-container {
+    flex: 1;
+    overflow: auto;
+    /* Puedes ajustar otros estilos según tus necesidades */
+  }
+
+  #iframeReporte {
+    width: 100%;
+    height: 100%;
+    border: none; /* Para quitar el borde del iframe */
+  }
 
 .dashboard__main-header > h1{
     color: var(--c-blue-500);
@@ -267,6 +280,7 @@ button:focus {
 .dashboard__main-actions-buttons{
     display: flex;
     align-items: center;
+    
 }
 .dashboard__main-actions-buttons input {
     margin-right: 15px; /* Agrega un margen a la derecha del input */
@@ -313,7 +327,7 @@ button:focus {
     color: var(--c-text-primary);
     font-size: 1rem;
     line-height: 1.5rem;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 0px 10px 0px 10px;
     height: 40px;
     width: 100%;
@@ -450,19 +464,13 @@ button:focus {
     margin-top: 20px;
 }
 
-
-
 .header__table  th,
-.body__table td,
-
+tbody td,
 .footer__row-table td{
-    /* margin-right: auto;
-    text-align: center; */
+    /* text-align: left; */
     border-bottom: 1px solid var(--c-gray-700);
-    padding: 15px;
+    padding: 15px 10px;
 }
-
-/* .header__table-element, */
 
 .body__table td {
     text-align: center;
@@ -478,14 +486,16 @@ button:focus {
     border: 0;
     color: var(--c-blue-600);
     cursor: pointer;
+    color: white;  
     /* width: auto;
     height: auto; */
 }
-/* .header__table-element{
-    color: var(--c-blue-600);  
-} */
+.header__table-element{
+    color: white;  
+}
 .header__table-element i{
     margin-left: 15px;
+    color: white;  
 }
 
 .element__modifier button{
@@ -627,7 +637,7 @@ button:focus {
 
 .dashboard__body-footer{
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
     margin-top: 50px;
     margin-bottom: 150px;
     align-items: center;
@@ -635,7 +645,7 @@ button:focus {
 
 .btn-voucher{
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
 }
 
 
@@ -741,3 +751,5 @@ button:focus {
     color: white;
    
 }
+
+
