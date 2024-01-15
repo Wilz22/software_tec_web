@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const urlParams = new URLSearchParams(window.location.search);
     const idFromURL = urlParams.get('id');
-    if (idFromURL !== ""){
+    if (idFromURL == ""){
         loadData();
     }else{
         addDefaultRows();

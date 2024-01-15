@@ -6,7 +6,7 @@
     <title>Contabilidad</title>
     <link rel="stylesheet" href="./css/contabilidad.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script defer src="./js/app.js" ></script>
+    <script defer src="./js/balanceComprobacion.js" ></script>
 </head>
 <body>
     <div class="dashboard">
@@ -78,7 +78,67 @@
 
             </div>
             <div class="dashboard__body-main">
-                
+                <div class="dashboard__main-header">
+                    <h1>Estado de resultados</h1>
+                </div>
+                <div class="voucher">
+                    <div class="voucher__main">
+                        <div class="voucher__title">
+                            <i class="fa fa-user" aria-hidden="true"></i> <h3>Movimientos</h3>
+                        </div>
+                        <div class="voucher__body">
+                            <table id="table" class="table__main">
+                                <thead  class="header__table">
+                                    <tr>
+                                        <th class="header__table-element"><span><i class="fa fa-hashtag" aria-hidden="true"></i></span></th>
+                                        <th class="header__table-element"><span>Cuenta </span></th>
+                                        <th class="header__table-element"><span>Detalle </span></th>
+                                        <th class="header__table-element"><span>Debe </span></th>
+                                        <th class="header__table-element"><span>Haber </span></th>
+                                        <th class="header__table-element"><span>Deudor </span></th>
+                                        <th class="header__table-element"><span>Acredor </span></th>
+                                        <th class="header__table-element"><span>Activo </span></th>
+                                        <th class="header__table-element"><span>Pasivo </span></th>
+                                        <th class="header__table-element"><span>Perdida </span></th>
+                                        <th class="header__table-element"><span>Ganacia </span></th>
+                                        <th class="header__table-element"><span>Perdida </span></th>
+                                        <th class="header__table-element"><span>Ganacia </span></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="body__table">
+                                    
+                                </tbody>
+                                <tfoot class="footer__row-table">
+                                    <tr class="tfooter">
+                                        <td colspan="2"></td>
+                                        <td colspan="1"><span>Total</span></td>
+                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-debit"> 0.00</span></td>
+                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-debit"> 0.00</span></td>
+                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-credit"> 0.00</span></td>
+                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-credit"> 0.00</span></td>
+                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-debit"> 0.00</span></td>
+                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-credit"> 0.00</span></td>
+                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-debit"> 0.00</span></td>
+                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-credit"> 0.00</span></td>
+                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-debit"> 0.00</span></td>
+                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-credit"> 0.00</span></td>
+                                    </tr>
+                                    <tr class="tfooter">
+                                        <td colspan="2"></td>
+                                        <td colspan="1"><span class="">Resultado del periodo</span></td>
+                                        <td colspan="4"></td>
+                                        <td colspan="1" class="total"><i class="fa fa-usd" aria-hidden="true"></i> <span class="difference"> 0.00</span></td>
+                                        <td colspan="1" class="total"><i class="fa fa-usd" aria-hidden="true"></i> <span class="difference"> 0.00</span></td>
+                                        <td colspan="1" class="total"><i class="fa fa-usd" aria-hidden="true"></i> <span class="difference"> 0.00</span></td>
+                                        <td colspan="1" class="total"><i class="fa fa-usd" aria-hidden="true"></i> <span class="difference"> 0.00</span></td>
+                                        <td colspan="1" class="total"><i class="fa fa-usd" aria-hidden="true"></i> <span class="difference"> 0.00</span></td>
+                                        <td colspan="1" class="total"><i class="fa fa-usd" aria-hidden="true"></i> <span class="difference"> 0.00</span></td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
