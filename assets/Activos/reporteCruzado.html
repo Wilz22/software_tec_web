@@ -79,6 +79,17 @@
             <div class="dashboard__body-main">
                 <div class="dashboard__main-header">
                     <h1> Reporte Cruzado </h1>
+                    <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Botón de Búsqueda</title>
+                    
+                    
+                    <!-- Formulario con el botón de búsqueda -->
+                    <form action="/buscar" method="get">
+                        <label for="buscar">Buscar:</label>
+                        <input type="text" id="buscar" name="q" placeholder="Ingrese su búsqueda" required>
+                        <button type="submit">Buscar</button>
+                    </form>
                 </div>
                 <div class="campo">
                      <label for="Nombre">Balance General </label>
@@ -334,23 +345,7 @@
              <button onclick="guardar()">Guardar</button>
           
       </div>
-</div>
-<script>
-function insertar() {
-alert("Insertar opción seleccioanda");
-}
 
-function eliminar() {
-alert("Eliminar opción seleccionada");
-}
-
-function modificar() {
-alert("Modificar opción seleccionada");
-}
-
-function guardar() {
-alert("Guardar opción seleccionada");
-}
 
 </script>
 </div>
@@ -392,26 +387,6 @@ alert("Guardar opción seleccionada");
 </head>
 <body>
 
-<div class="menu-opciones">
-    <div class="opcion-menu" onclick="mostrarInformacion('opcion1')">Opción 1</div>
-    <div class="opcion-menu" onclick="mostrarInformacion('opcion2')">Opción 2</div>
-    <div class="opcion-menu" onclick="mostrarInformacion('opcion3')">Opción 3</div>
-</div>
-
-<div id="JAJAJA" class="quese me despliegue">
-    <h2>Información de la Opción 1</h2>
-    <p>Contenido de la Opción 1...</p>
-</div>
-
-<div id="informacionOpcion2" class="informacion-desplegable">
-    <h2>Información de la Opción 2</h2>
-    <p>Contenido de la Opción 2...</p>
-</div>
-
-<div id="informacionOpcion3" class="informacion-desplegable">
-    <h2>Información de la Opción 3</h2>
-    <p>Contenido de la Opción 3...</p>
-</div>
 
 <script>
     function mostrarInformacion(opcion1) {
