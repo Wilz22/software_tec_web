@@ -215,5 +215,3 @@ function limpiartodo(){
     }
     });
     
-
-

@@ -79,36 +79,40 @@
                 <div class="dashboard__main-header">
                 <h1>Reporte Cruzado de Nómina</h1>
             </div>
+            <input type="text" class="search-bar" placeholder="Buscar">
+            <div class="contenedor">
+            <form action="/action_page.php"></form>
+                <div class="campo">
+                    <input type="text" id="empleado" required><br><br>
+                    <label for="Empleado"> Nombre del Empleado </label><br>
+                </div>
+                <div class="campo">
+                    <input type="text" id= "ingreso" required><br><br>
+                    <label for="Ingreso"> Motivo de Ingreso </label><br>
+                </div>
+                <div class="campo">
+                    <input type="text" id= "egreso" required><br><br>
+                    <label for="Egreso"> Motivo de Egreso </label><br>
+                </div>
+            </div>
                 <div class="dashboard__main-table">
                     <table id="table" class="table__main">
                         <thead  class="header__table">
                             <tr>
                                 <th rowspan="2" class="header__table-element"><button><span>Nombre del Empleado</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                                 <th colspan="2" class="header__table-element"><button><span>Motivo de Ingreso</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th colspan="2" class="header__table-element"><button><span>Motivo Egreso</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th colspan="2" class="header__table-element"><button><span>Motivo de Egreso</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                                 <th class="header__table-element"><i class="fa fa-cog" aria-hidden="true"></i></th>
                             </tr>
-                            <tr>
-                                <th>Ingreso 1</th>
-                                <th>Ingreso 2</th>
-                                <th>Egreso 1</th>
-                                <th>Egreso 2</th>
-                              </tr>
                         </thead>
                         <tbody class="body__table"></tbody> 
-                        <tr>
-                            <td>Empleado 1</td>
-                            <td>Valor</td>
-                            <td>Valor</td>
-                            <td>Valor</td>
-                            <td>Valor</td>
-                          </tr>
-                          <tr>
-                            <td>Empleado 2</td>
-                            <td>Valor</td>
-                            <td>Valor</td>
-                            <td>Valor</td>
-                            <td>Valor</td>
-                          </tr>
                     </table>
+                    <div class="flex-container">
+                        <button class="Guardar1" id="Insertar" ><span> Insertar </span></button>
+                        <button class="Guardar2" id="Eliminar"><span> Eliminar </span></button>
+                        <button class="Guardar3" id="Guardar"><span> Guardar </span></button>
+                      </div> 
             </div>
+        </div>
+    </div>
+</div>

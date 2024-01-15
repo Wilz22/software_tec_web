@@ -106,7 +106,7 @@ function limpiartodo(){
             clientesData.forEach(function (cliente) {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${cliente.Telefono}</td>
+                    <td>${cliente.Numero}</td>
                     <td>${cliente.Fecha}</td>
                     <td>${cliente.Empleado}</td>
                     <td class="element__modifier">
@@ -178,7 +178,7 @@ function limpiartodo(){
         //     clientesData[index].direccion = nuevaDireccion;
         //     clientesData[index].edad = nuevaEdad;
         // }
-        let btnGuardarcamb= document.getElementById('Keep');
+        let btnGuardarcamb= document.getElementById('kaka');
 
         btnGuardarcamb.onclick=function(){
 
