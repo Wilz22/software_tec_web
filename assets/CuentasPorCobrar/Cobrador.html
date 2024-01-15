@@ -77,7 +77,8 @@
             <div class="dashboard__body-main">
                 <div class="dashboard__main-header">
                     <h1>Cobrador</h1>
-                </div>            
+                </div>  
+                          
                 <div class="contenedor">
                     <div class="campo">
                       <input type="text" required>
@@ -100,13 +101,7 @@
                         <label for ="Edad">Edad</label>
                     </div>  
 
-
-                    <div class="cont">
-                        <input type="text" placeholder="Buscar">
-                        <div class = "btn">
-                            <i class="fa fa-search"></i>
-                        </div>    
-                      </div>
+                    <input type="text" class="search-bar" placeholder="Buscar">
 
                 </div>
                        <h2 class="neon"> GESTIÓN DE DATOS </h2>
@@ -120,7 +115,7 @@
                   <table id="table" class="table__main">
                     <thead  class="header__table">
                         <tr>
-                            <th class="header__table-element"><button><span>Cod</span><i class="" aria-hidden="true"></i></button></th>
+                       <!--     <th class="header__table-element"><button><span>Cod</span><i class="" aria-hidden="true"></i></button></th> -->
                             <th class="header__table-element"><button><span>Nombre</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                             <th class="header__table-element"><button><span>Cédula</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                             <th class="header__table-element"><button><span>Dirección</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
@@ -161,7 +156,7 @@
                 }
     
                 const cliente = {
-                    codigo: clientesData.length + 1,
+                   // codigo: clientesData.length + 1,
                     nombre: nombre,
                     cedula: cedula,
                     direccion: direccion,
@@ -224,8 +219,9 @@
                 clientesData.forEach(function (cliente) {
                     const row = document.createElement('tr');
                     row.innerHTML = `
-                        <td>${cliente.codigo}</td>
+                     
                         <td>${cliente.nombre}</td>
+
                         <td>${cliente.cedula}</td>
                         <td>${cliente.direccion}</td>
                         <td>${cliente.edad}</td>

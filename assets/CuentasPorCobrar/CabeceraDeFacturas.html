@@ -6,7 +6,7 @@
     <title>Cuentas por cobrar</title>
     <link rel="stylesheet" href="./css/cxc.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script defer src="./js/app.js" ></script>
+    <script defer src="./js/jscxc.js" ></script>
 </head>
 <body>
     <div class="dashboard">
@@ -21,16 +21,16 @@
                 <nav class="menu">
                     <ul>
                         <li class="menu__item">
-                            <a href="" ><i class="fa fa-home" aria-hidden="true"></i> Nomina</a>
+                            <a href="../Nomina/NominaIngresoEgreso.html" target="_self" ><i class="fa fa-home" aria-hidden="true"></i> Nomina</a>
                         </li>
                         <li class="menu__item">
-                            <a href=""><i class="fa fa-home" aria-hidden="true"></i> Activos</a>
+                            <a href="../Activos/activos_1.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Activos</a>
                         </li>
                         <li class="menu__item">
-                            <a href="" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Contabilidad </a>
+                            <a href="../Contabilidad/tipoCuenta.html" target="_self" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Contabilidad </a>
                         </li>
                         <li class="menu__item">
-                            <a href=""><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
+                            <a href="../Facturacion/factu_1.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
                         </li>
                         <li class="menu__item menu__item-active">
                             <a href="../CuentasPorCobrar/CabeceraDeFacturas.html"><i class="fa fa-home" aria-hidden="true"></i> Cuentas por cobrar</a>
@@ -79,9 +79,445 @@
                     <h1>Cabecera de Facturas</h1>
                 </div>
 
+                <div class="sub">
+                    <h3>Facturas</h3><br>
+                </div>
 
+
+                <div class="contenedor2">
+                    <div class="campo2">
+                        <input type="text" required>
+                        <label for="numeroFac">Número de Factura</label>
+                    </div>
+                
+                    <div class="campo2">
+                        <input type="date" required>
+                        <label for="fechaFac"></label>
+                    </div>
+                
+                    <div class="campo2">
+                        <input type="text" required>
+                        <label for="valorFac">Valor</label>
+                    </div>
+                
+                    <div class="campo2">
+                        <input type="text" required>
+                        <label for="clienteFac">Cliente</label>
+                    </div>
+                </div>
+                <div class="GESTIÓN2">
+                    <button class="Insertar2 Insertar-2" id="btnInsertar">Insertar </button>
+                    <button class="Eliminar2 Eliminar-2" id="btnEliminar">Eliminar</button>
+                    <button class="Guardar2 Guardar-2" id="btnGuardar" >Guardar</button>   
+                </div>
+                
+                <table id="table" class="table__main2">
+                    <thead  class="header__table2">
+                        <tr>
+                            <th class="header__table2-element"><button><span>Número Factura</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table2-element"><button><span>Fecha</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table2-element"><button><span>Valor</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table2-element"><button><span>Cliente</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table2-element"><button><span></span><i class="fa fa-pencil" aria-hidden="true"></i></button></th>                                    
+                        </tr>
+                    </thead>
+                    <tbody class="body__table">
+                    </tbody>
+                </table>
+
+                <!-------------------------Detalle de Pago-------------------------->
+               
+                <div class="sub">
+                    <br><h3>Detalle de Pago</h3><br>
+                </div>
+
+                <div class="contenedor2">
+                    <div class="campo3">
+                        <input type="date" required>
+                        <label id="fechapago" for="fechaPagFac">Fecha del pago</label>
+                    </div>
+                
+                    <div class="campo2">
+                        <input type="text" required>
+                        <label id="valorpago" for="valorPagFac">Valor</label>
+                    </div>
+                
+                    <div class="campo2">
+                        <input type="text" required>
+                        <label id="clientepago" for="clientePagFac">Cobrador</label>
+                    </div>
+                </div>
+
+                    <div class="Filtro"><br>
+                        <label>Método de Pago</label><br>
+                            <select class="but">
+                                <option>Efectivo</option>
+                                <option>Cheque</option>
+                                <option>Transferencia</option>
+                                <option>Tarjeta Débito</option>
+                            </select>                         
+                                <button class="Insertar3 Insertar-3" id="btnInsertar2">Insertar </button>
+                                <button class="Eliminar3 Eliminar-3" id="btnEliminar2">Eliminar</button>
+                                <button class="Guardar3 Guardar-3" id="btnGuardar2">Guardar</button>   
+                            
+                    </div>      
+                    <br>
+                    <br>
+                    <br>
+                <table id="table" class="table__main3">
+                    <thead  class="header__table3">
+                        <tr>
+                            <th class="header__table3-element"><button><span>Número Factura</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table3-element"><button><span>Fecha</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table3-element"><button><span>Valor</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table3-element"><button><span>Cobrador</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                            <th class="header__table3-element"><button><span></span><i class="fa fa-pencil" aria-hidden="true"></i></button></th>                                    
+                        </tr>
+                    </thead>
+                    <tbody class="body__table1">
+                    </tbody>
+                </table>
             </div>
-        </div>
-</div>
+
+         </div>
+
+     </div>    
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const numeroFacturaInput = document.querySelector('.campo2:nth-child(1) input');
+    const fechaInput = document.querySelector('.campo2:nth-child(2) input');
+    const valorInput = document.querySelector('.campo2:nth-child(3) input');
+    const clienteInput = document.querySelector('.campo2:nth-child(4) input');
+
+    const tableBody = document.querySelector('.body__table');
+    const tableBody1 = document.querySelector('.body__table1');
+
+
+    const facturasData = obtenerFacturasGuardadas() || [];
+    const facturasData1 = obtenerFacturasGuardadas() || [];
+
+    document.querySelector('#btnInsertar').addEventListener('click', insertarFactura);
+    document.querySelector('#btnEliminar').addEventListener('click', eliminarPrimeraFila);
+    document.querySelector('#btnGuardar').addEventListener('click', guardarCambios);
+    document.querySelector('#btnInsertar2').addEventListener('click', insertarFactura);
+    document.querySelector('#btnEliminar2').addEventListener('click', eliminarPrimeraFila);
+    document.querySelector('#btnGuardar2').addEventListener('click', guardarCambios);
+
+
+    updateTable();
+    function insertarFactura1() {
+        const fechapago= document.getElementById('fechapago').value;
+        const valorpago= document.getElementById('valorpago').value;
+        const clientepago= document.getElementById('clientepago').value;
+        const fechpa= Date(fechapago);
+        console.log(fechpa);
+        const valpag = valorpago;
+        console.log(valpag);
+        const clienpag=clientepago;
+        console.log(clientepago);
+
+        if (fechpa && valpag && clienpag) {
+            const factura = {
+                fechpa: fechpa,
+                valpag: valpag,
+                clienpag: clienpag,
+            };
+
+            facturasData1.push(factura);
+            guardarFacturas1(facturasData1);
+            showMessage('Se ha insertado correctamente la factura', 'green');
+
+            // Limpiar campos
+            numeroFacturaInput.value = "";
+            fechaInput.value = "";
+            valorInput.value = "";
+            clienteInput.value = "";
+
+            updateTable1();
+        } else {
+            showMessage('Completa todos los campos antes de agregar una factura.', 'red');
+        }
+    }
+
+    function insertarFactura() {
+        const fechapago= document.getElementById('fechapago').value;
+        const valorpago= document.getElementById('valorpago').value;
+        const clientepago= document.getElementById('clientepago').value;
+        const numeroFactura = numeroFacturaInput.value;
+        const fecha = fechaInput.value;
+        const valor = valorInput.value;
+        const cliente = clienteInput.value;
+        const fechpa= Date(fechapago);
+        console.log(fechpa);
+        const valpag = valorpago;
+        const clienpag=clientepago;
+
+        if (numeroFactura && fecha && valor && cliente) {
+            const factura = {
+                numeroFactura: numeroFactura,
+                fecha: fecha,
+                valor: valor,
+                cliente: cliente,
+            };
+
+            facturasData.push(factura);
+            guardarFacturas(facturasData);
+            showMessage('Se ha insertado correctamente la factura', 'green');
+
+            // Limpiar campos
+            numeroFacturaInput.value = "";
+            fechaInput.value = "";
+            valorInput.value = "";
+            clienteInput.value = "";
+
+            updateTable();
+        } else {
+            showMessage('Completa todos los campos antes de agregar una factura.', 'red');
+        }
+    }
+
+    function eliminarPrimeraFila() {
+        if (facturasData.length > 0) {
+            facturasData.shift();
+            guardarFacturas(facturasData);
+            updateTable();
+            showMessage('Se ha eliminado la primera fila correctamente', 'green');
+        } else {
+            showMessage('No hay facturas para eliminar', 'red');
+        }
+    }
+
+    function guardarCambios() {
+        showMessage('Cambios guardados temporalmente', 'blue');
+    }
+    
+    function updateTable1() {
+        tableBody1.innerHTML = '';
+
+        facturasData1.forEach(function (factura) {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${factura.numeroFactura}</td>
+                <td>${factura.fecha}</td>
+                <td>${factura.valor}</td>
+                <td>${factura.cliente}</td>
+                <td class="element__modifier">
+                    <button class="botonMod botonMod-active" onclick="mostrarFormularioEdicion('${factura.numeroFactura}')">Modificar</button>
+                </td>
+            `;
+
+            tableBody1.appendChild(row);
+        });
+    }
+
+
+    function updateTable() {
+        tableBody.innerHTML = '';
+
+        facturasData.forEach(function (factura) {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${factura.numeroFactura}</td>
+                <td>${factura.fecha}</td>
+                <td>${factura.valor}</td>
+                <td>${factura.cliente}</td>
+                <td class="element__modifier">
+                    <button class="botonMod botonMod-active" onclick="mostrarFormularioEdicion('${factura.numeroFactura}')">Modificar</button>
+                </td>
+            `;
+
+            tableBody.appendChild(row);
+        });
+    }
+
+    window.mostrarFormularioEdicion = function (numeroFactura) {
+        const factura = facturasData.find(factura => factura.numeroFactura === numeroFactura);
+
+        // Asignar valores a los campos de edición
+        numeroFacturaInput.value = factura.numeroFactura;
+        fechaInput.value = factura.fecha;
+        valorInput.value = factura.valor;
+        clienteInput.value = factura.cliente;
+
+        // Configurar función de guardado
+        let btnGuardar = document.getElementById('btnGuardar');
+        btnGuardar.onclick = function () {
+            factura.fecha = fechaInput.value;
+            factura.valor = valorInput.value;
+            factura.cliente = clienteInput.value;
+
+            guardarFacturas(facturasData);
+            updateTable();
+            showMessage('Se ha modificado la fila correctamente', 'blue');
+
+            // Limpiar campos
+            numeroFacturaInput.value = "";
+            fechaInput.value = "";
+            valorInput.value = "";
+            clienteInput.value = "";
+        };
+    }
+
+    function guardarFacturas(facturas) {
+        localStorage.setItem('facturasData', JSON.stringify(facturas));
+    }
+    
+    function guardarFacturas1(facturas) {
+        localStorage.setItem('facturasData1', JSON.stringify(facturas));
+    }
+
+    function obtenerFacturasGuardadas() {
+        const facturasGuardadas = localStorage.getItem('facturasData');
+        return facturasGuardadas ? JSON.parse(facturasGuardadas) : null;
+    }
+    function obtenerFacturasGuardadas1() {
+        const facturasGuardadas1 = localStorage.getItem('facturasData1');
+        return facturasGuardadas1 ? JSON.parse(facturasGuardadas1) : null;
+    }
+
+    function showMessage(message, backgroundColor) {
+        const messageContainer = document.createElement('div');
+        messageContainer.classList.add('message-container');
+        messageContainer.style.backgroundColor = backgroundColor;
+        messageContainer.textContent = message;
+        document.body.appendChild(messageContainer);
+        setTimeout(() => {
+            document.body.removeChild(messageContainer);
+        }, 3000);
+    }
+});
+
+</script>
+
+<!-----------------------------------------SEGUNDO--------------------------------------------------------->
+<!-- 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const fechaDetalleInput = document.querySelector('.campo3 input');
+        const valorDetalleInput = document.querySelector('.campo2:nth-child(2) input');
+        const cobradorDetalleInput = document.querySelector('.campo2:nth-child(3) input');
+        const metodoDetalleSelect = document.querySelector('.campo2 select');
+        const tableBody = document.querySelector('.body__table');
+        let DetallesData = obtenerDetallesGuardados() || [];
+    
+        document.querySelector('#btnInsertar3').addEventListener('click', insertarDetalle);
+        document.querySelector('#btnEliminar3').addEventListener('click', validarEliminar);
+        document.querySelector('#btnGuardar3').addEventListener('click', guardarCambios);
+    
+        updateTable();
+    
+        function insertarDetalle() {
+            const fechaDetalle = fechaDetalleInput.value;
+            const valorDetalle = valorDetalleInput.value;
+            const cobradorDetalle = cobradorDetalleInput.value;
+            const metodoDetalle = metodoDetalleSelect.value;
+    
+            if (fechaDetalle && valorDetalle && cobradorDetalle && metodoDetalle) {
+                const detalle = {
+                    fechaDetalle: fechaDetalle,
+                    valorDetalle: valorDetalle,
+                    cobradorDetalle: cobradorDetalle,
+                    metodoDetalle: metodoDetalle
+                };
+    
+                DetallesData.unshift(detalle); // Unshift para insertar al principio del array
+                guardarDetalles(DetallesData);
+                showMessage('Se ha insertado correctamente el detalle', 'green');
+    
+                // Limpiar campos
+                fechaDetalleInput.value = "";
+                valorDetalleInput.value = "";
+                cobradorDetalleInput.value = "";
+                metodoDetalleSelect.value = "";
+    
+                updateTable();
+            } else {
+                showMessage('Completa todos los campos antes de agregar un detalle.', 'red');
+            }
+        }
+    
+        function validarEliminar() {
+            if (DetallesData.length > 0) {
+                DetallesData.shift(); // Shift para eliminar la primera fila
+                guardarDetalles(DetallesData);
+                updateTable();
+                showMessage('Se ha eliminado la primera fila correctamente', 'green');
+            } else {
+                showMessage('No hay filas para eliminar', 'red');
+            }
+        }
+    
+        function guardarCambios() {
+            showMessage('Cambios guardados temporalmente', 'blue');
+        }
+    
+        function updateTable() {
+            tableBody.innerHTML = '';
+            DetallesData.forEach(function (detalle) {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${detalle.fechaDetalle}</td>
+                    <td>${detalle.valorDetalle}</td>
+                    <td>${detalle.cobradorDetalle}</td>
+                    <td>${detalle.metodoDetalle}</td>
+                    <td class="element__modifier">
+                        <button class="botonMod botonMod-active" onclick="mostrarFormularioEdicion('${detalle.fechaDetalle}')">Modificar</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+    
+        window.mostrarFormularioEdicion = function (fechaDetalle) {
+            const detalle = DetallesData.find(detalle => detalle.fechaDetalle === fechaDetalle);
+    
+            // Asignar valores a los campos de edición
+            fechaDetalleInput.value = detalle.fechaDetalle;
+            valorDetalleInput.value = detalle.valorDetalle;
+            cobradorDetalleInput.value = detalle.cobradorDetalle;
+            metodoDetalleSelect.value = detalle.metodoDetalle;
+    
+            // Configurar función de guardado
+            let btnGuardar3 = document.getElementById('btnGuardar3');
+            btnGuardar3.onclick = function () {
+                detalle.valorDetalle = valorDetalleInput.value;
+                detalle.cobradorDetalle = cobradorDetalleInput.value;
+                detalle.metodoDetalle = metodoDetalleSelect.value;
+    
+                guardarDetalles(DetallesData);
+                updateTable();
+                showMessage('Se ha modificado la fila correctamente', 'blue');
+    
+                // Limpiar campos
+                fechaDetalleInput.value = "";
+                valorDetalleInput.value = "";
+                cobradorDetalleInput.value = "";
+                metodoDetalleSelect.value = "";
+            };
+        }
+    
+        function guardarDetalles(detalle) {
+            localStorage.setItem('DetallesData', JSON.stringify(detalle));
+        }
+    
+        function obtenerDetallesGuardados() {
+            const detallesGuardados = localStorage.getItem('DetallesData');
+            return detallesGuardados ? JSON.parse(detallesGuardados) : null;
+        }
+    
+        function showMessage(message, backgroundColor) {
+            const messageContainer = document.createElement('div');
+            messageContainer.classList.add('message-container');
+            messageContainer.style.backgroundColor = backgroundColor;
+            messageContainer.textContent = message;
+            document.body.appendChild(messageContainer);
+            setTimeout(() => {
+                document.body.removeChild(messageContainer);
+            }, 3000);
+        }
+    });
+        </script> -->
+    
 </body>
 </html>

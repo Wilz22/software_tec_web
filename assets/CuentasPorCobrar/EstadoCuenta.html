@@ -21,19 +21,19 @@
                 <nav class="menu">
                     <ul>
                         <li class="menu__item">
-                            <a href="" ><i class="fa fa-home" aria-hidden="true"></i> Nomina</a>
+                            <a href="../Nomina/NominaIngresoEgreso.html" target="_self" ><i class="fa fa-home" aria-hidden="true"></i> Nomina</a>
                         </li>
                         <li class="menu__item">
-                            <a href=""><i class="fa fa-home" aria-hidden="true"></i> Activos</a>
+                            <a href="../Activos/activos_1.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Activos</a>
                         </li>
                         <li class="menu__item">
-                            <a href="" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Contabilidad </a>
+                            <a href="../Contabilidad/tipoCuenta.html" target="_self" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Contabilidad </a>
                         </li>
                         <li class="menu__item">
-                            <a href=""><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
+                            <a href="../Facturacion/factu_1.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
                         </li>
                         <li class="menu__item menu__item-active">
-                            <a href="../CuentasPorCobrar/CabeceraDeFacturas.html"><i class="fa fa-home" aria-hidden="true"></i> Cuentas por cobrar</a>
+                            <a href="../CuentasPorCobrar/EstadoCuenta.html"><i class="fa fa-home" aria-hidden="true"></i> Cuentas por cobrar</a>
                         </li>
                     </ul>
                 </nav>
@@ -75,13 +75,78 @@
 
             </div>
             <div class="dashboard__body-main">
-                <div class="dashboard__main-header">
-                    <h1>Estado de Cuenta por Factura</h1>
+                
+                <div class="neon">
+                <h3>Estado de Cuenta por Factura</h3>
                 </div>
+                <button type="button" onclick="mostrarEstadoCuenta()">Generar reporte</button>   
 
+                <script>      
+
+            function mostrarEstadoCuenta() {
+                        // Datos de ejemplo para la tabla de factura
+                        var datosFactura = [
+                            ["Número de Factura", "Valor", "Valor Factura", "Saldo por Cobrar"],
+                            ["1", "$76", "$0.45", "$502"],
+                            ["2", "$23", "$0.50", "$156"],
+                            
+                        ];
+            
+                        // Llama a la función para mostrar la tabla en una ventana emergente
+                        mostrarTablaEnVentanaEmergente("Estado de Cuenta por Factura", datosFactura);
+                    }
+            
+                    
+            
+                    function mostrarTablaEnVentanaEmergente(nombreTabla, datos) {
+                        // Crea una tabla dinámicamente
+                        var tabla = document.createElement('table');
+                        tabla.border = '1';
+                        tabla.style.position = 'absolute';
+                        tabla.style.left = '50%';
+                        tabla.style.top = '50%';
+                        tabla.style.transform = 'translate(-50%, -50%)';
+            
+                        // Itera sobre los datos y crea las filas y celdas de la tabla
+                        for (var i = 0; i < datos.length; i++) {
+                            var fila = tabla.insertRow();
+                            for (var j = 0; j < datos[i].length; j++) {
+                                var celda = fila.insertCell();
+                                celda.innerHTML = datos[i][j];
+                            }
+                        }
+            
+                        // Agrega el nombre de la tabla como encabezado
+                        var encabezado = document.createElement('h2');
+                        encabezado.innerHTML = nombreTabla;
+            
+                        // Crea una nueva ventana emergente
+                        var anchoVentana = 550;
+                        var altoVentana = 350;
+
+                        var left = window.screenX + (window.outerWidth - anchoVentana) / 2;
+                        var top = window.screenY + (window.outerHeight - altoVentana) / 2;
+
+                        var ventanaEmergente = window.open('', '_blank', 'width=' + anchoVentana + ',height=' + altoVentana + ',left=' + left + ',top=' + top);
+            
+                        // Agrega el encabezado y la tabla a la ventana emergente
+                        ventanaEmergente.document.body.appendChild(encabezado);
+                        ventanaEmergente.document.body.appendChild(tabla);
+            
+                        // Agrega un botón de impresión a la ventana emergente
+                        var botonImprimir = ventanaEmergente.document.createElement('button');
+                        botonImprimir.innerHTML = 'Imprimir';
+                        botonImprimir.onclick = function() {
+                            ventanaEmergente.print();
+                        };
+                        ventanaEmergente.document.body.appendChild(botonImprimir);
+                    }
+                </script>
 
             </div>
         </div>
 </div>
+ 
+    
 </body>
 </html>
