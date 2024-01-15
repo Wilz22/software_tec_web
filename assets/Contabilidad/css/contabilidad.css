@@ -176,6 +176,11 @@ button:focus {
     column-gap: 3rem;
     padding-top: 1.5rem;
 }
+.btn__footer-group{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 .dashboard__body-navigaation{
     display: flex;
@@ -603,7 +608,7 @@ tbody td,
 .tfooter td{
     background-color: var(--c-gray-800);
 }
-.tfooter .total > span{
+.tfooter .total {
     color: var(--c-red-600);
     font-size: 1.25rem ;
     font-weight: 800;

@@ -103,7 +103,7 @@ function addItem(e) {
         table_list.appendChild(element);
         displayAlert("Registro almacenado", "success");
         addToLocalStorage(id, value_name, value_type,value_status,value_description);
-        setBackToDefault();     
+        seftBackToDefault();     
         } else if (value_name !== "" && value_status !== "" && value_description !== "" && value_type !== "" && editFlag){
         editElement.innerHTML = id;
             displayAlert("Cambios realizados con exito", "success");
@@ -111,7 +111,7 @@ function addItem(e) {
             setBackToDefault();
         } else {
             displayAlert("Error en el registro, vuelva a intentarlo", "danger");
-    }
+        }
 }
 
 function displayAlert(text, action) {

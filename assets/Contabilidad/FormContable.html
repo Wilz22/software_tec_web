@@ -154,36 +154,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="body__table-voucher">
-                                    <tr data-id="156432">
-                                        <td >${tbody.children.length + 1}</td>
-                                        <td class="input-account">
-                                            <select class="select-bar">
-                                                <option>Todos los estados</option>
-                                                <option>Activos</option>
-                                                <option>Inactivos</option>
-                                            </select>
-                                        </td>
-                                        <td><input type="text" class="input-bar input-contact" placeholder="Contacto"></td>
-                                        <td><input type="text" class="input-bar input-description"></td>
-                                        <td><input type="text" class="input-bar input-debit" placeholder="0"></td>
-                                        <td><input type="text" class="input-bar input-credit" placeholder="0"></td>
-                                        <td><button class="btn btn-inactive btn-delete-row"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                                    </tr>
-                                    <tr data-id="156432">
-                                        <td >${tbody.children.length + 1}</td>
-                                        <td class="input-account">
-                                            <select class="select-bar">
-                                                <option>Todos los estados</option>
-                                                <option>Activos</option>
-                                                <option>Inactivos</option>
-                                            </select>
-                                        </td>
-                                        <td><input type="text" class="input-bar input-contact" placeholder="Contacto"></td>
-                                        <td><input type="text" class="input-bar input-description"></td>
-                                        <td><input type="text" class="input-bar input-debit" placeholder="0"></td>
-                                        <td><input type="text" class="input-bar input-credit" placeholder="0"></td>
-                                        <td><button class="btn btn-inactive btn-delete-row"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                                    </tr>
+                                    
                                 </tbody>
                                 <tfoot class="footer__row-table">
                                     <tr>
@@ -192,14 +163,14 @@
                                     <tr class="tfooter">
                                         <td colspan="3"></td>
                                         <td colspan="1"><span>Total</span></td>
-                                        <td colspan="1"><span><i class="fa fa-usd" aria-hidden="true"></i> 0</span></td>
-                                        <td colspan="1"><span><i class="fa fa-usd" aria-hidden="true"></i> 0</span></td>
+                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-debit"> 0.00</span></td>
+                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-credit"> 0.00</span></td>
                                         <td colspan="1"></td>
                                     </tr>
                                     <tr class="tfooter">
                                         <td colspan="3"></td>
-                                        <td colspan="1"><span>Diferencia</span></td>
-                                        <td colspan="2" class="total"><span><i class="fa fa-usd" aria-hidden="true"></i> 0</span></td>
+                                        <td colspan="1"><span class="">Diferencia</span></td>
+                                        <td colspan="2" class="total"><i class="fa fa-usd" aria-hidden="true"></i> <span class="difference"> 0.00</span></td>
                                         <td colspan="1"></td>
                                     </tr>
                                 </tfoot>
@@ -209,9 +180,9 @@
                 </div>
                 <div class="dashboard__body-footer">
                     <p>Los campos marcados con * son obligatorios</p>
-                    <div class="">
+                    <div class="btn__footer-group">
+                        <a href="./comprobanteContable.html"> <button class="add-item action-button"><span>Cancelar <i class="fa fa-ban" aria-hidden="true"></i></span></button> </a>
                         <form class="save-voucher btn-voucher">
-                            <a href="./comprobanteContable.html"> <button class="add-item action-button"><span>Cancelar <i class="fa fa-ban" aria-hidden="true"></i></span></button> </a>
                             <!-- <button class="add-item action-button submit-btn"><span>Guardar y crear otro <i class="fa fa-file-text" aria-hidden="true"></i></span></button> -->
                             <button class="add-item action-button submit-btn"><span>Guardar <i class="fa fa-bookmark" aria-hidden="true"></i></span></button>
                         </form>
