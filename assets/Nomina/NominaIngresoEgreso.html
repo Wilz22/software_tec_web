@@ -1,170 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Motivo de Ingreso o Egreso</title>
-    <link rel="stylesheet" href="./css/layouts.css">
-    <link rel="stylesheet" href="./css/nomina.css">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script defer src="./js/IngresoEgreso.js"></script>
-</head>
-<body>
-    <div class="dashboard">
-        <header class="dashboard__header">
-            <div class="dashboard__header-logo">
-                <div class="logo">
-                    <img class="header__information-logo" src="../../assets/imgs/logo.BN.png"  alt="Logo" />
-                </div>
-            </div>
-
-
-            <div class="dashboard__header-menu">
-                <nav class="menu">
-                    <ul>
-                        <li class="menu__item  menu__item-active">
-                            <a href="../Nomina/NominaIngresoEgreso.html" target="_self" class="active"><i class="fa fa-home" aria-hidden="true"></i> Nomina</a>
-                        </li>
-                        <li class="menu__item">
-                            <a href="../Activos/activos_1.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Activos</a>
-                        </li>
-                        <li class="menu__item">
-                            <a href="../Contabilidad/tipoCuenta.html" target="_self" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Contabilidad </a>
-                        </li>
-                        <li class="menu__item">
-                            <a href="../Facturacion/factu_1.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
-                        </li>
-                        <li class="menu__item">
-                            <a href="../CuentasPorCobrar/Cobrador.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Cuentas por cobrar</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-
-            
-            <div class="dashboard__header-information">
-                <button class="user__profile">
-                    <div class="user__profile-name">
-                        <span>Milena Reyes</span>
-                        <span>Admin</span>
-                    </div>
-                    <img src="../../assets/imgs/iconuser.png" alt="User"/>
-                </button>
-            </div>
-        </header>
-        <div class="dashboard__body">
-            <div class="dashboard__body-navigaation">
-                <nav class="navigation">
-                    <ul>
-                        <li class="navigation__item">
-                            <a href="./NominaIngresoEgreso.html"><i class="fa fa-address-card" aria-hidden="true"></i> Motivo </a>
-                        </li>
-                        <li class="navigation__item">
-                            <a href="./RegistroEmpleado.html"><i class="fa fa-address-book" aria-hidden="true"></i> Registro Empleado </a>
-                        </li>
-                        <li class="navigation__item">
-                            <a href="./DetalleNomina.html"><i class="fa fa-book" aria-hidden="true"></i> Detalle de Nómina</a>
-                        </li>
-                        <li class="navigation__item">
-                            <a href="./ValoresPagar.html"><i class="fa fa-briefcase" aria-hidden="true"></i> Valores a Pagar</a>
-                        </li>
-                        <li class="navigation__item">
-                            <a href="./ReporteNomina.html"><i class="fa fa-file-text" aria-hidden="true"></i> Reporte de Nómina</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="dashboard__body-main">
-                <div class="dashboard__main-header">
-                <h1>Motivo de Ingreso o Egreso</h1>
-            </div>
-            <input type="text" class="search-bar" placeholder="Buscar">
-            <div class="contenedor">
-            <form action="/action_page.php"></form>
-                <div class="campo">
-                    <input type="text" required><br><br>
-                    <label for="cédula"> Cédula </label><br>
-                </div>
-                <div class="campo">
-                    <input type="text" required><br><br>
-                    <label for="cédula"> Nombres Completos </label><br>
-                </div>
-
-                            <div class="contenedor">
-            <form action="/action_page.php"></form>
-                <div class="campo">
-                    <input type="text" required><br><br>
-                    <label for="cédula"> Cédula </label><br>
-                </div>
-                <div class="campo">
-                    <input type="text" required><br><br>
-                    <label for="cédula"> Nombres Completos </label><br>
-        </div>
-        </div>
-                <div class="dashboard__main-actions">
-                    <div class="dashboard__main-actions-buttons">
-                            <div>
-                                <label>Motivo</label><br>
-                                    <select class="btn">
-                                        <option>Ingreso</option>
-                                        <option>Egreso</option>
-                                    </select>
-                </div>
-                <div class="dashboard__main-actions">
-                    <div class="dashboard__main-actions-buttons">
-                            <div>
-                                <label>Motivo</label><br>
-                                    <select class="btn">
-                                        <option>Ingreso</option>
-                                        <option>Egreso</option>
-                                    </select>
-
-                                <div class="campo">
-                                    <input type="text" required id="mot">
-                                    <label for="Motivo"> Motivo </label> 
-                     </div>
-                                       
-                </div>
-        </div>
-        </div>
-        <div class="motivo">
-        <input type="text" required><br>
-        <label for="detalle"> Ingrese la Descripción </label>
-            </div>
-        <div class="motivo">
-        <input type="text" required><br>
-        <label for="detalle"> Ingrese la Descripción </label>
-    </div>
-        <div class="dashboard__main-table">
-            <table id="table" class="table__desc">
-                <thead  class="header__table">
-                    <tr>
-                        <th class="header__table-element"><button><span>Cédula</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                        <th class="header__table-element"><button><span>Nombres</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                        <th class="header__table-element"><button><span>Apellidos</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                        <th class="header__table-element"><button><span>Motivo</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                        <th class="header__table-element"><button><span>Detalle</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-
-                        <th class="header__table-element"><i class="fa fa-trash" aria-hidden="true"></i></th>
-                        <th class="header__table-element"><i class="fa fa-pencil-alt" aria-hidden="true"></i></th>
-                        
-                    </tr>
-                </thead>
-                <tbody class="body__table"></tbody> 
-    </div>
-        <div class="flex-container">
-            <button class="Guardar" id="Modificar"><span> Modificar </span></button>
-            <button class="Guardar1" id="Insertar" ><span> Insertar </span></button>
-            <button class="Guardar2" id="Eliminar"><span> Eliminar </span></button>
-            <button class="Guardar3" id="Guardar"><span> Guardar </span></button>
-          </div>  
-            </div>
-            </form>
-            </div>
-        </div>
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -261,7 +94,7 @@
                     <input type="text" id="apellidos" required><br><br>
                     <label for="Apellidos"> Apellidos Completos </label>
                 </div>
-                
+
             </div>
                 <div class="dashboard__main-actions">
                     <div class="dashboard__main-actions-buttons">
@@ -294,7 +127,6 @@
                         <th class="header__table-element"><button><span>Apellidos</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                         <th class="header__table-element"><button><span>Motivo</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                         <th class="header__table-element"><button><span>Detalle </span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                        <th class="header__table-element"><i class="fa fa-trash" aria-hidden="true"></i></th>
                         <th class="header__table-element"><i class="fa fa-pencil-alt" aria-hidden="true"></i></th>
                         
                     </tr>

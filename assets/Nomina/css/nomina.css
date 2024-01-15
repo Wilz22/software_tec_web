@@ -945,3 +945,8 @@ button[class=Guardar4] {
     color: white;
     border-radius: 8px;
 }
+
+.flex-container{
+    margin: 50px;
+    align-items: center;
+}
