@@ -6,10 +6,10 @@
     <title>Facturacion</title>
     <link rel="stylesheet" href="../Activos/css/activos.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script defer src="./../js/app.js" ></script>
-    <script defer src="./../js/contabilidad.js"></script>
+    <script defer src="./js/TipoCuenta.js" ></script>
 </head>
 <body>
+</div>
     <div class="dashboard">
         <header class="dashboard__header">
             <div class="dashboard__header-logo">
@@ -81,25 +81,30 @@
             <div class="dashboard__body-main">
                 <div class="dashboard__main-header">
                     <h1>Tipo de Activo</h1> 
-                </div>
-                <div class="cont">
-                    <input type="text" placeholder="Buscar">
-                    <div class = "btn">
-                        <i class="fa fa-search"></i>
-                    </div>    
+                    <meta charset="UTF-8">
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                        <title>Botón de Búsqueda</title>
+                    
+                    
+                    <!-- Formulario con el botón de búsqueda -->
+                    <form action="/buscar" method="get">
+                        <label for="buscar">Buscar:</label>
+                        <input type="text" id="buscar" name="q" placeholder="Ingrese su búsqueda" required>
+                        <button type="submit">Buscar</button>
+                    </form>    
                   </div>
                 
                 <div class="contenedor">
                     <!-- Campo 1: Nombre -->
                     <div class="campo">
-                     <input type="text" id="Nombre" class="caja-input">
-                      <label for="Nombre">Nombre Activo</label>
+                    <input type="text" id="Nombre" name="nombre id" placeholder="Ej. Vivienda" required>
+                    <label for="Nombre">Nombre Activo:</label>
                       
                     </div>
                     
                     <!-- Campo 2: Tipo Activo con Menú de Opciones -->
                      <div class="campo">
-                     <label for="TipoActivo">Tipo de Activo</label>
+                     <label for="TipoActivo">Tipo de Activo:</label>
                      <select id="TipoActivo" class="caja-input">
                     <option value="tipo1"></option>
                       <option value="tipo1">Circulantes</option>
@@ -113,55 +118,63 @@
 
                      <!-- Campo 3: Código Activo con Menú de Opciones -->
                     <div class="campo">
-                     <label for="CodigoActivo">Código Activo</label>
+                     <label for="CodigoActivo">Código Activo:</label>
                      <select id="CodigoActivo" class="caja-input">
                     <option value="codigo1"></option>
-                     <option value="codigo1"> #C25263 </option>
-                     <option value="codigo1"> #F25263 </option>
-                     <option value="codigo1"> #I25263 </option>
-                      <option value="codigo2">#F39409</option>
-                       <option value="codigo3">#D40595 </option>
-                    
+                     <option value="codigo2"> #C25263 </option>
+                     <option value="codigo3"> #F25263 </option>
+                     <option value="codigo4"> #I25263 </option>
+                      <option value="codigo5">#F39409</option>
+                       <option value="codigo6">#D40595 </option>
                         </select>
                     </div>
-
-                    </div>
-    <script>
-        function insertar() {
-            alert("Insertar opción seleccionada");
-        }
-
-        function eliminar() {
-            alert("Eliminar opción seleccionada");
-        }
-
-        function modificar() {
-            alert("Modificar opción seleccionada");
-        }
-
-        function guardar() {
-            alert("Guardar opción seleccionada");
-        }
-
-    </script>
-    <div class="Bonites">
-        <div class="Bonotesss">
-            <div class="Opcionesa">
-                <h1>Opción que desea Realizar</h1>
-                <div class="acciones">
-                    <button onclick="insertar()">Insertar</button>
-                    <button onclick="eliminar()">Eliminar</button>
-                    <button onclick="modificar()">Modificar</button>
-                    <button onclick="guardar()">Guardar</button>
                 </div>
-            </div>
+                <h2 class="neon"> Opción que desea realizar </h2>
+             <div class="GESTIÓN">
+                 <button class="Insertar Insertar-1" id="btnInsertar" onclick="validarInsertar()">Insertar </button>
+                 <button class="Eliminar Eliminar-1" id="btnEliminar" onclick="validarEliminar()">Eliminar</button>
+               <!--  <button class="Modificar Modificar-1" id="btnModificar" onclick="validarModificar()">Modificar</button> -->
+                 <button class="Guardar Guardar-1" id="btnGuardar" onclick="guardarCambios()">Guardar</button>    
+           </div>
+
+           <table id="table" class="table__main">
+             <thead  class="header__table">
+                 <tr>
+                     <th class="header__table-element"><button><span>Cod</span><i class="" aria-hidden="true"></i></button></th>
+                     <th class="header__table-element"><button><span>Nombre</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                     <th class="header__table-element"><button><span>TipoActivo</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                     <th class="header__table-element"><button><span>CodigoActivo</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                     <th class="header__table-element"><button><span></span><i class="fa fa-pencil" aria-hidden="true"></i></button></th>
+                     
+                 </tr>
+             </thead>
+             <tbody class="body__table"></tbody>
            
-        </div>
-    </div>
+     </div>
+ </div>
+</div>
 
-            </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activos</title>
+    <!-- Agrega tus enlaces a hojas de estilo y otros recursos aquí -->
+</head>
+<body>
+    <!-- Tu contenido HTML actual -->
 
-        </div>
-    </div>
+    <script>
+        // Array para almacenar los datos de activos
+        var activos = [];
+
+        // Resto del código JavaScript aquí...
+
+        // Puedes colocar el resto del código aquí o incluirlo desde un archivo externo con la etiqueta <script src="ruta_al_archivo.js"></script>
+    </script>
+
+    <!-- Puedes incluir los enlaces a tus archivos JS externos aquí si prefieres mantenerlos separados -->
+    <!-- <script defer src="./ruta/a/tu/archivo.js"></script> -->
 </body>
 </html>
