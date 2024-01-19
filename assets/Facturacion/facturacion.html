@@ -236,33 +236,5 @@
     </div>
     
 </body>
-<!-- Agrega este script al final del body o en el head -->
-<script>
-    function buscarEnTabla() {
-        // Obtener el valor de la barra de búsqueda
-        var input = document.querySelector('.search-bar');
-        var filter = input.value.toUpperCase();
-
-        // Obtener la tabla y las filas de la tabla
-        var table = document.getElementById('table');
-        var rows = table.getElementsByTagName('tr');
-
-        // Iterar sobre las filas y mostrar/ocultar según el valor de búsqueda
-        for (var i = 0; i < rows.length; i++) {
-            var cells = rows[i].getElementsByTagName('td');
-            var shouldShow = false;
-
-            for (var j = 0; j < cells.length; j++) {
-                var cellText = cells[j].innerText || cells[j].textContent;
-                if (cellText.toUpperCase().indexOf(filter) > -1) {
-                    shouldShow = true;
-                    break;
-                }
-            }
-
-            rows[i].style.display = shouldShow ? '' : 'none';
-        }
-    }
-</script>
 
 </html>

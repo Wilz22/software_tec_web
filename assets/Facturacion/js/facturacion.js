@@ -22,12 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const tableBody = document.querySelector('.body__table');
     const clientesData = [];
     const btnfilter= document.getElementById("filter-button");
-    document.querySelector('.search-bar').addEventListener('input', buscarEnTabla);
-    document.querySelector('.search-bar').addEventListener('keyup', function(event) {
-        if (event.key === 'Enter') {
-            buscarEnTabla();
-        }
-    });
+ 
 
     // btnfilter.addEventListener("click", () => {
     //     document.querySelector(".filter-menu").classList.toggle("active")
@@ -312,48 +307,54 @@ function agregarFila() {
         filaAEliminar.remove();
     }
 
+    
+    document.querySelector('.search-bar').addEventListener('input', buscarEnTabla);
+document.querySelector('.search-bar').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter') {
+        buscarEnTabla();
+    }
+});
 
-    
-    function buscarEnTabla() {
-        var input = document.querySelector('.search-bar');
-        var filter = input.value.toUpperCase();
-    
-        // Filtra el array clientesData basado en el RUC
-        var resultadosFiltrados = clientesData.filter(function(cliente) {
-            return cliente.ruc.toUpperCase().indexOf(filter) > -1;
-        });
-    
-        // Actualiza la tabla con los resultados filtrados
-        updateTable(resultadosFiltrados);
-    }
-    
-    function updateTable(clientes) {
-        // Limpiar el cuerpo de la tabla
-        var tableBody = document.querySelector('.body__table');
-        tableBody.innerHTML = '';
-    
-        clientes.forEach(function (cliente) {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${cliente.fecha}</td>
-                <td>${cliente.ruc}</td>
-                <td>${cliente.nombres}</td>
-                <td>${cliente.direccion}</td>
-                <td>${cliente.valor}</td>
-                <td>
-                    <button aria-label="Eliminar" class="btn" onclick="showOptions(${cliente.codigo})">
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                    </button>
-                </td>
-                <td>
-                    <button aria-label="Editar" class="btn" onclick="showEdit(${cliente.codigo})">
-                        <i class="fa fa-pencil" aria-hidden="true"></i>
-                    </button>
-                </td>
-            `;
-    
-            tableBody.appendChild(row);
-        });
-    }
+function buscarEnTabla() {
+    var input = document.querySelector('.search-bar');
+    var filter = input.value.toUpperCase();
+
+    // Filtra el array clientesData basado en el RUC
+    var resultadosFiltrados = clientesData.filter(function(cliente) {
+        return cliente.ruc.toUpperCase().indexOf(filter) > -1;
+    });
+
+    // Actualiza la tabla con los resultados filtrados
+    updateTable(resultadosFiltrados);
+}
+
+function updateTable(clientes) {
+    // Limpiar el cuerpo de la tabla
+    var tableBody = document.querySelector('.body__table');
+    tableBody.innerHTML = '';
+
+    clientes.forEach(function (cliente) {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${cliente.fecha}</td>
+            <td>${cliente.ruc}</td>
+            <td>${cliente.nombres}</td>
+            <td>${cliente.direccion}</td>
+            <td>${cliente.valor}</td>
+            <td>
+                <button aria-label="Eliminar" class="btn" onclick="showOptions(${cliente.codigo})">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+            </td>
+            <td>
+                <button aria-label="Editar" class="btn" onclick="showEdit(${cliente.codigo})">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                </button>
+            </td>
+        `;
+
+        tableBody.appendChild(row);
+    });
+}
 
     
