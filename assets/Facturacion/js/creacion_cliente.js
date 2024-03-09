@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     agregarClienteBtn.addEventListener('click', addClient);
     window.addEventListener('load', getClientes());
+    var loggedInUser = localStorage.getItem('loggedInUser');
+    document.getElementById('loggedInUserName').textContent = loggedInUser;
 
 
 
