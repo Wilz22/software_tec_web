@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     agregarClienteBtn.addEventListener('click', addClient);
     window.addEventListener('load', getClientes());
-    var loggedInUser = localStorage.getItem('loggedInUser');
+    const loggedInUser = localStorage.getItem('loggedInUser');
     document.getElementById('loggedInUserName').textContent = loggedInUser;
 
 
@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function addClient() {
+    
     // Obtener los valores de los campos de entrada
     const ruc = document.getElementById('rucInput').value;
     const nombre = document.getElementById('nombreInput').value;
@@ -100,6 +101,38 @@ function addClient() {
         console.log(data); // Aquí obtienes los datos del cliente agregado
         // Actualizar la tabla para mostrar el cliente recién agregado
         getClientes();
+        addTblActividadSILC();
+    })
+    .catch(error => {
+        console.error('Error al intentar enviar los datos: ', error);
+    });
+}
+
+function addTblActividadSILC() {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    let nombre_activi_silc = 'insercion'
+
+    // Crear el objeto de datos a enviar al servidor
+    const data = {
+        nombreActSilc: nombre_activi_silc,
+        usuarioSilc: loggedInUser,
+    };
+    // Realizar la solicitud POST al servidor
+    fetch('http://localhost:5279/api/v1/SilcActividad', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error en la petición: ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data); // Aquí obtienes los datos del cliente agregado
     })
     .catch(error => {
         console.error('Error al intentar enviar los datos: ', error);
