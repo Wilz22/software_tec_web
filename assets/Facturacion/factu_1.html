@@ -79,27 +79,29 @@
                 </div>
 
                 <div class="contenedor">
+                    <input type="hidden" id="clienteId" value="">
+
                     <!-- Campo 1: Ruc -->
                     <div class="campo">
-                        <input type="text" required>
+                        <input type="text" id="rucInput">
                         <label for="Ruc">Ruc</label>
                     </div>
             
                     <!-- Campo 2: Cédula -->
                     <div class="campo">
-                        <input type="text" required>
-                        <label for="Nombres">Nombres</label>
+                        <input type="text" id="nombreInput">
+                        <label for="Nombres">Nombre</label>
+                    </div>
+
+                    <div class="campo">
+                        <input type="text" id="apellidoInput">
+                        <label for="direccion">Apellido</label>
                     </div>
             
                     <!-- Campo 3: Dirección -->
                     <div class="campo">
-                        <input type="text" required>
+                        <input type="text" id="direccionInput">
                         <label for="direccion">Dirección</label>
-                    </div>
-
-                    <div class="campo">
-                        <input type="number" id="valornumber" required value="0">
-                        <label for="valor">Saldo</label>
                     </div>
                   </div>
                 <div class="dashboard__main-actions">
@@ -125,6 +127,11 @@
                             <button id="agregarCliente" class="add-item action-button">
                                 <span>Agregar Cliente<i class="fa fa-plus" aria-hidden="true"></i></span>
                             </button>
+                            
+                            <button id="updateCliente" class="add-item action-button" onclick="updateClient()">
+                                <span>Actualizar Cliente<i class="fa fa-pencil" aria-hidden="true"></i></span>
+                            </button>
+                            
                             <button id="eliminar" class="add-item action-button">
                                 <span>Eliminar todo<i class="fa fa-trash" aria-hidden="true"></i></span>
                             </button>
@@ -136,11 +143,10 @@
                     <table id="table" class="table__main">
                         <thead  class="header__table">
                             <tr>
-                                <th class="header__table-element"><button><span>Cod</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                                 <th class="header__table-element"><button><span>Ruc</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                                 <th class="header__table-element"><button><span>Nombre</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Apellido</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                                 <th class="header__table-element"><button><span>Dirección</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th class="header__table-element"><button><span>Saldo</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                                 <th class="header__table-element"><i class="fa fa-trash" aria-hidden="true"></i></th>
                                 <th class="header__table-element"><i class="fa fa-pencil-alt" aria-hidden="true"></i></th>
                                 
@@ -152,5 +158,8 @@
             </div>
         </div>
     </div>
+    <script>
+        
+    </script>
 </body>
 </html>

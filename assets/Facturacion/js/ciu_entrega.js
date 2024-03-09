@@ -221,6 +221,22 @@ function updateCodigo() {
     }
 }
 
+function fetchClientsFac(){
+    fetch('http://localhost:5279/api/v1/ClientsFac/all')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error en la petición: ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Error al intentar obtener los datos: ', error);
+    });
+}
+
 // Llenar la lista de ciudades al cargar la página
 llenarCiudadesList(['Quito', 'Guayaquil', 'Cuenca', 'Ambato']);
 
