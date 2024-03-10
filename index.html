@@ -23,7 +23,7 @@
             <div class="login">
                 <form action="./assets/Nomina/NominaIngresoEgreso.html" method="get" onsubmit="return validateForm()">
                     <label for="chk" aria-hidden="true">Login</label>
-                    <input type="text" name="userName" id="userName" placeholder="User name" required="">
+                    <input type="text" name="username" id="username" placeholder="User name" required="">
                     <input type="password" name="password" id="password" placeholder="Password" required="">
                     <button type="submit">Iniciar Sesión</button>
                 </form>
@@ -32,18 +32,31 @@
 
         <script>
             function validateForm() {
-                var userName = document.getElementById('userName').value;
+                var username = document.getElementById('username').value;
                 var password = document.getElementById('password').value;
-
-                if (userName === 'admin' && password === 'admin') {
-                    
+            
+                // Definir usuarios y contraseñas permitidos
+                var users = ['admin', 'agustin', 'milena', 'nathy', 'jhon', 'santi'];
+                var passwords = ['admin', 'agustin', 'milena', 'nathy', 'jhon', 'santi'];
+            
+                // Validar las credenciales
+                var isValidUser = users.includes(username);
+                var userIndex = users.indexOf(username);
+                var isValidPassword = passwords[userIndex] === password;
+            
+                if (isValidUser && isValidPassword) {
+                    // Almacenar el nombre de usuario en el almacenamiento local del navegador
+                    localStorage.setItem('loggedInUser', username);
+                    console.log('Usuario guardado en el almacenamiento local:', username); 
                     return true;
                 } else {
-                   
                     alert('Usuario o contraseña incorrectos');
                     return false;
                 }
             }
-        </script>
+            </script>
+        
+        
+        
     </body>
 </html>
