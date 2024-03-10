@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const input_cod = document.getElementById("input-cod");
     const input_name = document.getElementById("input-name");
     const input_status = document.getElementById("input-status");
-    const input_AccountType = document.getElementById("input-type");
     const input_description = document.getElementById("input-description");
     const input_type = document.getElementById("input-type");
     
@@ -63,50 +62,12 @@ document.addEventListener("DOMContentLoaded", function () {
     
     async function fetchData() {
         try {
-            const response = await fetch('http://localhost:5279/api/v1/Account/All');
+            const response = await fetch('http://localhost:5279/api/v1/AccountType/All');
             if (!response.ok) {
                 throw new Error('Error fetching data');
             }
             const data = await response.json();
             return data;
-        } catch (error) {
-            console.error('Error:', error);
-            return [];
-        }
-    }
-
-    async function DataAccount(id) {
-        try {
-            const response = await fetch(`http://localhost:5279/api/v1/AccountType/${id}`);
-            if (!response.ok) {
-                throw new Error('Error fetching data');
-            }
-            const data = await response.json();
-            return data;
-        } catch (error) {
-            console.error('Error:', error);
-            return [];
-        }
-    }
-
-    async function populateAccountTypeSelect() {
-        const accountTypes = await fetchAccountTypes();
-        const select = document.getElementById('input-type');
-        select.innerHTML = '';
-    
-        accountTypes.forEach(type => {
-            const option = document.createElement('option');
-            option.value = type.id; 
-            option.textContent = type.name; 
-            select.appendChild(option);
-        });
-    }
-    
-    async function fetchAccountTypes() {
-        try {
-            const response = await fetch(`http://localhost:5279/api/v1/AccountType/all`);
-            if (!response.ok) throw new Error('Error al obtener los tipos de cuenta');
-            return await response.json();
         } catch (error) {
             console.error('Error:', error);
             return [];
@@ -151,17 +112,13 @@ document.addEventListener("DOMContentLoaded", function () {
         generatePaginationButtons(totalRows);
     }
     
-    async function TypeAccountsList(id) {
-        const data = await DataAccount(id);
-        return data
-    }
     
 
     async function deleteItem(e) {
         const element = e.currentTarget.parentElement.parentElement;
         const id = element.dataset.id;
         try {
-            const response = await fetch(`http://localhost:5279/api/v1/Account/${id}`, {
+            const response = await fetch(`http://localhost:5279/api/v1/AccountType/${id}`, {
                 method: 'DELETE'
             });
             if (!response.ok) {
@@ -182,17 +139,16 @@ document.addEventListener("DOMContentLoaded", function () {
             const value_name = input_name.value;
             const value_status = input_status.value;
             const value_description = input_description.value;
-            const value_AccountType = input_AccountType.value;
             const data = {
-                code: value_code,
+                code: "C2",
                 name: value_name,
                 status: value_status,
                 description: value_description,
-                accountTypeId: value_AccountType
+                accountTypeId: 3
             };
             console.log(data);
             try {
-                const response = await fetch('http://localhost:5279/api/v1/Account', {
+                const response = await fetch('http://localhost:5279/api/v1/AccountType', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -226,22 +182,21 @@ document.addEventListener("DOMContentLoaded", function () {
             if (data.length > 0) {
                 data.forEach(createListItem);
             }
+            console.log(data);
         } catch (error) {
             console.error('Error al intentar mostrar los datos: ', error);
         }
     }
     
-    async function createListItem(item) {
-        const { id, code, name, accountTypeId, status, description } = item;
+    function createListItem(item) {
+        const { id, code, name, status, description } = item;
         const element = document.createElement('tr');
-        let accountTypeName = await TypeAccountsList(accountTypeId);
         element.dataset.id = id;
-        element.dataset.accountType = accountTypeName.name;
+        element.dataset.state = status == "Active" ? "Encendido" : "Apagado"
         element.classList.add("register-item");
         element.innerHTML = `
             <td>${code}</td>
             <td>${name}</td>
-            <td>${accountTypeName.name}</td>
             <td class="element__modifier"><button class="btn btn-${status.toLowerCase()}">${status == "Active" ? "Encendido" : "Apagado"}</button></td>
             <td class="element__modifier"><span>${description}</span></td>
             <td>
@@ -259,7 +214,6 @@ document.addEventListener("DOMContentLoaded", function () {
         editBtn.addEventListener("click", editItem);
         table_list.appendChild(element);
     }
-    
     
     function editItem(e) {
         e.preventDefault();
@@ -280,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const value_description = input_description.value;
     
                 try {
-                    const response = await fetch(`http://localhost:5279/api/v1/Account/${id}`, {
+                    const response = await fetch(`http://localhost:5279/api/v1/AccountType/${id}`, {
                         method: 'PUT',
                         headers: {
                             'Content-Type': 'application/json',
@@ -352,41 +306,4 @@ document.addEventListener("DOMContentLoaded", function () {
     
     displayData();
     initializePagination();
-    populateAccountTypeSelect();
-    });
-
-
-
-
-
-    
-    $(document).ready(function(){
-        $("#search").keyup(function(){
-            _this = this;
-            $.each($("#table tbody tr"), function() {
-                if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1)
-                    $(this).hide();
-                else
-                    $(this).show();
-            });
-        });
-    });
-    
-    
-    $(document).ready(function() {
-        $('.btn-apply').click(function() {
-            const selectedState = $('.filter-menu select').val();
-            $('.register-item').each(function() { 
-                const itemState = $(this).data('account-type'); 
-                if (selectedState === 'Todos los estados' || itemState === selectedState) {
-                    $(this).show();
-                } else {
-                    $(this).hide();
-                }
-            });
-        });
-    
-        $('.btn-reset').click(function() {
-            $('.register-item').show(); 
-        });
     });
