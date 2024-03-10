@@ -1,5 +1,12 @@
+const tableBody = document.querySelector('.body__table');
+const modal = document.querySelector('.modal');
+
+const form = document.querySelector(".modal__form");
+let globalClientId; 
+form.addEventListener("submit", updateClient);
+
 document.addEventListener('DOMContentLoaded', function () {
-    const tableBody = document.querySelector('.body__table');
+
     // Agregar un evento de click al botón
 
     const agregarClienteBtn = document.getElementById('agregarCliente');
@@ -101,7 +108,7 @@ function addClient() {
         console.log(data); // Aquí obtienes los datos del cliente agregado
         // Actualizar la tabla para mostrar el cliente recién agregado
         getClientes();
-        addTblActividadSILC();
+        //addTblActividadSILC();
     })
     .catch(error => {
         console.error('Error al intentar enviar los datos: ', error);
@@ -139,6 +146,8 @@ function addTblActividadSILC() {
     });
 }
 
+
+
 // Función para obtener y mostrar los clientes en la tabla
 function getClientes() {
     fetch('http://localhost:5279/api/v1/ClientsFac/all')
@@ -165,7 +174,7 @@ function getClientes() {
                     </button>
                 </td> 
                 <td>
-                    <button aria-label="Editar" class="btn" onclick="fillFormFields(${JSON.stringify(cliente)})">
+                    <button aria-label="Editar" class="btnEditarModal" onclick="showEditModal(${cliente.id})">
                         <i class="fa fa-pencil" aria-hidden="true"></i>
                     </button>
             
@@ -173,11 +182,60 @@ function getClientes() {
             `;
             tbody.appendChild(newRow);
         });
+        
+        modal.querySelector('.close').addEventListener('pointerdown', () => {
+            hideModal();
+        });
+
+        // Después de generar los botones de edición, agregar eventos a los botones
+        // const botonesEditar = document.querySelectorAll('.btnEditarModal');
+        // botonesEditar.forEach(boton => {
+        //     boton.addEventListener('pointerdown', function() {
+        //         // Obtener el índice del cliente correspondiente al botón de edición
+                
+        //         //showModal();
+        //     });});
+
+
+        
     })
     .catch(error => {
         console.error('Error al intentar obtener los clientes: ', error);
     });
 }
+
+function showEditModal(clienteId) {
+
+    // Realizar una solicitud al servidor para obtener los datos del cliente por su ID
+    fetch(`http://localhost:5279/api/v1/ClientsFac/${clienteId}`)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error en la petición: ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(cliente => {
+        globalClientId=cliente.id;
+        // Llenar los campos del modal con los datos del cliente
+        document.getElementById('input-ruc').value = cliente.ruc;
+        document.getElementById('input-nombre').value = cliente.nombre;
+        document.getElementById('input-apellido').value = cliente.apellido;
+        document.getElementById('input-direccion').value = cliente.direccion;
+
+        // Mostrar el modal después de llenar los campos
+        showModal();
+
+        // updateitem.addEventListener('pointerdown', () => {
+        //     showModaupdateClientl(globalClientId);
+        // });
+
+    })
+    .catch(error => {
+        console.error('Error al obtener los datos del cliente: ', error);
+    });
+}
+
+
 window.showOptions = function (id) {
     const result = confirm("¿Desea eliminar este cliente?");
     if (result) {
@@ -210,30 +268,44 @@ function showMessage(message, backgroundColor) {
     }, 3000);
 }
 
-function fillFormFields(cliente) {
-    document.getElementById('clienteId').value = cliente.id;
-    document.getElementById('rucInput').value = cliente.ruc;
-    document.getElementById('nombreInput').value = cliente.nombre;
-    document.getElementById('apellidoInput').value = cliente.apellido;
-    document.getElementById('direccionInput').value = cliente.direccion;
+modal.addEventListener('transitionend', function(e) {
+    if (!this.classList.contains('show')) {
+        if (e.propertyName == 'transform') {
+        this.style.display = '';
+        }
+    }
+});
+
+
+function showModal() {
+    modal.style.display = 'block';
+    setTimeout(() => modal.classList.add('show'), 0)
 }
 
 
+function hideModal() {
+    modal.classList.remove('show')
+}
+
+
+
 function updateClient() {
-    const clienteId = document.getElementById('clienteId').value;
-    const ruc = document.querySelector('input[name="Ruc"]').value;
-    const nombres = document.querySelector('input[name="Nombres"]').value;
-    const apellidos = document.querySelector('input[name="Apellidos"]').value;
-    const direccion = document.querySelector('input[name="Direccion"]').value;
+    console.log(globalClientId);
+    const ruc = document.getElementById('input-ruc').value;
+    const nombres = document.getElementById('input-nombre').value;
+    const apellidos = document.getElementById('input-apellido').value;
+    const direccion = document.getElementById('input-direccion').value;
 
     const data = {
+        id: globalClientId,
         ruc: ruc,
         nombre: nombres,
         apellido: apellidos,
-        direccion: direccion
+        direccion: direccion,
+        ciudadEntrFacId: null
     };
 
-    fetch(`http://localhost:5279/api/v1/ClientsFac/${clienteId}`, {
+    fetch(`http://localhost:5279/api/v1/ClientsFac/${globalClientId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',

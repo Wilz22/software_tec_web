@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -129,6 +129,61 @@
                             <button id="agregarCliente" class="add-item action-button">
                                 <span>Agregar Cliente<i class="fa fa-plus" aria-hidden="true"></i></span>
                             </button>
+
+                            <div class="modal">
+                                <div class="modal__header">
+                                    <div class="modal__header-container">
+                                        <h3 class="modal__title">Editar Cliente</h3>
+                                    </div>
+                                    <button class="close btn">
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <form class="modal__form">
+                                    <div class="input-group"> 
+                                        <div class="input__group-label">
+                                            <span>Ruc</span><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="input__group-bar">
+                                            <input type="text" id="input-ruc" class="input-bar" placeholder="Ruc">
+                                        </div>
+                                    </div>
+                                        
+                                    <div class="input-group"> 
+                                        <div class="input__group-label">
+                                            <span>Nombre</span><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="input__group-bar">
+                                            <input type="text" id="input-nombre" class="input-bar" placeholder="Nombre">
+                                        </div>
+                                    </div>
+                                    <div class="input-group"> 
+                                        <div class="input__group-label">
+                                            <span>Apellido</span><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="input__group-bar">
+                                            <input type="text" id="input-apellido" class="input-bar" placeholder="Apellido">
+                                        </div>
+                                    </div>
+                            
+                                    <div class="input-group"> 
+                                        <div class="input__group-label">
+                                            <span>Dirección</span><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="input__group-bar">
+                                            <input type="text" id="input-direccion" class="input-bar" placeholder="Dirección">
+                                        </div>
+                                    </div>
+                                    <div class="modal__footer">
+                                        <div class="modal__footer-container">
+                                            <!-- <button class="clear-btn btn-inactive btn " type="button">Borrar</button> -->
+                                            <button class="submit-btn btn" id="actualizaCliente" type="submit">Actualizar Cliente</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            
                             
                             <button id="updateCliente" class="add-item action-button" onclick="updateClient()">
                                 <span>Actualizar Cliente<i class="fa fa-pencil" aria-hidden="true"></i></span>
@@ -157,11 +212,9 @@
                         <tbody class="body__table"></tbody>
                     </table>       
                        
+                </div>
             </div>
         </div>
     </div>
-    <script>
-        
-    </script>
 </body>
 </html>

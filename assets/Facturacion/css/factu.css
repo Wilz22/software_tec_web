@@ -752,4 +752,117 @@ tbody td,
    
 }
 
+.modal{
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    background-color: var(--c-gray-800);
+    color: #fff;
+    padding: 1rem 2rem 1.5rem;
+    width: 98%;
+    max-width: 600px;
+    border-radius: 20px;
+    opacity: 0;
+    transition: 0.2s;
+}
 
+.modal__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal__header-container{
+    width: 100%;
+}
+
+.modal.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+.modal__alert.show {
+    display: block;
+    opacity: 1;
+}
+.modal .close {
+    margin-inline-start: auto;
+    display: block;
+    cursor: pointer;
+}
+.modal .modal__title {
+    text-align: center;
+    font-size: 1.3rem;
+    font-weight: 700;
+    line-height: 1.5;
+    margin: 30px 0;
+}
+
+.modal__footer{
+    display: flex;
+    justify-content: end;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.modal__footer-container > button:first-child{
+    margin-right: 10px;
+}
+
+.modal__alert{
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 90%;
+    transform: translate(-50%, -50%) scale(0.5);
+    color: #fff;
+    padding: 1rem 2rem 1.5rem;
+    width: 45%;
+    height: 120px;
+    max-width: 600px;
+    border-radius: 20px;
+    opacity: 0;
+    transition: 0.2s;
+    font-size: 1.75rem;
+    display: grid;
+    align-items: center;
+    text-align: center;
+    letter-spacing: var(--spacing);
+    text-transform: capitalize;
+}
+
+.btnEditarModal{
+    height: 30px;
+    border-radius: 4px;
+    background-color: var(--c-gray-800);
+    border: 1px solid var(--c-gray-700);
+    align-items: center;
+    color: var(--c-text-primary);
+    font-size: 1rem;
+    padding:  0px 15px;
+    cursor: pointer;
+}
+.btnEditarModal-active{
+    background-color: var(--c-green-500);
+    color: var(--c-gray-900);
+}
+.btnEditarModal-inactive{
+    background-color: var(--c-red-600);
+    color: var(--c-text-primary);
+}
+.btnEditarModal-apply{
+    background-color: var(--c-blue-700);
+}
+.btnEditarModal-voucher{
+    display: flex;
+    justify-content: right;
+}
+.page-btn-active{
+    background-color: var(--c-gray-900);
+}
+
+.btnEditarModal:hover, 
+.btnEditarModal:focus {
+    box-shadow: 0 0 0 4px var(--c-gray-800), 0 0 0 5px var(--c-text-tertiary);
+}
