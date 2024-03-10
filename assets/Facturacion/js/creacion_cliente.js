@@ -1,21 +1,19 @@
 const tableBody = document.querySelector('.body__table');
 const modal = document.querySelector('.modal');
-
 const form = document.querySelector(".modal__form");
 let globalClientId; 
 form.addEventListener("submit", updateClient);
 
 document.addEventListener('DOMContentLoaded', function () {
+const agregarClienteBtn = document.getElementById('agregarCliente');
 
-    // Agregar un evento de click al botón
 
-    const agregarClienteBtn = document.getElementById('agregarCliente');
-    
+agregarClienteBtn.addEventListener('click', addClient);
+window.addEventListener('load', getClientes());
+const loggedInUser = localStorage.getItem('loggedInUser');
+document.getElementById('loggedInUserName').textContent = loggedInUser;
 
-    agregarClienteBtn.addEventListener('click', addClient);
-    window.addEventListener('load', getClientes());
-    const loggedInUser = localStorage.getItem('loggedInUser');
-    document.getElementById('loggedInUserName').textContent = loggedInUser;
+
 
 
 
@@ -107,6 +105,8 @@ function addClient() {
     .then(data => {
         console.log(data); // Aquí obtienes los datos del cliente agregado
         // Actualizar la tabla para mostrar el cliente recién agregado
+        showMessage('Se ha insertado correctamente el Cliente', 'green');
+        limpiarInputs();
         getClientes();
         //addTblActividadSILC();
     })
@@ -247,8 +247,9 @@ window.showOptions = function (id) {
             if (!response.ok) {
                 throw new Error('Error en la petición: ' + response.statusText);
             }
-            getClientes();
             showMessage('Se ha eliminado el cliente', 'red');
+            getClientes();
+
         })
         .catch(error => {
             console.error('Error al intentar eliminar el cliente: ', error);
@@ -325,3 +326,24 @@ function updateClient() {
     });
 }
 
+function limpiarInputs(){
+
+document.getElementById('rucInput').value='';
+document.getElementById('nombreInput').value='';
+document.getElementById('apellidoInput').value='';
+document.getElementById('direccionInput').value='';
+}
+
+$(document).ready(function(){
+    $("#searchInput").keyup(function(){
+        var searchText = $(this).val().toLowerCase();
+        $("#table tbody tr").each(function(){
+            var rowText = $(this).text().toLowerCase();
+            if(rowText.indexOf(searchText) === -1) {
+                $(this).hide();
+            } else {
+                $(this).show();
+            }
+        });
+    });
+});

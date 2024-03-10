@@ -19,6 +19,8 @@ form.addEventListener("submit", addItem);/*
 window.addEventListener("DOMContentLoaded", setupItems); */
 
 document.addEventListener('DOMContentLoaded', function() {
+
+    let IdVoucher = localStorage.getItem("IDVoucher");
     const addRowLink = document.getElementById('add-row');
     const table = document.getElementById('table');
     const tbody = table.querySelector('.body__table-voucher');
