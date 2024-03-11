@@ -6,7 +6,8 @@
     <title>Cuentas por cobrar</title>
     <link rel="stylesheet" href="./css/cxc.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script defer src="./js/jscxc.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./js/cobrador.js" ></script>
 </head>
 <body>
     <div class="dashboard">
@@ -39,15 +40,17 @@
                 </nav>
             </div>
 
+
             <div class="dashboard__header-information">
                 <button class="user__profile">
                     <div class="user__profile-name">
-                        <span>Jhon Bedoya</span>
+                        <span id="loggedInUserName"></span>
                         <span>Admin</span>
                     </div>
                     <img src="../../assets/imgs/iconuser.png" alt="User"/>
                 </button>
             </div>
+            
         </header>
 
 
@@ -81,35 +84,28 @@
                           
                 <div class="contenedor">
                     <div class="campo">
-                      <input type="text" required>
+                      <input type="text" id="nombreCobrador">
                       <label for="Nombre">Nombre</label>
                     </div>
                     
                     <div class="campo">
-                        <input type="number" required>
+                        <input type="text" id="cedulaCobrador">
                       <label for="Cédula">Cédula</label>
                     </div>
                     
                     <div class="campo">
-                        <input type="text" required>
+                        <input type="text" id="direccioncobrador">
                       <label for="direccion">Dirección</label>
                     </div>
                     
 
-                  <div class="campo">
-                        <input type="number" required id="valorNumerico" name="valorNumerico" /> 
-                        <label for ="Edad">Edad</label>
-                    </div>  
-
-                    <input type="text" class="search-bar" placeholder="Buscar">
+                    <input type="text" id="barrabusqueda" class="search-bar" placeholder="Buscar">
 
                 </div>
                        <h2 class="neon"> GESTIÓN DE DATOS </h2>
                     <div class="GESTIÓN">
-                        <button class="Insertar Insertar-1" id="btnInsertar" onclick="validarInsertar()">Insertar </button>
-                        <button class="Eliminar Eliminar-1" id="btnEliminar" onclick="validarEliminar()">Eliminar</button>
-                      <!--  <button class="Modificar Modificar-1" id="btnModificar" onclick="validarModificar()">Modificar</button> -->
-                        <button class="Guardar Guardar-1" id="btnGuardar" onclick="guardarCambios()">Guardar</button>    
+                        <button class="Insertar Insertar-1" id="btnInsertar">Insertar </button>
+                        <button class="Guardar Guardar-1" id="btnGuardar" >Guardar</button>    
                   </div>
 
                   <table id="table" class="table__main">
@@ -119,8 +115,8 @@
                             <th class="header__table-element"><button><span>Nombre</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                             <th class="header__table-element"><button><span>Cédula</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                             <th class="header__table-element"><button><span>Dirección</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                            <th class="header__table-element"><button><span>Edad</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                            <th class="header__table-element"><button><span></span><i class="fa fa-pencil" aria-hidden="true"></i></button></th>
+                            <th class="header__table-element"><i class="fa fa-trash" aria-hidden="true" id="btnEliminar"></i></th>
+                            <th class="header__table-element"><i class="fa fa-pencil-alt" aria-hidden="true" id="btnModificar"></i></th>
                             
                         </tr>
                     </thead>
@@ -131,127 +127,8 @@
     </div>
     
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const insertarClienteBtn = document.getElementById('btnInsertar');
-            const nombreInput = document.querySelector('.campo:nth-child(1) input');
-            const cedulaInput = document.querySelector('.campo:nth-child(2) input');
-            const direccionInput = document.querySelector('.campo:nth-child(3) input');
-            const edadInput = document.querySelector('.campo:nth-child(4) input');
-            const tableBody = document.querySelector('.body__table');
-    
-            // Cargar los datos desde localStorage al inicio
-            let clientesData = cargarClientesDesdeLocalStorage();
-            updateTable();
-    
-            insertarClienteBtn.addEventListener('click', function () {
-                const nombre = nombreInput.value;
-                const cedula = cedulaInput.value;
-                const direccion = direccionInput.value;
-                const edad = edadInput.value;
-    
-                // Validaciones
-                if (nombre.length > 20 || cedula.length !== 10 || direccion.length > 30 || edad < 1 || edad >= 65) {
-                    showMessage('Error en la validación de los campos.', 'red');
-                    return;
-                }
-    
-                const cliente = {
-                   // codigo: clientesData.length + 1,
-                    nombre: nombre,
-                    cedula: cedula,
-                    direccion: direccion,
-                    edad: edad,
-                    conf: 'Modificar'
-                };
-    
-                clientesData.push(cliente);
-                guardarClientesEnLocalStorage(clientesData);
-                updateTable();
-                showMessage('Se ha insertado correctamente el Cliente', 'green');
-                nombreInput.value = "";
-                cedulaInput.value = "";
-                direccionInput.value = "";
-                edadInput.value = "";
-            });
-    
-            const eliminarBtn = document.getElementById('btnEliminar');
-            eliminarBtn.addEventListener('click', function () {
-                eliminarPrimeraFila();
-            });
-    
-            function eliminarPrimeraFila() {
-                if (clientesData.length > 0) {
-                    clientesData.shift();
-                    guardarClientesEnLocalStorage(clientesData);
-                    updateTable();
-                    showMessage('Se ha eliminado la primera fila correctamente', 'green');
-                } else {
-                    showMessage('No hay filas para eliminar', 'red');
-                }
-            }
-    
-            window.mostrarFormularioEdicion = function (codigo) {
-                const cliente = clientesData.find(cliente => cliente.codigo === codigo);
-                document.querySelector('.campo:nth-child(1) input').value = cliente.nombre;
-                document.querySelector('.campo:nth-child(2) input').value = cliente.cedula;
-                document.querySelector('.campo:nth-child(3) input').value = cliente.direccion;
-                document.querySelector('.campo:nth-child(4) input').value = cliente.edad;
-    
-                let btnguardarcamb = document.getElementById('btnGuardar');
-                btnguardarcamb.onclick = function () {
-                    cliente.nombre = document.querySelector('.campo:nth-child(1) input').value;
-                    cliente.cedula = document.querySelector('.campo:nth-child(2) input').value;
-                    cliente.direccion = document.querySelector('.campo:nth-child(3) input').value;
-                    cliente.edad = document.querySelector('.campo:nth-child(4) input').value;
-    
-                    guardarClientesEnLocalStorage(clientesData);
-                    updateTable();
-                    showMessage('Se ha modificado la fila correctamente', 'blue');
-                    nombreInput.value = "";
-                    cedulaInput.value = "";
-                    direccionInput.value = "";
-                    edadInput.value = "";
-                };
-            }
-    
-            function updateTable() {
-                tableBody.innerHTML = '';
-                clientesData.forEach(function (cliente) {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                     
-                        <td>${cliente.nombre}</td>
 
-                        <td>${cliente.cedula}</td>
-                        <td>${cliente.direccion}</td>
-                        <td>${cliente.edad}</td>
-                        <td class="element__modifier">
-                            <button class="botonMod botonMod-active" onclick="mostrarFormularioEdicion(${cliente.codigo})">${cliente.conf}</button>
-                        </td>
-                    `;
-                    tableBody.appendChild(row);
-                });
-            }
-    
-            function showMessage(message, backgroundColor) {
-                const messageContainer = document.createElement('div');
-                messageContainer.classList.add('message-container');
-                messageContainer.style.backgroundColor = backgroundColor;
-                messageContainer.textContent = message;
-                document.body.appendChild(messageContainer);
-                setTimeout(() => {
-                    document.body.removeChild(messageContainer);
-                }, 3000);
-            }
-    
-            function cargarClientesDesdeLocalStorage() {
-                return JSON.parse(localStorage.getItem('clientesData')) || [];
-            }
-    
-            function guardarClientesEnLocalStorage(clientes) {
-                localStorage.setItem('clientesData', JSON.stringify(clientes));
-            }
-        });
+
     </script>
 
 </body>
