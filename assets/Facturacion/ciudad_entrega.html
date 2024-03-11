@@ -74,41 +74,45 @@
             <div class="dashboard__body-main">
                 <div class="dashboard__main-header">
                     <h1>Datos Cliente</h1>
+                    <h5>Por favor escoje el Ruc para poder agregar la ciudad de entrega:</h5>
                 </div>
                 <div class="contenedor">
+                    <div class="campo-select">
+                        <select id="rucList">
+                            <option value="" disabled selected hidden>Selecciona un RUC</option>
+                            <!-- Aquí se agregarán las opciones de RUCs dinámicamente -->
+                        </select>
+                        <label for="rucList">RUC</label>
+                    </div>
+                    
 
                     <div class="campo">
-                        <input type="text" required>
-                        <label for="Ruc">Ruc</label>
+                        <input type="text" id="nombreClassCiudad" placeholder="Ingrese Nombre">
+                        <label for="Nombre">Nombre</label>
                     </div>
-
                     <div class="campo">
-                        <input type="text" required>
-                        <label for="Nombres">Nombres</label>
+                        <input type="text" id="apellidoClassCiudad" placeholder="Ingrese Apellido" >
+                        <label for="Apellido">Apellido</label>
                     </div>
-            
-                    <!-- Campo 3: Dirección -->
                     <div class="campo">
-                        <input type="text" required>
+                        <input type="text" id="direccionClassCiudad" placeholder="Ingrese Dirección">
                         <label for="direccion">Dirección</label>
                     </div>
                   </div>
                 <div class="dashboard__main-header">
                     <h1>Ciudad Entrega</h1>
+                    <h5>Por favor elije una ciudad para la entrega:</h5>
                 </div>
                 <div class="contenedor">
-                    <!-- Campo 1: Codigo -->
-                    <div class="campo">
-                        <input type="text" id="codigoInput" required>
-                        <label for="Codigo">Codigo</label>
-                    </div>
-            
-                      
+                     
                     <div class="campo-select">
-                        <select id="ciudadesList" onclick="fetchClientsFac()" onchange="updateCodigo()">
+                        <select id="ciudadesList">
+                            <option value="" selected disabled>Selecciona una ciudad</option>
+                            <!-- Aquí puedes agregar las opciones adicionales -->
                         </select>
-                        <label for="Ruc">Ciudad</label>
+                        <label for="ciudadesList">Ciudad</label>
                     </div>
+                    
                     
                   </div>
                 <div class="dashboard__main-actions">
@@ -131,8 +135,8 @@
                                 </div>
                             </div> -->
                             <input type="text" class="search-bar" placeholder="Buscar">
-                            <button id="agregarCliente" class="add-item action-button">
-                                <span>Agregar Ciudad<i class="fa fa-plus" aria-hidden="true"></i></span>
+                            <button id="agregaCiudadCliente" class="add-item action-button">
+                                <span>Agregar Ciudad Cliente<i class="fa fa-plus" aria-hidden="true"></i></span>
                             </button>
                             
                     </div>
@@ -143,7 +147,8 @@
                         <thead  class="header__table">
                             <tr>
                                 <th class="header__table-element"><button><span>Ruc</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th class="header__table-element"><button><span>Nombres</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Nombre</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                <th class="header__table-element"><button><span>Apellido</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                                 <th class="header__table-element"><button><span>Dirección</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                                 <th class="header__table-element"><button><span>Ciudad Entrega</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                                 
