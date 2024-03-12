@@ -16,46 +16,46 @@ function fillTable() {
 
     const jsonArray = [
         {
-            "contact": "Andres",
-            "descriptionVoucher": "Mantenimiento",
-            "debit": 0,
-            "credit": 25,
+            "contact": "Agustin",
+            "descriptionVoucher": "Ingreso por venta",
+            "debit": 100,
+            "credit": 0,
             "Count": "Pagos",
             "accountTypeId": 3,
             "voucherId": 11
         },
         {
-            "contact": "Benjamin",
-            "descriptionVoucher": "Compras",
+            "contact": "Milena",
+            "descriptionVoucher": "Mantenimiento",
             "debit": 0,
-            "credit": 15,
+            "credit": 20,
             "Count": "Pagos",
             "accountTypeId": 5,
             "voucherId": 11
         },
         {
-            "contact": "Carlos",
-            "descriptionVoucher": "Facturas ",
-            "debit": 95,
-            "credit": 0,
+            "contact": "Santi",
+            "descriptionVoucher": "Hojas ",
+            "debit": 0,
+            "credit": 20,
             "Count": "Ingresos",
             "accountTypeId": 5,
             "voucherId": 11
         },
         {
-            "contact": "Diego",
-            "descriptionVoucher": "Compra de material",
+            "contact": "Nati",
+            "descriptionVoucher": "Maquinaria",
             "debit": 0,
-            "credit": 10,
+            "credit": 30,
             "Count": "Patrimonio",
             "accountTypeId": 3,
             "voucherId": 22
         },
         {
-            "contact": "Elena",
-            "descriptionVoucher": "Deudas",
+            "contact": "Andy",
+            "descriptionVoucher": "Compra de aparatos",
             "debit": 0,
-            "credit": 5,
+            "credit": 30,
             "Count": "Pasivos",
             "accountTypeId": 3,
             "voucherId": 23
@@ -81,8 +81,8 @@ function fillTable() {
         {
             "contact": "Hugo",
             "descriptionVoucher": "Notas de venta",
-            "debit": 0,
-            "credit": 5,
+            "debit": 35,
+            "credit": 0,
             "Count": "Pagos",
             "accountTypeId": 3,
             "voucherId": 26

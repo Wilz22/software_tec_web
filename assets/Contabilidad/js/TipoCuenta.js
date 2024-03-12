@@ -122,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
     async function deleteItem(e) {
         const element = e.currentTarget.parentElement.parentElement;
         const id = element.dataset.id;
+        console.log(id)
         try {
             const response = await fetch(`http://localhost:5279/api/v1/AccountType/${id}`, {
                 method: 'DELETE'
