@@ -1,0 +1,17 @@
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+.dashboard__body-main{
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard__body-main  table
+{
+    width: 100%;
+}

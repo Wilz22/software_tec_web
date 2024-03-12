@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contabilidad</title>
     <link rel="stylesheet" href="./css/contabilidad.css">
+    <link rel="stylesheet" href="./css/Reporte.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script defer src="./js/balanceComprobacion.js" ></script>
 </head>
@@ -42,7 +43,7 @@
             <div class="dashboard__header-information">
                 <button class="user__profile">
                     <div class="user__profile-name">
-                        <span>Agustin Mites</span>
+                        <span id="loggedInUserName"></span>
                         <span>Admin</span>
                     </div>
                     <img src="../../assets/imgs/iconuser.png" alt="User"/>
@@ -78,67 +79,74 @@
 
             </div>
             <div class="dashboard__body-main">
-                <div class="dashboard__main-header">
-                    <h1>Estado de resultados</h1>
-                </div>
-                <div class="voucher">
-                    <div class="voucher__main">
-                        <div class="voucher__title">
-                            <i class="fa fa-user" aria-hidden="true"></i> <h3>Movimientos</h3>
-                        </div>
-                        <div class="voucher__body">
-                            <table id="table" class="table__main">
-                                <thead  class="header__table">
-                                    <tr>
-                                        <th class="header__table-element"><span><i class="fa fa-hashtag" aria-hidden="true"></i></span></th>
-                                        <th class="header__table-element"><span>Cuenta </span></th>
-                                        <th class="header__table-element"><span>Detalle </span></th>
-                                        <th class="header__table-element"><span>Debe </span></th>
-                                        <th class="header__table-element"><span>Haber </span></th>
-                                        <th class="header__table-element"><span>Deudor </span></th>
-                                        <th class="header__table-element"><span>Acredor </span></th>
-                                        <th class="header__table-element"><span>Activo </span></th>
-                                        <th class="header__table-element"><span>Pasivo </span></th>
-                                        <th class="header__table-element"><span>Perdida </span></th>
-                                        <th class="header__table-element"><span>Ganacia </span></th>
-                                        <th class="header__table-element"><span>Perdida </span></th>
-                                        <th class="header__table-element"><span>Ganacia </span></th>
-                                    </tr>
-                                </thead>
-                                <tbody class="body__table">
-                                    
-                                </tbody>
-                                <tfoot class="footer__row-table">
-                                    <tr class="tfooter">
-                                        <td colspan="2"></td>
-                                        <td colspan="1"><span>Total</span></td>
-                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-debit"> 0.00</span></td>
-                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-debit"> 0.00</span></td>
-                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-credit"> 0.00</span></td>
-                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-credit"> 0.00</span></td>
-                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-debit"> 0.00</span></td>
-                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-credit"> 0.00</span></td>
-                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-debit"> 0.00</span></td>
-                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-credit"> 0.00</span></td>
-                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-debit"> 0.00</span></td>
-                                        <td colspan="1"><i class="fa fa-usd" aria-hidden="true"></i> <span class="total-credit"> 0.00</span></td>
-                                    </tr>
-                                    <tr class="tfooter">
-                                        <td colspan="2"></td>
-                                        <td colspan="1"><span class="">Resultado del periodo</span></td>
-                                        <td colspan="4"></td>
-                                        <td colspan="1" class="total"><i class="fa fa-usd" aria-hidden="true"></i> <span class="difference"> 0.00</span></td>
-                                        <td colspan="1" class="total"><i class="fa fa-usd" aria-hidden="true"></i> <span class="difference"> 0.00</span></td>
-                                        <td colspan="1" class="total"><i class="fa fa-usd" aria-hidden="true"></i> <span class="difference"> 0.00</span></td>
-                                        <td colspan="1" class="total"><i class="fa fa-usd" aria-hidden="true"></i> <span class="difference"> 0.00</span></td>
-                                        <td colspan="1" class="total"><i class="fa fa-usd" aria-hidden="true"></i> <span class="difference"> 0.00</span></td>
-                                        <td colspan="1" class="total"><i class="fa fa-usd" aria-hidden="true"></i> <span class="difference"> 0.00</span></td>
-                                    </tr>
-                                </tfoot>
-                            </table>
-                        </div>
+                <header class="clearfix">
+                    <div id="logo">
+                      <img src="https://i.ibb.co/gZwkfXc/logo.png" alt="logo" style="height: 150px;width: 300px;"></a>
                     </div>
-                </div>
+                    <h1>Balance de comprobación</h1>
+                  </header>
+                  <main>
+                    <table>
+                      <thead>
+                        <tr>
+                          <th class="service">TIPO</th>
+                          <th class="service">NUMERACION</th>
+                          <th class="service" style="text-align: center;">FECHA</th>
+                          <th class="service" style="text-align: right;">Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                            <td class="service">Factura</td>
+                            <td class="service">150</td>
+                            <td class="service" style="text-align: center;">10/03/2024 </td>
+                            <td class="total">1000</td>
+                          </tr>
+                        <tr>
+                          <td class="service">Comprobante contable</td>
+                          <td class="service">160</td>
+                          <td class="service" style="text-align: center;">	10/03/2024</td>
+                          <td class="total">-200</td>
+                        </tr>
+                        <tr>
+                          <td class="service">Factura</td>
+                          <td class="service">151</td>
+                          <td class="service" style="text-align: center;">09/03/2024</td>
+                          <td class="total">-300</td>
+                        </tr>
+                        <tr>
+                          <td class="service">Comprobante contable</td>
+                          <td class="service">160</td>
+                          <td class="service" style="text-align: center;">09/03/2024</td>
+                          <td class="total">-200</td>
+              
+                        </tr>
+                        <tr>
+                          <td class="service">Factura</td>
+                          <td class="service">161</td>
+                          <td class="service" style="text-align: center;">10/03/2024</td>
+                          <td class="total">-300</td>
+              
+                        </tr>
+                        <tr>
+                          <td colspan="3">Pasivos</td>
+                          <td class="total">$1000</td>
+                        </tr>
+                        <tr>
+                          <td colspan="3">Activos</td>
+                          <td class="total">$1000</td>
+                        </tr>
+                        <tr>
+                          <td colspan="3" class="grand total">Ganancia</td>
+                          <td class="grand total">$0</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div id="notices">
+                      <div>NOTICE:</div>
+                      <div class="notice">El balance representa las ganancias y gastos totales de la empresa en base a los comprobantes contables.</div>
+                    </div>
+                  </main>
             </div>
         </div>
     </div>

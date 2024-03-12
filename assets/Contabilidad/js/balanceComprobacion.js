@@ -1,3 +1,9 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    document.getElementById('loggedInUserName').textContent = loggedInUser;
+    
+});
+
 function fillSecondTable() {
     const tableBody = document.querySelector('.body__table');
     const totalDebitElements = document.querySelectorAll('.total-debit');

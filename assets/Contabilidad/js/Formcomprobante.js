@@ -1,5 +1,12 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    document.getElementById('loggedInUserName').textContent = loggedInUser;
+    
+});
 document.addEventListener("DOMContentLoaded", function () {
     const table_list = document.querySelector(".body__table");
+    const newVoucher = document.getElementById('newVaucher');
+    localStorage.setItem('IDVoucher', "");
     async function fetchData() {
         try {
             const response = await fetch('http://localhost:5279/api/v1/Voucher/all');

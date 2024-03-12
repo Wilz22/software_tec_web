@@ -1,3 +1,8 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    document.getElementById('loggedInUserName').textContent = loggedInUser;
+    
+});
 document.addEventListener("DOMContentLoaded", function () {
     const btnfilter= document.getElementById("filter-button")
     const add_item = document.querySelector('.add-item');

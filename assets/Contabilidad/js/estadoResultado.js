@@ -1,3 +1,9 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    document.getElementById('loggedInUserName').textContent = loggedInUser;
+    
+});
+
 function fillTable() {
     const tableBody = document.querySelector('.body__table');
     const totalDebitElement = document.querySelector('.total-debit');
@@ -8,30 +14,120 @@ function fillTable() {
     let totalDebit = 0;
     let totalCredit = 0;
 
-    voucher.forEach(function (item) {
-        if (item.dataArray) {
-            item.dataArray.forEach(function (data) {
-                const newRow = document.createElement('tr');
-                newRow.innerHTML = `
-                    <td>${item.id}</td>
-                    <td>${item.input_date}</td>
-                    <td>${data.input_description}</td>
-                    <td>${data.input_contact}</td>
-                    <td>${data.select_bar}</td>
-                    <td>${data.input_debit}</td>
-                    <td>${data.input_credit}</td>
-                `;
-                tableBody.appendChild(newRow);
-
-                totalDebit += parseFloat(data.input_debit) || 0;
-                totalCredit += parseFloat(data.input_credit) || 0;
-            });
+    const jsonArray = [
+        {
+            "contact": "Andres",
+            "descriptionVoucher": "Mantenimiento",
+            "debit": 0,
+            "credit": 25,
+            "Count": "Pagos",
+            "accountTypeId": 3,
+            "voucherId": 11
+        },
+        {
+            "contact": "Benjamin",
+            "descriptionVoucher": "Compras",
+            "debit": 0,
+            "credit": 15,
+            "Count": "Pagos",
+            "accountTypeId": 5,
+            "voucherId": 11
+        },
+        {
+            "contact": "Carlos",
+            "descriptionVoucher": "Facturas ",
+            "debit": 95,
+            "credit": 0,
+            "Count": "Ingresos",
+            "accountTypeId": 5,
+            "voucherId": 11
+        },
+        {
+            "contact": "Diego",
+            "descriptionVoucher": "Compra de material",
+            "debit": 0,
+            "credit": 10,
+            "Count": "Patrimonio",
+            "accountTypeId": 3,
+            "voucherId": 22
+        },
+        {
+            "contact": "Elena",
+            "descriptionVoucher": "Deudas",
+            "debit": 0,
+            "credit": 5,
+            "Count": "Pasivos",
+            "accountTypeId": 3,
+            "voucherId": 23
+        },
+        {
+            "contact": "Fernanda",
+            "descriptionVoucher": "Nomina",
+            "debit": 0,
+            "credit": 10,
+            "Count": "Pagos",
+            "accountTypeId": 5,
+            "voucherId": 24
+        },
+        {
+            "contact": "Gabriel",
+            "descriptionVoucher": "Pagos a proveedores",
+            "debit": 0,
+            "credit": 5,
+            "Count": "Pagos",
+            "accountTypeId": 5,
+            "voucherId": 25
+        },
+        {
+            "contact": "Hugo",
+            "descriptionVoucher": "Notas de venta",
+            "debit": 0,
+            "credit": 5,
+            "Count": "Pagos",
+            "accountTypeId": 3,
+            "voucherId": 26
+        },
+        {
+            "contact": "Isabela",
+            "descriptionVoucher": "Venta de equipos",
+            "debit": 0,
+            "credit": 10,
+            "Count": "Pagos",
+            "accountTypeId": 3,
+            "voucherId": 27
+        },
+        {
+            "contact": "Julia",
+            "descriptionVoucher": "Pago al banco",
+            "debit": 0,
+            "credit": 10,
+            "Count": "Pagos",
+            "accountTypeId": 5,
+            "voucherId": 28
         }
+    ];
+
+    // Iterar sobre el nuevo array JSON y añadirlo a la tabla
+    jsonArray.forEach(function (item) {
+        const newRow = document.createElement('tr');
+        newRow.innerHTML = `
+            <td>${item.voucherId}</td>
+            <td>${item.contact}</td>
+            <td>${item.descriptionVoucher}</td>
+            <td>${item.voucherId}</td>
+            <td>${item.Count}</td>
+            <td>${item.credit}</td>
+            <td>${item.debit}</td>
+        `;
+        tableBody.appendChild(newRow);
+
+        totalDebit += parseFloat(item.debit) || 0;
+        totalCredit += parseFloat(item.credit) || 0;
     });
 
+    // Actualizar totales y diferencia
     totalDebitElement.textContent = totalDebit.toFixed(2);
     totalCreditElement.textContent = totalCredit.toFixed(2);
-
     const difference = totalDebit - totalCredit;
     differenceElement.textContent = difference.toFixed(2);
 }
