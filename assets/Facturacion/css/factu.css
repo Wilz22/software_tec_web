@@ -249,6 +249,7 @@ button:focus {
     display: flex;
     flex-direction: column;
 }
+
 .reporte-container {
     flex: 1;
     overflow: auto;
@@ -615,7 +616,7 @@ tbody td,
 .body__table tr td:nth-child(2),
 .body__table tr td:nth-child(3),
 .body__table tr td:nth-child(4) {
-    width: 25%;
+    width: 15%;
 }
 .body__table tr td:nth-child(5),
 .body__table tr td:nth-child(6) {

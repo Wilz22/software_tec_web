@@ -1,5 +1,47 @@
 // Array para almacenar los datos de activos
+document.addEventListener('DOMContentLoaded', function () {
+
+    const agregarClienteBtn = document.getElementById('agregarCliente');
+    
+
+    agregarClienteBtn.addEventListener('click', addClient);
+    window.addEventListener('load', getClientes());
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    document.getElementById('loggedInUserName').textContent = loggedInUser;
+});
+
 var activos = [];
+
+function addTblActivos() {
+    const loggedInUser = localStorage.getItem('loggedInUser');
+    let nombreActivoJnmv = 'insert'
+
+    // Crear el objeto de datos a enviar al servidor
+    const data = {
+        nombreActivoJnmv: nombreActivoJnmv,
+        usuarioJnmv: loggedInUser,
+    };
+    // Realizar la solicitud POST al servidor
+    fetch('http://localhost:5279/api/v1/Activos', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Error en la petición: ' + response.statusText);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data); // Aquí obtienes los datos del cliente agregado
+    })
+    .catch(error => {
+        console.error('Error al intentar enviar los datos: ', error);
+    });
+}
 
 // Función para insertar un nuevo activo
 function validarInsertar() {
@@ -84,6 +126,7 @@ function actualizarTabla() {
 
         celdaAcciones.appendChild(botonEditar);
     }
+addTblActivos();
 }
 
 // Función para limpiar los campos del formulario
