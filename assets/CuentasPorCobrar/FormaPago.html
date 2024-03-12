@@ -6,7 +6,8 @@
     <title>Cuentas por cobrar</title>
     <link rel="stylesheet" href="./css/cxc.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script defer src="./js/app.js" ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./js/FormaP.js" ></script>
 </head>
 <body>
     <div class="dashboard">
@@ -74,48 +75,45 @@
                 </nav>
 
             </div>
+            
             <div class="dashboard__body-main">
+                
                 <div class="dashboard__main-header">
+                
                     <h1>Forma de Pago</h1>
                 </div>
 
                 <div class="contenedor">
                     
-
-
-                  <!-- <div class="campo">
-                      <input type="text" required>
+                  <div class="campo">
+                      <input type="text" id="codigoInput">
                       <label for="Código">Código</label>
-                    </div> -->
+                    </div>
 
-                    
+
+
                     <div class="campo">
-                        <input type="text" required>
-                      <label for="Nombre">Nombre</label>
-                    </div>
+                        <input type="text" id="metodoPagoInput">
+                        <label for="metodoPago">Método de Pago</label>
+                      </div>
+                    
+               <!--    <div class="Filtro"><br>
+                        <label for="metodoPago">Método de Pago</label><br>
+                        <select id="metodoPagoInput" class="but">
+                            <option>Efectivo</option>
+                            <option>Cheque</option>
+                            <option>Transferencia</option>
+                            <option>Tarjeta Débito</option>
+                        </select>
+                    </div>    -->               
 
-                    <div class="Filtro"><br>
-                        <label>Método de Pago</label><br>
-                            <select class="but">
-                                <option>Efectivo</option>
-                                <option>Cheque</option>
-                                <option>Transferencia</option>
-                                <option>Tarjeta Débito</option>
-                            </select>
-                    </div>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <br>
-                    <input type="text" class="search-bar2" placeholder="Buscar">
+                    <input type="text" class="search-bar2" placeholder="Buscar" id="barrabusqueda">
 
                     <h2 class="neon"> GESTIÓN DE DATOS </h2>
                     <div class="GESTIÓN">
-                        <button class="Insertar Insertar-1" id="btnInsertar" onclick="validarInsertar()">Insertar </button>
-                        <button class="Eliminar Eliminar-1" id="btnEliminar" onclick="validarEliminar()">Eliminar</button>
+                        <button class="Insertar Insertar-1" id="btnInsertar" >Insertar </button>
                       <!--  <button class="Modificar Modificar-1" id="btnModificar" onclick="validarModificar()">Modificar</button> -->
-                        <button class="Guardar Guardar-1" id="btnGuardar" onclick="guardarCambios()">Guardar</button>   
+                        <button class="Guardar Guardar-1" id="btnGuardar">Guardar</button>   
                     </div>
 
                 </div>
@@ -123,8 +121,8 @@
                             <thead  class="header__table">
                                 <tr>
                                     <th class="header__table-element"><button><span>Cod</span><i class="" aria-hidden="true"></i></button></th>
-                                    <th class="header__table-element"><button><span>Nombre</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
                                     <th class="header__table-element"><button><span>Método de Pago</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
+                                    <th class="header__table-element"><i class="fa fa-trash" aria-hidden="true"></i></th>
                                     <th class="header__table-element"><button><span></span><i class="fa fa-pencil" aria-hidden="true"></i></button></th>                                    
                                 </tr>
                             </thead>
@@ -136,115 +134,9 @@
 </div>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const nombreInput = document.querySelector('.campo input');
-    const metodoPagoSelect = document.querySelector('.Filtro select');
-    const tableBody = document.querySelector('.body__table');
-    const clientesData = obtenerClientesGuardados() || [];
 
-    document.querySelector('#btnInsertar').addEventListener('click', insertarCliente);
-    document.querySelector('#btnEliminar').addEventListener('click', eliminarPrimeraFila);
-    document.querySelector('#btnGuardar').addEventListener('click', guardarCambios);
 
-    updateTable();
 
-    function insertarCliente() {
-        const nombre = nombreInput.value;
-        const metodoPago = metodoPagoSelect.value;
-
-        if (nombre.length > 20) {
-            showMessage('El nombre no puede exceder los 20 caracteres.', 'red');
-            return;
-        }
-
-        if (nombre && metodoPago) {
-            const cliente = {
-                codigo: clientesData.length + 1,
-                nombre: nombre,
-                pago: metodoPago
-            };
-
-            clientesData.push(cliente);
-            guardarClientes(clientesData); // Guardar en localStorage
-            showMessage('Se ha insertado correctamente el Cliente', 'green');
-            nombreInput.value = "";
-            metodoPagoSelect.value = "";
-            updateTable(); // Mover la actualización después de agregar el cliente
-        } else {
-            showMessage('Completa todos los campos antes de agregar un cliente.', 'red');
-        }
-    }
-
-    function eliminarPrimeraFila() {
-        if (clientesData.length > 0) {
-            clientesData.shift();
-            guardarClientes(clientesData); // Guardar en localStorage
-            updateTable();
-            showMessage('Se ha eliminado la primera fila correctamente', 'green');
-        } else {
-            showMessage('No hay filas para eliminar', 'red');
-        }
-    }
-
-    function guardarCambios() {
-        showMessage('Cambios guardados temporalmente', 'blue');
-    }
-
-    function updateTable() {
-        tableBody.innerHTML = '';
-
-        clientesData.forEach(function (cliente) {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${cliente.codigo}</td>
-                <td>${cliente.nombre}</td>
-                <td>${cliente.pago}</td>
-                <td class="element__modifier">
-                    <button class="botonMod botonMod-active" onclick="mostrarFormularioEdicion(${cliente.codigo})">Modificar</button>
-                </td>
-            `;
-
-            tableBody.appendChild(row);
-        });
-    }
-
-    window.mostrarFormularioEdicion = function (codigo) {
-        const cliente = clientesData.find(cliente => cliente.codigo === codigo);
-        nombreInput.value = cliente.nombre;
-        metodoPagoSelect.value = cliente.pago;
-
-        let btnguardarcamb = document.getElementById('btnGuardar');
-        btnguardarcamb.onclick = function () {
-            cliente.nombre = nombreInput.value;
-            cliente.pago = metodoPagoSelect.value;
-            guardarClientes(clientesData); // Guardar en localStorage
-            updateTable();
-            showMessage('Se ha modificado la fila correctamente', 'blue');
-            nombreInput.value = "";
-            metodoPagoSelect.value = "";
-        };
-    }
-
-    function guardarClientes(clientes) {
-        localStorage.setItem('clientesDataVentana1', JSON.stringify(clientes)); // Cambiado el nombre del localStorage
-    }
-
-    function obtenerClientesGuardados() {
-        const clientesGuardados = localStorage.getItem('clientesDataVentana1'); // Cambiado el nombre del localStorage
-        return clientesGuardados ? JSON.parse(clientesGuardados) : null;
-    }
-
-    function showMessage(message, backgroundColor) {
-        const messageContainer = document.createElement('div');
-        messageContainer.classList.add('message-container');
-        messageContainer.style.backgroundColor = backgroundColor;
-        messageContainer.textContent = message;
-        document.body.appendChild(messageContainer);
-        setTimeout(() => {
-            document.body.removeChild(messageContainer);
-        }, 3000);
-    }
-});
 </script>
 
 </body>

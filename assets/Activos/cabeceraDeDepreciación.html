@@ -155,7 +155,14 @@
                         <button onclick="imprimirInforme()">Imprimir Informe</button>
                         </div>
                     </div>
-                
+                </div>
+                <h2 class="neon"> Opción que desea realizar </h2>
+             <div class="GESTIÓN">
+                 <button class="Insertar Insertar-1" id="btnInsertar" onclick="validarInsertar()">Insertar </button>
+                 <button class="Eliminar Eliminar-1" id="btnEliminar" onclick="validarEliminar()">Eliminar</button>
+               <!--  <button class="Modificar Modificar-1" id="btnModificar" onclick="validarModificar()">Modificar</button> -->
+                 <button class="Guardar Guardar-1" id="btnGuardar" onclick="guardarCambios()">Guardar</button>    
+           </div>
                     <script>
                         var activosDetalle = [
                             { codigo: 'Cod_001', activo: 'Automovil', numDepreciaciones: 10, valorDepreciacion: 500, valorActual: 1000, seleccionado: true, estado: 'Depreciado', mesDepreciacion: null },
