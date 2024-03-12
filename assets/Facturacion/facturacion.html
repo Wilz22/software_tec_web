@@ -6,235 +6,237 @@
     <title>Facturacion</title>
     <link rel="stylesheet" href="./css/factu.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script defer src="./js/facturacion.js" ></script>
 </head>
-<body>
-    <div class="dashboard">
-        <header class="dashboard__header">
-            <div class="dashboard__header-logo">
-                <div class="logo">
-                    <img class="header__information-logo" src="../imgs/logo.BN.png"  alt="Logo" />
-                </div>
-            </div>
-
-            <div class="dashboard__header-menu">
-                <nav class="menu">
-                    <ul>
-                        <li class="menu__item">
-                            <a href="../Nomina/NominaIngresoEgreso.html" target="_self" ><i class="fa fa-home" aria-hidden="true"></i> Nomina</a>
-                        </li>
-                        <li class="menu__item">
-                            <a href="../Activos/activos_1.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Activos</a>
-                        </li>
-                        <li class="menu__item">
-                            <a href="../Contabilidad/tipoCuenta.html" target="_self" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Contabilidad </a>
-                        </li>
-                        <li class="menu__item menu__item-active">
-                            <a href="./factu_1.html" target="_self" class="active"><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
-                        </li>
-                        <li class="menu__item">
-                            <a href="../CuentasPorCobrar/Cobrador.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Cuentas por cobrar</a>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-
-            <div class="dashboard__header-information">
-                <button class="user__profile">
-                    <div class="user__profile-name">
-                        <span>Santiago Llumiquinga</span>
-                        <span>Admin</span>
+    <body>
+        <div class="dashboard">
+            <header class="dashboard__header">
+                <div class="dashboard__header-logo">
+                    <div class="logo">
+                        <img class="header__information-logo" src="../imgs/logo.BN.png"  alt="Logo" />
                     </div>
-                    <img src="../imgs/iconuser.png" alt="User"/>
-                </button>
-            </div>
-        </header>
-
-
-        <div class="dashboard__body">
-            <div class="dashboard__body-navigaation">
-                <nav class="navigation">
-                    <ul>
-                        <li class="navigation__item">
-                            <a href="./factu_1.html"><i class="fa fa-file-text" aria-hidden="true"></i>Clientes</a>
-                        </li>
-                        <li class="navigation__item">
-                            <a href="./ciudad_entrega.html"><i class="fa fa-list-ul" aria-hidden="true"></i>Ciudad Entrega</a>
-                        </li>
-                        <li class="navigation__item navigation__item-active">
-                            <a href="./facturacion.html"><i class="fa fa-book" aria-hidden="true"></i>Facturación</a>
-                        </li>
-                        <li class="navigation__item">
-                            <a href="./reportes.html"><i class="fa fa-calculator" aria-hidden="true"></i>Reportes</a>
-                        </li>
-                    </ul>
-                </nav>
-
-            </div>
-            <div class="dashboard__body-main">
-                <div class="dashboard__main-header"  style="display: flex; justify-content: space-between;">
-                    <h1>Detalle Factura</h1>
-                    <h1 style="font-size: 1.05rem;">Numero Factura: 00001</h1>                        
                 </div>
-                
-                <div class="voucher__document-form">
-                    <div class="document__form-group">
-                        <div class="input-group">
-                            <div class="input__group-label">
-                                <span>Ruc</span><i class="fa fa-asterisk" aria-hidden="true"></i>
+
+                <div class="dashboard__header-menu">
+                    <nav class="menu">
+                        <ul>
+                            <li class="menu__item">
+                                <a href="../Nomina/NominaIngresoEgreso.html" target="_self" ><i class="fa fa-home" aria-hidden="true"></i> Nomina</a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="../Activos/activos_1.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Activos</a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="../Contabilidad/tipoCuenta.html" target="_self" class="active"><i class="fa fa-list-alt" aria-hidden="true"></i> Contabilidad </a>
+                            </li>
+                            <li class="menu__item menu__item-active">
+                                <a href="./factu_1.html" target="_self" class="active"><i class="fa fa-home" aria-hidden="true"></i> Facturación</a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="../CuentasPorCobrar/Cobrador.html" target="_self"><i class="fa fa-home" aria-hidden="true"></i> Cuentas por cobrar</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <div class="dashboard__header-information">
+                    <button class="user__profile">
+                        <div class="user__profile-name">
+                            <span>Santiago Llumiquinga</span>
+                            <span>Admin</span>
+                        </div>
+                        <img src="../imgs/iconuser.png" alt="User"/>
+                    </button>
+                </div>
+            </header>
+
+
+            <div class="dashboard__body">
+                <div class="dashboard__body-navigaation">
+                    <nav class="navigation">
+                        <ul>
+                            <li class="navigation__item">
+                                <a href="./factu_1.html"><i class="fa fa-file-text" aria-hidden="true"></i>Clientes</a>
+                            </li>
+                            <li class="navigation__item">
+                                <a href="./ciudad_entrega.html"><i class="fa fa-list-ul" aria-hidden="true"></i>Ciudad Entrega</a>
+                            </li>
+                            <li class="navigation__item navigation__item-active">
+                                <a href="./facturacion.html"><i class="fa fa-book" aria-hidden="true"></i>Facturación</a>
+                            </li>
+                            <li class="navigation__item">
+                                <a href="./reportes.html"><i class="fa fa-calculator" aria-hidden="true"></i>Reportes</a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                </div>
+                <div class="dashboard__body-main">
+                    <div class="dashboard__main-header"  style="display: flex; justify-content: space-between;">
+                        <h1>Detalle Factura</h1>
+                        <h1 style="font-size: 1.05rem;">Numero Factura: 00001</h1>                       
+                    </div>
+                    <h5>Datos del cliente:</h5><br>
+                    
+                    <div class="voucher__document-form">
+                        <div class="document__form-group">
+                            <div class="input-group">
+                                <div class="input__group-label">
+                                    <span>Ruc</span><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                </div>
+                                <div class="input__group-bar">
+                                    <select id="rucList" class="input-bar" required>
+                                        <option value="" disabled selected hidden>Selecciona un RUC</option>
+                                    </select>
+                                </div>
                             </div>
-                            <div class="input__group-bar">
-                                <input id="ruc" type="text" class="input-bar"> 
+
+                            <div class="input-group">
+                                <div class="input__group-label">
+                                    <span>Ciudad Entrega</span><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                </div>
+                                <div class="input__group-bar">
+                                    <select id="ciudadesList" class="input-bar" required>
+                                        <option value="" selected disabled>Selecciona una ciudad</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>           
+                        <div class="document__form-group">
+                            <div class="input-group">
+                                <div class="input__group-label">
+                                    <span>Nombres</span><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                </div>
+                                <div class="input__group-bar">
+                                    <input id="nombres" type="text" class="input-bar" placeholder="Nombres">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="input__group-label">
+                                    <span>Dirección</span>
+                                </div>
+                                <div class="input__group-bar">
+                                    <input id="direccion" type="text" class="input-bar" placeholder="Direccion">
+                                </div>
+                            </div>
+                        </div>   
+                        <div class="document__form-group">
+                            <div class="input-group">
+                                <div class="input__group-label">
+                                    <span>Apellido</span><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                </div>
+                                <div class="input__group-bar">
+                                    <input id="apellido" type="text" class="input-bar" placeholder="Apellido">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="input__group-label">
+                                    <span>Fecha</span><i class="fa fa-asterisk" aria-hidden="true"></i>
+                                </div>
+                                <div class="input__group-bar">
+                                    <input type="date" class="input-bar" id="fechaInput" placeholder="Fecha">                              
+                                </div>
+                            </div>
+                        
+                
+                            <div class="input-group" id="codigoDiv" style="display: none;">
+                                <div class="input__group-label">
+                                    <span>Saldo Disponible</span>
+                                </div>
+                                <div class="input__group-bar">
+                                    <input id= "saldo" type="text" class="input-bar">
+                                </div>
+                            </div>
+                        
+                            <div class="input-group">
+                                <div class="input__group-bar">
+                                    <input type="checkbox" id="mostrarCodigo" onchange="toggleCodigoDiv()">
+                                    <label for="mostrarCodigo">Mostrar Saldo</label>
+                                </div>
+                            </div>
+                        </div> 
+                    </div><br>
+                    <div class="dashboard__main-header">
+                        <h1>Busqueda</h1>
+                    </div>
+                    <div class="dashboard__main-actions">
+                        <div class="dashboard__main-actions-buttons">
+
+                            <input type="text" class="search-bar" id="searchInput" placeholder="Buscar">    
+                            <button id="agregarCliente" class="add-item action-button">
+                                <span>Guardar Datos<i class="fa fa-plus" aria-hidden="true"></i></span>
+                            </button>
+                            <button id="eliminarEncabezado" class="delete-item action-button" onclick="showOptions()">
+                                <span>Eliminar Encabezado<i class="fa fa-trash" aria-hidden="true"></i></span>
+                            </button>
+                                
+                                
+                        </div>
+                    
+                    </div>
+
+                    <div class="dashboard__main-header">
+                        <h1>Detalle Factura</h1>
+                    </div>   
+
+
+                
+                    <div class="dashboard__main-table">
+                        <table id="table" class="table__main">
+                            <thead class="header__table">
+                                <tr>
+                                    <th class="header__table-element"><span>Item<i class="fa fa-hashtag" aria-hidden="true"></i></span></th>
+                                    <th class="header__table-element"><span>Descripción</span></th>
+                                    <th class="header__table-element"><span>Cantidad</span></th>
+                                    <th class="header__table-element"><span>Precio Unitario</span></th>
+                                    <th class="header__table-element"><span>Precio Total</span></th>
+                                </tr>
+                            </thead>
+                            <tbody class="body__table-voucher">
+                                <tr data-id="156432">
+                                    <td>1</td>
+                                    <td><input type="text" class="input-bar input-contact" placeholder="Descripcion"></td>
+                                    <td><input type="text" class="input-bar input-description" placeholder="0"></td>
+                                    <td><input type="text" class="input-bar input-debit" placeholder="0"></td>
+                                    <td><input type="text" class="input-bar input-credit" placeholder="0"></td>
+                                    <td><button class="btn btn-inactive btn-delete-row" onclick="eliminarFila(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                                </tr>
+                                <!-- <tr data-id="156432">
+                                    <td>2</td>
+                                    <td><input type="text" class="input-bar input-contact" placeholder="Descripcion"></td>
+                                    <td><input type="text" class="input-bar input-description" placeholder="0"></td>
+                                    <td><input type="text" class="input-bar input-debit" placeholder="0"></td>
+                                    <td><input type="text" class="input-bar input-credit" placeholder="0"></td>
+                                    <td><button class="btn btn-inactive btn-delete-row" onclick="eliminarFila(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                                </tr> -->
+                            </tbody>
+                            <tr>
+                                <div class="dashboard__main-actions-buttons">
+                                    <button id="add-row" class="add-item action-button" onclick="agregarFila()">
+                                        <span>Agregar Fila Detalle<i class="fa fa-plus" aria-hidden="true"></i></span>
+                                    </button>
+                                </div>
+                                
+                            </tr>
+                        </table>
+
+                        <div class="dashboard__body-footer">
+
+                            <div class="">
+                                <form class="save-voucher btn-voucher">
+                                    <button type="button" class="edit-item action-button" onclick="updateDetails()"><span>Editar Detalle <i class="fa fa-pencil-alt" aria-hidden="true"></i></span></button>
+                                    <button type="button" class="add-item action-button" onclick="enviarDatosTabla()"><span>Guardar y Enviar<i class="fa fa-plus" aria-hidden="true"></i></span></button>
+                                </form>
                             </div>
                         </div>
                         
-                        <div class="input-group">
-                            <div class="input__group-label">
-                                <span>Ciudad Entrega</span><i class="fa fa-asterisk" aria-hidden="true"></i>
-                            </div>
-                            <div class="input__group-bar">
-                                <select id="ciudadesList" class="input-bar" required>
-                                </select>
-                            </div>
-                        </div>
-                    </div>           
-                    <div class="document__form-group">
-                        <div class="input-group">
-                            <div class="input__group-label">
-                                <span>Nombres</span><i class="fa fa-asterisk" aria-hidden="true"></i>
-                            </div>
-                            <div class="input__group-bar">
-                                <input id="nombres" type="text" class="input-bar">
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <div class="input__group-label">
-                                <span>Dirección</span>
-                            </div>
-                            <div class="input__group-bar">
-                                <input id="direccion" type="text" class="input-bar">
-                            </div>
-                        </div>
-                    </div>   
-                    <div class="document__form-group">
-
-                        <div class="input-group">
-                            <div class="input__group-label">
-                                <span>Fecha</span><i class="fa fa-asterisk" aria-hidden="true"></i>
-                            </div>
-                            <div class="input__group-bar">
-                                <input type="date" class="input-bar" id="fechaInput">                              
-                            </div>
-                        </div>
-                    
-               
-                        <div class="input-group" id="codigoDiv" style="display: none;">
-                            <div class="input__group-label">
-                                <span>Saldo Disponible</span>
-                            </div>
-                            <div class="input__group-bar">
-                                <input id= "saldo" type="text" class="input-bar">
-                            </div>
-                        </div>
-                     
-                        <div class="input-group">
-                            <div class="input__group-bar">
-                                <input type="checkbox" id="mostrarCodigo" onchange="toggleCodigoDiv()">
-                                <label for="mostrarCodigo">Mostrar Saldo</label>
-                            </div>
-                        </div>
-                    </div> 
-                </div><br>
-                <div class="dashboard__main-header">
-                    <h1>Ciudad Entrega</h1>
-                </div>
-                <div class="dashboard__main-actions">
-                    <div class="dashboard__main-actions-buttons">
-
-                        <input type="text" class="search-bar" placeholder="Buscar" oninput="buscarEnTabla()">    
-                        <button id="agregarCliente" class="add-item action-button">
-                            <span>Agregar Factura<i class="fa fa-plus" aria-hidden="true"></i></span>
-                        </button>
-                            
-                            
                     </div>
-                   
+                
                 </div>
-                <div class="dashboard__main-table">
-                    <table id="table" class="table__main">
-                        <thead  class="header__table">
-                            <tr>
-                                <th class="header__table-element"><button><span>Fecha</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th class="header__table-element"><button><span>Ruc</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th class="header__table-element"><button><span>Nombres</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th class="header__table-element"><button><span>Dirección</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                <th class="header__table-element"><button><span>Ciudad Entrega</span><i class="fa fa-sort" aria-hidden="true"></i></button></th>
-                                
-                                <th class="header__table-element"><i class="fa fa-cog" aria-hidden="true"></i></th>
-                                <th class="header__table-element"><i class="fa fa-pencil-alt" aria-hidden="true"></i></th>
-
-                            </tr>
-                        </thead>
-                        <tbody class="body__table"></tbody>
-                    </table>                   
-                </div><br><br><br>
-                <div class="dashboard__main-header">
-                    <h1>Ciudad Entrega</h1>
-                </div>   
-
-
-            
-                <div class="dashboard__main-table">
-                    <table id="table" class="table__main">
-                        <thead class="header__table">
-                            <tr>
-                                <th class="header__table-element"><span>Item<i class="fa fa-hashtag" aria-hidden="true"></i></span></th>
-                                <th class="header__table-element"><span>Descripción</span></th>
-                                <th class="header__table-element"><span>Cantidad</span></th>
-                                <th class="header__table-element"><span>Precio Unitario</span></th>
-                                <th class="header__table-element"><span>Precio Total</span></th>
-                            </tr>
-                        </thead>
-                        <tbody class="body__table-voucher">
-                            <tr data-id="156432">
-                                <td>1</td>
-                                <td><input type="text" class="input-bar input-contact" placeholder="Descripcion"></td>
-                                <td><input type="text" class="input-bar input-description"></td>
-                                <td><input type="text" class="input-bar input-debit" placeholder="0"></td>
-                                <td><input type="text" class="input-bar input-credit" placeholder="0"></td>
-                                <td><button class="btn btn-inactive btn-delete-row" onclick="eliminarFila(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                            </tr>
-                            <tr data-id="156432">
-                                <td>2</td>
-                                <td><input type="text" class="input-bar input-contact" placeholder="Descripcion"></td>
-                                <td><input type="text" class="input-bar input-description"></td>
-                                <td><input type="text" class="input-bar input-debit" placeholder="0"></td>
-                                <td><input type="text" class="input-bar input-credit" placeholder="0"></td>
-                                <td><button class="btn btn-inactive btn-delete-row" onclick="eliminarFila(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                            </tr>
-                        </tbody>
-                        <tr>
-                            <div class="dashboard__main-actions-buttons">
-                                <button id="add-row" class="add-item action-button" onclick="agregarFila()">
-                                    <span>Agregar Fila<i class="fa fa-plus" aria-hidden="true"></i></span>
-                                </button>
-                            </div>
-                            
-                        </tr>
-                    </table>
-                    
-                </div>
-                <div class="dashboard__body-footer">
-
-                    <div class="">
-                        <form class="save-voucher btn-voucher">
-                            <button type="button" class="add-item action-button" onclick="cambiosGuardados()"><span>Guardar <i class="fa fa-plus" aria-hidden="true"></i></span></button>
-                        </form>
-                    </div>
-                </div>
+            </div>
         </div>
-    </div>
-    
-</body>
+        
+    </body>
 
 </html>

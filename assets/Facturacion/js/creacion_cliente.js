@@ -88,13 +88,16 @@ function addClient() {
         apellido: apellido,
         direccion: direccion,
     };
+
+    const dataJSON = JSON.stringify(data);
+    console.log(dataJSON);
     // Realizar la solicitud POST al servidor
     fetch('http://localhost:5279/api/v1/ClientsFac', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body:dataJSON,
     })
     .then(response => {
         if (!response.ok) {

@@ -249,6 +249,7 @@ button:focus {
     display: flex;
     flex-direction: column;
 }
+
 .reporte-container {
     flex: 1;
     overflow: auto;

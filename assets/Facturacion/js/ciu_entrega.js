@@ -414,4 +414,18 @@ function limpiarInputs(){
     document.getElementById('apellidoClassCiudad').value='';
     document.getElementById('direccionClassCiudad').value='';
     document.getElementById('ciudadesList').value='';
-    };
+};
+
+    $(document).ready(function(){
+        $("#searchInput").keyup(function(){
+            var searchText = $(this).val().toLowerCase();
+            $("#table tbody tr").each(function(){
+                var rowText = $(this).text().toLowerCase();
+                if(rowText.indexOf(searchText) === -1) {
+                    $(this).hide();
+                } else {
+                    $(this).show();
+                }
+            });
+        });
+    });
