@@ -1,15 +1,10 @@
 // Array para almacenar los datos de activos
-document.addEventListener('DOMContentLoaded', function () {
 
-    const agregarClienteBtn = document.getElementById('agregarCliente');
-    
-
-    agregarClienteBtn.addEventListener('click', addClient);
-    window.addEventListener('load', getClientes());
-    const loggedInUser = localStorage.getItem('loggedInUser');
-    document.getElementById('loggedInUserName').textContent = loggedInUser;
-});
-
+    document.addEventListener('DOMContentLoaded', function () {
+        const loggedInUser = localStorage.getItem('loggedInUser');
+        document.getElementById('loggedInUserName').textContent = loggedInUser;
+        
+    });
 var activos = [];
 
 function addTblActivos() {
